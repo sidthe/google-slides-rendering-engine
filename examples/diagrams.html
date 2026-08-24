@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- deck-engine diagram recipes: sequence diagram + architecture diagram.
+     Everything converts to native shapes/lines/text:
+       deckgen check examples/diagrams.html
+       deckgen build examples/diagrams.html -o diagrams.pptx               -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>deck-engine diagrams</title>
+<link rel="stylesheet" href="../assets/deck.css">
+<style>
+  /* participants and components */
+  .actor { position: absolute; width: 220px; height: 64px; border-radius: 10px;
+           background: var(--blue-tint); border: 1px solid var(--blue);
+           display: flex; align-items: center; justify-content: center;
+           font-size: 20px; font-weight: 700; color: var(--blue-dark); }
+  .lifeline { position: absolute; width: 2px; background: var(--line); --dash-dir: to bottom; }
+  .activation { position: absolute; width: 14px; background: var(--blue-tint);
+                border: 1px solid var(--blue); border-radius: 3px; }
+  .msg { position: absolute; height: 2px; color: var(--ink-2); background: currentColor; }
+  .msg-label { position: absolute; font-size: 16px; color: var(--ink);
+               text-align: center; }
+  .note { position: absolute; background: var(--yellow-tint);
+          border: 1px solid var(--yellow-dark); border-radius: 6px;
+          padding: 12px 16px; font-size: 16px; color: var(--yellow-dark);
+          line-height: 1.35; }
+
+  .box { position: absolute; border-radius: 10px; border: 1px solid var(--line);
+         background: var(--surface); display: flex; flex-direction: column;
+         align-items: center; justify-content: center; }
+  .box .name { font-size: 19px; font-weight: 700; color: var(--ink); }
+  .box .sub { font-size: 15px; color: var(--ink-3); margin-top: 4px; }
+  .group { position: absolute; border: 2px dashed var(--ink-3); border-radius: 14px; }
+  .group-label { position: absolute; font-size: 16px; font-weight: 700;
+                 letter-spacing: 1px; color: var(--ink-3); text-transform: uppercase; }
+  .edge { position: absolute; height: 2px; color: var(--ink-2);
+          background: currentColor; transform-origin: 0 50%; }
+  .edge-label { position: absolute; font-size: 15px; color: var(--ink-3);
+                background: #ffffff; padding: 0 6px; text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- 1 — sequence diagram -->
+<section>
+  <div class="kicker">recipes</div>
+  <div class="title">Sequence diagram — token issuance</div>
+
+  <!-- participants (centers: 230, 610, 990, 1370) -->
+  <div class="actor" style="left:120px; top:180px;">Client</div>
+  <div class="actor" style="left:500px; top:180px;">API Gateway</div>
+  <div class="actor" style="left:880px; top:180px;">Auth Service</div>
+  <div class="actor" style="left:1260px; top:180px;">User DB</div>
+
+  <!-- lifelines -->
+  <div class="lifeline" data-line data-dashed style="left:229px; top:244px; height:566px;"></div>
+  <div class="lifeline" data-line data-dashed style="left:609px; top:244px; height:566px;"></div>
+  <div class="lifeline" data-line data-dashed style="left:989px; top:244px; height:566px;"></div>
+  <div class="lifeline" data-line data-dashed style="left:1369px; top:244px; height:566px;"></div>
+
+  <!-- activations -->
+  <div class="activation" style="left:603px; top:292px; height:330px;"></div>
+  <div class="activation" style="left:983px; top:352px; height:210px;"></div>
+  <div class="activation" style="left:1363px; top:412px; height:90px;"></div>
+
+  <!-- calls (solid, arrow at right end) -->
+  <div class="msg" data-arrow style="left:230px; top:300px; width:373px;"></div>
+  <div class="msg-label" style="left:250px; top:270px; width:330px;">POST /login (credentials)</div>
+
+  <div class="msg" data-arrow style="left:617px; top:360px; width:366px;"></div>
+  <div class="msg-label" style="left:640px; top:330px; width:320px;">verify(credentials)</div>
+
+  <div class="msg" data-arrow style="left:997px; top:420px; width:366px;"></div>
+  <div class="msg-label" style="left:1020px; top:390px; width:320px;">SELECT user, salt</div>
+
+  <!-- returns (dashed, arrow at left end) -->
+  <div class="msg" data-arrow="start" data-dashed style="left:997px; top:480px; width:366px;"></div>
+  <div class="msg-label" style="left:1020px; top:450px; width:320px;">row</div>
+
+  <div class="msg" data-arrow="start" data-dashed style="left:617px; top:540px; width:366px;"></div>
+  <div class="msg-label" style="left:640px; top:510px; width:320px;">JWT (15&nbsp;min)</div>
+
+  <div class="msg" data-arrow="start" data-dashed style="left:230px; top:600px; width:373px;"></div>
+  <div class="msg-label" style="left:250px; top:570px; width:330px;">200 OK + token</div>
+
+  <div class="note" style="left:1080px; top:600px; width:400px;">Failed verifications are rate-limited per device: 5 attempts, then exponential backoff.</div>
+
+  <div class="foot"><span>deck-engine diagram recipes</span><span>1</span></div>
+</section>
+
+<!-- 2 — architecture diagram -->
+<section>
+  <div class="kicker">recipes</div>
+  <div class="title">Architecture — request path</div>
+
+  <!-- boundary -->
+  <div class="group" style="left:430px; top:190px; width:1090px; height:620px;"></div>
+  <div class="group-label" style="left:460px; top:206px;">cloud vpc</div>
+
+  <!-- nodes -->
+  <div class="box" style="left:90px; top:455px; width:200px; height:80px; background:var(--blue-tint); border-color:var(--blue);">
+    <div class="name" style="color:var(--blue-dark);">Client</div>
+    <div class="sub">web / mobile</div>
+  </div>
+  <div class="box" style="left:470px; top:460px; width:180px; height:70px;">
+    <div class="name">LB</div>
+  </div>
+  <div class="box" style="left:780px; top:300px; width:230px; height:80px;">
+    <div class="name">API pod A</div>
+    <div class="sub">stateless</div>
+  </div>
+  <div class="box" style="left:780px; top:610px; width:230px; height:80px;">
+    <div class="name">API pod B</div>
+    <div class="sub">stateless</div>
+  </div>
+  <div class="box" style="left:1140px; top:300px; width:180px; height:80px; background:var(--green-tint); border-color:var(--green);">
+    <div class="name" style="color:var(--green-dark);">Cache</div>
+    <div class="sub">Redis</div>
+  </div>
+  <div class="box" style="left:1140px; top:610px; width:180px; height:80px; background:var(--yellow-tint); border-color:var(--yellow-dark);">
+    <div class="name" style="color:var(--yellow-dark);">Queue</div>
+    <div class="sub">Pub/Sub</div>
+  </div>
+  <div class="box" style="left:1140px; top:455px; width:180px; height:80px; background:var(--red-tint); border-color:var(--red);">
+    <div class="name" style="color:var(--red-dark);">Postgres</div>
+    <div class="sub">primary</div>
+  </div>
+
+  <!-- edges -->
+  <div class="edge" data-line data-arrow style="left:292px; top:494px; width:176px;"></div>
+  <div class="edge-label" style="left:305px; top:466px; width:150px;">HTTPS</div>
+
+  <!-- LB -> pods (diagonal, rotated) -->
+  <div class="edge" data-line data-arrow style="left:652px; top:494px; width:186px; transform:rotate(-53.75deg);"></div>
+  <div class="edge" data-line data-arrow style="left:652px; top:496px; width:186px; transform:rotate(53.75deg);"></div>
+
+  <!-- pod A <-> cache (bidirectional) -->
+  <div class="edge" data-line data-arrow="both" style="left:1012px; top:339px; width:126px;"></div>
+  <!-- pod B -> queue -->
+  <div class="edge" data-line data-arrow style="left:1012px; top:649px; width:126px;"></div>
+  <!-- pods -> db (diagonal) -->
+  <div class="edge" data-line data-arrow style="left:1012px; top:360px; width:180px; transform:rotate(38.6deg);"></div>
+  <div class="edge" data-line data-arrow style="left:1012px; top:630px; width:180px; transform:rotate(-38.6deg);"></div>
+
+  <div class="note" style="left:470px; top:720px; width:420px;">Pods are horizontally scaled; sticky sessions are not required.</div>
+
+  <div class="foot"><span>deck-engine diagram recipes</span><span>2</span></div>
+</section>
+
+</body>
+</html>

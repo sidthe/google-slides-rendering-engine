@@ -1,0 +1,236 @@
+[
+ {
+  "createSlide": {
+   "objectId": "sl001",
+   "slideLayoutReference": {
+    "predefinedLayout": "BLANK"
+   }
+  }
+ },
+ {
+  "updatePageProperties": {
+   "objectId": "sl001",
+   "pageProperties": {
+    "pageBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 1,
+        "green": 1,
+        "blue": 1
+       }
+      }
+     }
+    }
+   },
+   "fields": "pageBackgroundFill.solidFill.color"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e001",
+   "shapeType": "ROUND_RECTANGLE",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 3429000,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 2286000,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 457200,
+     "translateY": 571500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e001",
+   "shapeProperties": {
+    "shapeBackgroundFill": {
+     "propertyState": "NOT_RENDERED"
+    },
+    "outline": {
+     "outlineFill": {
+      "solidFill": {
+       "color": {
+        "rgbColor": {
+         "red": 0.501961,
+         "green": 0.52549,
+         "blue": 0.545098
+        }
+       }
+      }
+     },
+     "weight": {
+      "magnitude": 0.75,
+      "unit": "PT"
+     },
+     "dashStyle": "DASH"
+    }
+   },
+   "fields": "shapeBackgroundFill.propertyState,outline.outlineFill.solidFill.color,outline.weight,outline.dashStyle"
+  }
+ },
+ {
+  "createLine": {
+   "objectId": "sl001e002",
+   "category": "STRAIGHT",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 3429000,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": -1,
+     "scaleY": 1,
+     "translateX": 4000500,
+     "translateY": 1143000,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateLineProperties": {
+   "objectId": "sl001e002",
+   "lineProperties": {
+    "lineFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.372549,
+        "green": 0.388235,
+        "blue": 0.407843
+       }
+      }
+     }
+    },
+    "weight": {
+     "magnitude": 0.75,
+     "unit": "PT"
+    },
+    "dashStyle": "DASH",
+    "endArrow": "FILL_ARROW"
+   },
+   "fields": "lineFill.solidFill.color,weight,dashStyle,endArrow"
+  }
+ },
+ {
+  "createLine": {
+   "objectId": "sl001e003",
+   "category": "STRAIGHT",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 3429000,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 571500,
+     "translateY": 1714500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateLineProperties": {
+   "objectId": "sl001e003",
+   "lineProperties": {
+    "lineFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.098039,
+        "green": 0.403922,
+        "blue": 0.823529
+       }
+      }
+     }
+    },
+    "weight": {
+     "magnitude": 1.125,
+     "unit": "PT"
+    },
+    "startArrow": "FILL_ARROW",
+    "endArrow": "FILL_ARROW"
+   },
+   "fields": "lineFill.solidFill.color,weight,startArrow,endArrow"
+  }
+ },
+ {
+  "createLine": {
+   "objectId": "sl001e004",
+   "category": "STRAIGHT",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 2971800,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1371600,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": -1,
+     "translateX": 685800,
+     "translateY": 2400300,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateLineProperties": {
+   "objectId": "sl001e004",
+   "lineProperties": {
+    "lineFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.094118,
+        "green": 0.501961,
+        "blue": 0.219608
+       }
+      }
+     }
+    },
+    "weight": {
+     "magnitude": 0.75,
+     "unit": "PT"
+    },
+    "endArrow": "FILL_ARROW"
+   },
+   "fields": "lineFill.solidFill.color,weight,endArrow"
+  }
+ }
+]

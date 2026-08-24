@@ -1,0 +1,1927 @@
+{
+ "Theme": {
+  "Name": "deck-engine",
+  "Font": "Roboto",
+  "Dark1": "202124",
+  "Light1": "FFFFFF",
+  "Dark2": "5F6368",
+  "Light2": "F8F9FA",
+  "Accents": [
+   "4285F4",
+   "EA4335",
+   "FBBC04",
+   "34A853",
+   "1967D2",
+   "188038"
+  ],
+  "Hyperlink": "1967D2",
+  "FollowedLink": "681DA8"
+ },
+ "Slides": [
+  {
+   "Shapes": [
+    {
+     "X": 80,
+     "Y": 97,
+     "W": 14,
+     "H": 14,
+     "Fill": "4285F4",
+     "Line": "",
+     "LineWpt": 0,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 102,
+     "Y": 97,
+     "W": 14,
+     "H": 14,
+     "Fill": "EA4335",
+     "Line": "",
+     "LineWpt": 0,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 124,
+     "Y": 97,
+     "W": 14,
+     "H": 14,
+     "Fill": "FBBC04",
+     "Line": "",
+     "LineWpt": 0,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 146,
+     "Y": 97,
+     "W": 14,
+     "H": 14,
+     "Fill": "34A853",
+     "Line": "",
+     "LineWpt": 0,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 80,
+     "Y": 292,
+     "W": 1440,
+     "H": 105,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "deck-engine",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 54,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 54,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 400,
+     "W": 1200,
+     "H": 35,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "Native, editable decks from HTML — PPTX and Google Slides, zero screenshots",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 18,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 18,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 470,
+     "W": 220,
+     "H": 44,
+     "Fill": "E8F0FE",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.5,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 80,
+     "Y": 470,
+     "W": 220,
+     "H": 44,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "DEMO DECK",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "1967D2",
+         "Size": 9,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9,
+     "DefColor": "1967D2",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 862,
+     "W": 150.42,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "deck-engine example",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1511,
+     "Y": 862,
+     "W": 9,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "1",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    }
+   ],
+   "Notes": ""
+  },
+  {
+   "Shapes": [
+    {
+     "X": 80,
+     "Y": 52,
+     "W": 154.81,
+     "H": 24,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "components",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "1967D2",
+         "Size": 12,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 12,
+     "DefColor": "1967D2",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 82,
+     "W": 1440,
+     "H": 61,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "Stat tiles and a shape-drawn bar chart",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 31.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 31.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 180,
+     "W": 340,
+     "H": 150,
+     "Fill": "E6F4EA",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.08,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 102,
+     "Y": 204,
+     "W": 296,
+     "H": 69.3,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "98.6%",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "188038",
+         "Size": 39.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.05,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 39.6,
+     "DefColor": "188038",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 102,
+     "Y": 283.3,
+     "W": 296,
+     "H": 40.78,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "of shapes rendered natively (editable in Slides and PowerPoint)",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.2,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 440,
+     "Y": 180,
+     "W": 340,
+     "H": 150,
+     "Fill": "E8F0FE",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.08,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 462,
+     "Y": 204,
+     "W": 296,
+     "H": 69.3,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "0",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "1967D2",
+         "Size": 39.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.05,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 39.6,
+     "DefColor": "1967D2",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 462,
+     "Y": 283.3,
+     "W": 296,
+     "H": 40.78,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "screenshots — every element stays a real shape or text box",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.2,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 800,
+     "Y": 180,
+     "W": 340,
+     "H": 150,
+     "Fill": "FEF7E0",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.08,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 822,
+     "Y": 204,
+     "W": 296,
+     "H": 52.5,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "1600x900",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "B06000",
+         "Size": 30,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.05,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 30,
+     "DefColor": "B06000",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 822,
+     "Y": 266.5,
+     "W": 296,
+     "H": 40.78,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "slide canvas: position elements like CSS pixels",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.2,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 370,
+     "W": 1440,
+     "H": 430,
+     "Fill": "F8F9FA",
+     "Line": "DADCE0",
+     "LineWpt": 0.6,
+     "Radius": 0.03,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 101,
+     "Y": 389,
+     "W": 298.91,
+     "H": 27,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "Latency by build (illustrative)",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "1967D2",
+         "Size": 13.799999999999999,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 13.799999999999999,
+     "DefColor": "1967D2",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 120,
+     "Y": 741,
+     "W": 46,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "0ms",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "r",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X1": 175,
+     "Y1": 750.5,
+     "X2": 1430,
+     "Y2": 750.5,
+     "Color": "DADCE0",
+     "Wpt": 0.6,
+     "Arrow": false,
+     "Dashed": false,
+     "ArrowStart": false
+    },
+    {
+     "X": 120,
+     "Y": 591,
+     "W": 46,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "50ms",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "r",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X1": 175,
+     "Y1": 600.5,
+     "X2": 1430,
+     "Y2": 600.5,
+     "Color": "DADCE0",
+     "Wpt": 0.6,
+     "Arrow": false,
+     "Dashed": false,
+     "ArrowStart": false
+    },
+    {
+     "X": 120,
+     "Y": 441,
+     "W": 46,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "100ms",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "r",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X1": 175,
+     "Y1": 450.5,
+     "X2": 1430,
+     "Y2": 450.5,
+     "Color": "DADCE0",
+     "Wpt": 0.6,
+     "Arrow": false,
+     "Dashed": false,
+     "ArrowStart": false
+    },
+    {
+     "X": 262,
+     "Y": 624,
+     "W": 46,
+     "H": 126,
+     "Fill": "4285F4",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 225,
+     "Y": 598,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "42",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 314,
+     "Y": 510,
+     "W": 46,
+     "H": 240,
+     "Fill": "FBBC04",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 277,
+     "Y": 484,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "80",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 231,
+     "Y": 762,
+     "W": 160,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "v1",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 574,
+     "Y": 657,
+     "W": 46,
+     "H": 93,
+     "Fill": "4285F4",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 537,
+     "Y": 631,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "31",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 626,
+     "Y": 567,
+     "W": 46,
+     "H": 183,
+     "Fill": "FBBC04",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 589,
+     "Y": 541,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "61",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 543,
+     "Y": 762,
+     "W": 160,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "v2",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 886,
+     "Y": 684,
+     "W": 46,
+     "H": 66,
+     "Fill": "4285F4",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 849,
+     "Y": 658,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "22",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 938,
+     "Y": 630,
+     "W": 46,
+     "H": 120,
+     "Fill": "FBBC04",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 901,
+     "Y": 604,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "40",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 855,
+     "Y": 762,
+     "W": 160,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "v3",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1198,
+     "Y": 696,
+     "W": 46,
+     "H": 54,
+     "Fill": "4285F4",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 1161,
+     "Y": 670,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "18",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1250,
+     "Y": 669,
+     "W": 46,
+     "H": 81,
+     "Fill": "FBBC04",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.13,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 1213,
+     "Y": 643,
+     "W": 120,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "27",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1167,
+     "Y": 762,
+     "W": 160,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "v4",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "ctr",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1200,
+     "Y": 410,
+     "W": 117.31,
+     "H": 20,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "p50p90",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "5F6368",
+         "Size": 10.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 10.2,
+     "DefColor": "5F6368",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1200,
+     "Y": 414,
+     "W": 12,
+     "H": 12,
+     "Fill": "4285F4",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.25,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 1270.66,
+     "Y": 414,
+     "W": 12,
+     "H": 12,
+     "Fill": "FBBC04",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.25,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 80,
+     "Y": 862,
+     "W": 150.42,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "deck-engine example",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1511,
+     "Y": 862,
+     "W": 9,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "2",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    }
+   ],
+   "Notes": ""
+  },
+  {
+   "Shapes": [
+    {
+     "X": 80,
+     "Y": 52,
+     "W": 154.81,
+     "H": 24,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "components",
+         "Bold": true,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "1967D2",
+         "Size": 12,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 12,
+     "DefColor": "1967D2",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 82,
+     "W": 1440,
+     "H": 61,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "Tables and code blocks",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "202124",
+         "Size": 31.2,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 31.2,
+     "DefColor": "202124",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 180,
+     "ColW": [
+      300,
+      560,
+      300
+     ],
+     "RowH": 42,
+     "Rows": [
+      [
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "Component",
+            "Bold": true,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "202124",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "F8F9FA"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "What it draws",
+            "Bold": true,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "202124",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "F8F9FA"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "Becomes",
+            "Bold": true,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "202124",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "F8F9FA"
+       }
+      ],
+      [
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "div with background",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "rounded rects, tiles, cards, pills",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "native shape",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       }
+      ],
+      [
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "text",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "rich text with per-span ",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           },
+           {
+            "Text": "bold",
+            "Bold": true,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           },
+           {
+            "Text": ", color, ",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           },
+           {
+            "Text": "italics",
+            "Bold": false,
+            "Italic": true,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "native text box",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       }
+      ],
+      [
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "table",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "grids with per-cell fills",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "native table",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       }
+      ],
+      [
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "hr / thin div",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "hairlines, arrows via data-arrow",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       },
+       {
+        "Paras": [
+         {
+          "Runs": [
+           {
+            "Text": "native line",
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Strike": false,
+            "Color": "5F6368",
+            "Size": 10.799999999999999,
+            "Font": "Roboto",
+            "Link": ""
+           }
+          ],
+          "Align": "",
+          "Spacing": 0,
+          "Bullet": "",
+          "Level": 0
+         }
+        ],
+        "Fill": "FFFFFF"
+       }
+      ]
+     ],
+     "DefSize": 10.799999999999999,
+     "BorderColor": "DADCE0"
+    },
+    {
+     "X": 80,
+     "Y": 480,
+     "W": 1440,
+     "H": 240,
+     "Fill": "1E1E1E",
+     "Line": "",
+     "LineWpt": 0,
+     "Radius": 0.04,
+     "Dashed": false,
+     "FillAlpha": 0
+    },
+    {
+     "X": 80,
+     "Y": 480,
+     "W": 1440,
+     "H": 240,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "deckgen check examples/demo.html",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "D4D4D4",
+         "Size": 12,
+         "Font": "Roboto Mono",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.55,
+       "Bullet": "",
+       "Level": 0
+      },
+      {
+       "Runs": [
+        {
+         "Text": "deckgen screenshot examples/demo.html -o shots/",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "D4D4D4",
+         "Size": 12,
+         "Font": "Roboto Mono",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.55,
+       "Bullet": "",
+       "Level": 0
+      },
+      {
+       "Runs": [
+        {
+         "Text": "deckgen build examples/demo.html -o demo.pptx",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "D4D4D4",
+         "Size": 12,
+         "Font": "Roboto Mono",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.55,
+       "Bullet": "",
+       "Level": 0
+      },
+      {
+       "Runs": [
+        {
+         "Text": "deckgen push examples/demo.html -title \"deck-engine demo\"",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "D4D4D4",
+         "Size": 12,
+         "Font": "Roboto Mono",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 1.55,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 12,
+     "DefColor": "D4D4D4",
+     "DefFont": "Roboto Mono",
+     "Rot": 0
+    },
+    {
+     "X": 80,
+     "Y": 862,
+     "W": 150.42,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "deck-engine example",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    },
+    {
+     "X": 1511,
+     "Y": 862,
+     "W": 9,
+     "H": 19,
+     "Paras": [
+      {
+       "Runs": [
+        {
+         "Text": "3",
+         "Bold": false,
+         "Italic": false,
+         "Underline": false,
+         "Strike": false,
+         "Color": "80868B",
+         "Size": 9.6,
+         "Font": "Roboto",
+         "Link": ""
+        }
+       ],
+       "Align": "l",
+       "Spacing": 0,
+       "Bullet": "",
+       "Level": 0
+      }
+     ],
+     "DefSize": 9.6,
+     "DefColor": "80868B",
+     "DefFont": "Roboto",
+     "Rot": 0
+    }
+   ],
+   "Notes": ""
+  }
+ ]
+}
