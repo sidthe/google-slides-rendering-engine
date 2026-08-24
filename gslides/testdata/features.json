@@ -1,0 +1,684 @@
+[
+ {
+  "createSlide": {
+   "objectId": "sl001",
+   "slideLayoutReference": {
+    "predefinedLayout": "BLANK"
+   }
+  }
+ },
+ {
+  "updatePageProperties": {
+   "objectId": "sl001",
+   "pageProperties": {
+    "pageBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 1,
+        "green": 1,
+        "blue": 1
+       }
+      }
+     }
+    }
+   },
+   "fields": "pageBackgroundFill.solidFill.color"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e001",
+   "shapeType": "DIAMOND",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 1143000,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 685800,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 571500,
+     "translateY": 571500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e001",
+   "shapeProperties": {
+    "shapeBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.909804,
+        "green": 0.941176,
+        "blue": 0.996078
+       }
+      }
+     }
+    },
+    "outline": {
+     "outlineFill": {
+      "solidFill": {
+       "color": {
+        "rgbColor": {
+         "red": 0.098039,
+         "green": 0.403922,
+         "blue": 0.823529
+        }
+       }
+      }
+     },
+     "weight": {
+      "magnitude": 0.75,
+      "unit": "PT"
+     }
+    }
+   },
+   "fields": "shapeBackgroundFill.solidFill.color,outline.outlineFill.solidFill.color,outline.weight"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e002",
+   "shapeType": "CAN",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 914400,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 800100,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 2286000,
+     "translateY": 571500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e002",
+   "shapeProperties": {
+    "shapeBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.988235,
+        "green": 0.909804,
+        "blue": 0.901961
+       }
+      }
+     }
+    },
+    "outline": {
+     "outlineFill": {
+      "solidFill": {
+       "color": {
+        "rgbColor": {
+         "red": 0.772549,
+         "green": 0.133333,
+         "blue": 0.121569
+        }
+       }
+      }
+     },
+     "weight": {
+      "magnitude": 0.75,
+      "unit": "PT"
+     }
+    }
+   },
+   "fields": "shapeBackgroundFill.solidFill.color,outline.outlineFill.solidFill.color,outline.weight"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e003",
+   "shapeType": "ROUND_RECTANGLE",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 1714500,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1143000,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 4000500,
+     "translateY": 571500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e003",
+   "shapeProperties": {
+    "shapeBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.12549,
+        "green": 0.129412,
+        "blue": 0.141176
+       }
+      },
+      "alpha": 0.35
+     }
+    },
+    "outline": {
+     "propertyState": "NOT_RENDERED"
+    }
+   },
+   "fields": "shapeBackgroundFill.solidFill.color,shapeBackgroundFill.solidFill.alpha,outline.propertyState"
+  }
+ },
+ {
+  "createLine": {
+   "objectId": "sl001e004a",
+   "category": "STRAIGHT",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 1,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1143000,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 1143000,
+     "translateY": 1714500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateLineProperties": {
+   "objectId": "sl001e004a",
+   "lineProperties": {
+    "lineFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.372549,
+        "green": 0.388235,
+        "blue": 0.407843
+       }
+      }
+     }
+    },
+    "weight": {
+     "magnitude": 0.75,
+     "unit": "PT"
+    }
+   },
+   "fields": "lineFill.solidFill.color,weight"
+  }
+ },
+ {
+  "createLine": {
+   "objectId": "sl001e004b",
+   "category": "STRAIGHT",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 1714500,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 1143000,
+     "translateY": 2857500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateLineProperties": {
+   "objectId": "sl001e004b",
+   "lineProperties": {
+    "lineFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.372549,
+        "green": 0.388235,
+        "blue": 0.407843
+       }
+      }
+     }
+    },
+    "weight": {
+     "magnitude": 0.75,
+     "unit": "PT"
+    },
+    "endArrow": "FILL_ARROW"
+   },
+   "fields": "lineFill.solidFill.color,weight,endArrow"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e005",
+   "shapeType": "TEXT_BOX",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 3611880,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1805940,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 480060,
+     "translateY": 2811780,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e005",
+   "shapeProperties": {
+    "autofit": {
+     "autofitType": "NONE"
+    }
+   },
+   "fields": "autofit.autofitType"
+  }
+ },
+ {
+  "insertText": {
+   "objectId": "sl001e005",
+   "text": "Plain intro linked\nfirst 🎯 bullet\n\tnested\nback to top\nstep one\nstep two\noutro",
+   "insertionIndex": 0
+  }
+ },
+ {
+  "createParagraphBullets": {
+   "objectId": "sl001e005",
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 19,
+    "endIndex": 55
+   },
+   "bulletPreset": "BULLET_DISC_CIRCLE_SQUARE"
+  }
+ },
+ {
+  "createParagraphBullets": {
+   "objectId": "sl001e005",
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 54,
+    "endIndex": 72
+   },
+   "bulletPreset": "NUMBERED_DIGIT_ALPHA_ROMAN"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 0,
+    "endIndex": 12
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    },
+    "link": {
+     "url": "https://example.com/docs"
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 12,
+    "endIndex": 18
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor,link"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 19,
+    "endIndex": 34
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "underline": true,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 35,
+    "endIndex": 41
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor,underline"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "strikethrough": true,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 42,
+    "endIndex": 53
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor,strikethrough"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 54,
+    "endIndex": 62
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 63,
+    "endIndex": 71
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e005",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 9,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 72,
+    "endIndex": 77
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e006",
+   "shapeType": "TEXT_BOX",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 1325880,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 262890,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 0,
+     "scaleY": 0,
+     "shearX": 1,
+     "shearY": -1,
+     "translateX": 782955,
+     "translateY": 3034665,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e006",
+   "shapeProperties": {
+    "autofit": {
+     "autofitType": "NONE"
+    }
+   },
+   "fields": "autofit.autofitType"
+  }
+ },
+ {
+  "insertText": {
+   "objectId": "sl001e006",
+   "text": "latency (ms)",
+   "insertionIndex": 0
+  }
+ },
+ {
+  "updateParagraphStyle": {
+   "objectId": "sl001e006",
+   "style": {
+    "alignment": "CENTER"
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 0,
+    "endIndex": 13
+   },
+   "fields": "alignment"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e006",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 7.5,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.372549,
+       "green": 0.388235,
+       "blue": 0.407843
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 0,
+    "endIndex": 12
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ }
+]

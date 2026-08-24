@@ -1,0 +1,5 @@
+*.pptx
+shots/
+cmd/deckgen/deckgen
+shots-slides/
+shots-*/

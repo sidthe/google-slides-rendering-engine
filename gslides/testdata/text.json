@@ -1,0 +1,287 @@
+[
+ {
+  "createSlide": {
+   "objectId": "sl001",
+   "slideLayoutReference": {
+    "predefinedLayout": "BLANK"
+   }
+  }
+ },
+ {
+  "updatePageProperties": {
+   "objectId": "sl001",
+   "pageProperties": {
+    "pageBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 1,
+        "green": 1,
+        "blue": 1
+       }
+      }
+     }
+    }
+   },
+   "fields": "pageBackgroundFill.solidFill.color"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e001",
+   "shapeType": "TEXT_BOX",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 7040880,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1234440,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 365760,
+     "translateY": 1668780,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e001",
+   "shapeProperties": {
+    "autofit": {
+     "autofitType": "NONE"
+    }
+   },
+   "fields": "autofit.autofitType"
+  }
+ },
+ {
+  "insertText": {
+   "objectId": "sl001e001",
+   "text": "bold plain blue\n\ncentered 🚀 emoji tail\nmono",
+   "insertionIndex": 0
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "bold": true,
+    "fontSize": {
+     "magnitude": 10.5,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 0,
+    "endIndex": 5
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 10.5,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 5,
+    "endIndex": 11
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "bold": true,
+    "fontSize": {
+     "magnitude": 10.5,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.098039,
+       "green": 0.403922,
+       "blue": 0.823529
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 11,
+    "endIndex": 15
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "fontSize": {
+     "magnitude": 10.5,
+     "unit": "PT"
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 16,
+    "endIndex": 17
+   },
+   "fields": "fontSize"
+  }
+ },
+ {
+  "updateParagraphStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "alignment": "CENTER",
+    "lineSpacing": 115
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 17,
+    "endIndex": 40
+   },
+   "fields": "alignment,lineSpacing"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 10.5,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 17,
+    "endIndex": 34
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 10.5,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.917647,
+       "green": 0.262745,
+       "blue": 0.207843
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 34,
+    "endIndex": 39
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ },
+ {
+  "updateParagraphStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "alignment": "END"
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 40,
+    "endIndex": 45
+   },
+   "fields": "alignment"
+  }
+ },
+ {
+  "updateTextStyle": {
+   "objectId": "sl001e001",
+   "style": {
+    "bold": false,
+    "fontSize": {
+     "magnitude": 7.5,
+     "unit": "PT"
+    },
+    "fontFamily": "Roboto Mono",
+    "foregroundColor": {
+     "opaqueColor": {
+      "rgbColor": {
+       "red": 0.12549,
+       "green": 0.129412,
+       "blue": 0.141176
+      }
+     }
+    }
+   },
+   "textRange": {
+    "type": "FIXED_RANGE",
+    "startIndex": 40,
+    "endIndex": 44
+   },
+   "fields": "bold,fontSize,fontFamily,foregroundColor"
+  }
+ }
+]

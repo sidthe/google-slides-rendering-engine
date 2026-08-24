@@ -1,0 +1,129 @@
+[
+ {
+  "createSlide": {
+   "objectId": "sl001",
+   "slideLayoutReference": {
+    "predefinedLayout": "BLANK"
+   }
+  }
+ },
+ {
+  "updatePageProperties": {
+   "objectId": "sl001",
+   "pageProperties": {
+    "pageBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 1,
+        "green": 1,
+        "blue": 1
+       }
+      }
+     }
+    }
+   },
+   "fields": "pageBackgroundFill.solidFill.color"
+  }
+ },
+ {
+  "createLine": {
+   "objectId": "sl001e001",
+   "category": "STRAIGHT",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 2971800,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 1,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 457200,
+     "translateY": 2286000,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateLineProperties": {
+   "objectId": "sl001e001",
+   "lineProperties": {
+    "lineFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.501961,
+        "green": 0.52549,
+        "blue": 0.545098
+       }
+      }
+     }
+    },
+    "weight": {
+     "magnitude": 0.75,
+     "unit": "PT"
+    },
+    "endArrow": "FILL_ARROW"
+   },
+   "fields": "lineFill.solidFill.color,weight,endArrow"
+  }
+ },
+ {
+  "createLine": {
+   "objectId": "sl001e002",
+   "category": "STRAIGHT",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 2971800,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 285750,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": -1,
+     "scaleY": -1,
+     "translateX": 3429000,
+     "translateY": 2857500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateLineProperties": {
+   "objectId": "sl001e002",
+   "lineProperties": {
+    "lineFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.258824,
+        "green": 0.521569,
+        "blue": 0.956863
+       }
+      }
+     }
+    },
+    "weight": {
+     "magnitude": 0.45,
+     "unit": "PT"
+    },
+    "dashStyle": "DASH"
+   },
+   "fields": "lineFill.solidFill.color,weight,dashStyle"
+  }
+ }
+]

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- deck-engine demo deck: title slide, stat tiles + shape-drawn bar chart,
+     table + code block. Convert with:
+       deckgen build examples/demo.html -o demo.pptx
+       deckgen push  examples/demo.html -title "deck-engine demo"        -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>deck-engine demo</title>
+<link rel="stylesheet" href="../assets/deck.css">
+<style>
+  /* slide-local layout on top of the starter kit */
+  .subtitle { position: absolute; left: 80px; top: 400px; width: 1200px;
+              font-size: 30px; color: var(--ink-2); }
+  .big-title { position: absolute; left: 80px; top: 292px; width: 1440px;
+               font-size: 90px; color: var(--ink); }
+  .bar { position: absolute; border-radius: 6px; }
+  .bar-label { position: absolute; width: 120px; text-align: center;
+               font-size: 17px; font-weight: 700; color: var(--ink); }
+  .cat-label { position: absolute; width: 160px; text-align: center;
+               font-size: 17px; color: var(--ink-2); }
+  .tick { position: absolute; width: 46px; text-align: right;
+          font-size: 16px; color: var(--ink-3); }
+  .legend { position: absolute; font-size: 17px; color: var(--ink-2); }
+  .legend i { display: inline-block; width: 12px; height: 12px;
+              border-radius: 3px; margin: 0 6px 0 24px; }
+  .legend i:first-child { margin-left: 0; }
+</style>
+</head>
+<body>
+
+<!-- 1 — title -->
+<section>
+  <div class="dots" style="left:80px; top:96px;"><i></i><i></i><i></i><i></i></div>
+  <div class="big-title">deck-engine</div>
+  <div class="subtitle">Native, editable decks from HTML — PPTX and Google Slides, zero screenshots</div>
+  <div class="pill" style="left:80px; top:470px; width:220px; background:var(--blue-tint); color:var(--blue-dark);">DEMO DECK</div>
+  <div class="foot"><span>deck-engine example</span><span>1</span></div>
+</section>
+
+<!-- 2 — tiles + chart -->
+<section>
+  <div class="kicker">components</div>
+  <div class="title">Stat tiles and a shape-drawn bar chart</div>
+
+  <div class="tile" style="left:80px; top:180px; width:340px; height:150px; background:var(--green-tint);">
+    <div class="n" style="color:var(--green-dark);">98.6%</div>
+    <div class="label">of shapes rendered natively (editable in Slides and PowerPoint)</div>
+  </div>
+  <div class="tile" style="left:440px; top:180px; width:340px; height:150px; background:var(--blue-tint);">
+    <div class="n" style="color:var(--blue-dark);">0</div>
+    <div class="label">screenshots — every element stays a real shape or text box</div>
+  </div>
+  <div class="tile" style="left:800px; top:180px; width:340px; height:150px; background:var(--yellow-tint);">
+    <div class="n" style="color:var(--yellow-dark); font-size:50px;">1600x900</div>
+    <div class="label">slide canvas: position elements like CSS pixels</div>
+  </div>
+
+  <div class="card" style="left:80px; top:370px; width:1440px; height:430px;">
+    <div class="card-title" style="color:var(--blue-dark);">Latency by build (illustrative)</div>
+  </div>
+
+  <!-- chart plot area: x 130..1430, baseline y=750, 100ms = 300px -->
+  <div class="tick" style="left:120px; top:741px;">0ms</div>
+  <div class="hairline" style="left:175px; top:750px; width:1255px;"></div>
+  <div class="tick" style="left:120px; top:591px;">50ms</div>
+  <div class="hairline" style="left:175px; top:600px; width:1255px;"></div>
+  <div class="tick" style="left:120px; top:441px;">100ms</div>
+  <div class="hairline" style="left:175px; top:450px; width:1255px;"></div>
+
+  <!-- v1: p50 42, p90 80 -->
+  <div class="bar" style="left:262px; top:624px; width:46px; height:126px; background:var(--blue);"></div>
+  <div class="bar-label" style="left:225px; top:598px;">42</div>
+  <div class="bar" style="left:314px; top:510px; width:46px; height:240px; background:var(--yellow);"></div>
+  <div class="bar-label" style="left:277px; top:484px;">80</div>
+  <div class="cat-label" style="left:231px; top:762px;">v1</div>
+  <!-- v2: p50 31, p90 61 -->
+  <div class="bar" style="left:574px; top:657px; width:46px; height:93px; background:var(--blue);"></div>
+  <div class="bar-label" style="left:537px; top:631px;">31</div>
+  <div class="bar" style="left:626px; top:567px; width:46px; height:183px; background:var(--yellow);"></div>
+  <div class="bar-label" style="left:589px; top:541px;">61</div>
+  <div class="cat-label" style="left:543px; top:762px;">v2</div>
+  <!-- v3: p50 22, p90 40 -->
+  <div class="bar" style="left:886px; top:684px; width:46px; height:66px; background:var(--blue);"></div>
+  <div class="bar-label" style="left:849px; top:658px;">22</div>
+  <div class="bar" style="left:938px; top:630px; width:46px; height:120px; background:var(--yellow);"></div>
+  <div class="bar-label" style="left:901px; top:604px;">40</div>
+  <div class="cat-label" style="left:855px; top:762px;">v3</div>
+  <!-- v4: p50 18, p90 27 -->
+  <div class="bar" style="left:1198px; top:696px; width:46px; height:54px; background:var(--blue);"></div>
+  <div class="bar-label" style="left:1161px; top:670px;">18</div>
+  <div class="bar" style="left:1250px; top:669px; width:46px; height:81px; background:var(--yellow);"></div>
+  <div class="bar-label" style="left:1213px; top:643px;">27</div>
+  <div class="cat-label" style="left:1167px; top:762px;">v4</div>
+
+  <div class="legend" style="left:1200px; top:410px;"><i style="background:var(--blue);"></i>p50<i style="background:var(--yellow);"></i>p90</div>
+
+  <div class="foot"><span>deck-engine example</span><span>2</span></div>
+</section>
+
+<!-- 3 — table + code -->
+<section>
+  <div class="kicker">components</div>
+  <div class="title">Tables and code blocks</div>
+
+  <table style="left:80px; top:180px; width:1160px;">
+    <tr><th style="width:300px;">Component</th><th style="width:560px;">What it draws</th><th style="width:300px;">Becomes</th></tr>
+    <tr><td>div with background</td><td>rounded rects, tiles, cards, pills</td><td>native shape</td></tr>
+    <tr><td>text</td><td>rich text with per-span <b>bold</b>, color, <i>italics</i></td><td>native text box</td></tr>
+    <tr><td>table</td><td>grids with per-cell fills</td><td>native table</td></tr>
+    <tr><td>hr / thin div</td><td>hairlines, arrows via data-arrow</td><td>native line</td></tr>
+  </table>
+
+  <div class="code" style="left:80px; top:480px; width:1440px; height:240px;">deckgen check examples/demo.html<br>deckgen screenshot examples/demo.html -o shots/<br>deckgen build examples/demo.html -o demo.pptx<br>deckgen push examples/demo.html -title "deck-engine demo"</div>
+
+  <div class="foot"><span>deck-engine example</span><span>3</span></div>
+</section>
+
+</body>
+</html>

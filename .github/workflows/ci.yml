@@ -1,0 +1,32 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  library:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go vet ./...
+      - run: go test ./...
+
+  deckgen:
+    runs-on: ubuntu-latest # ships with Chrome, used by the gated extraction test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: test CLI module (if present)
+        run: |
+          if [ -f cmd/deckgen/go.mod ]; then
+            cd cmd/deckgen
+            go vet ./...
+            go test ./...
+          else
+            echo "cmd/deckgen not present yet; skipping"
+          fi

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- deck-engine feature showcase: flowchart preset shapes + elbow
+     connectors, GTM process/pyramid/callout shapes, bulleted lists,
+     hyperlinks, underline/strike, alpha overlays, rotated labels, and
+     speaker notes on every slide.                                        -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>deck-engine feature showcase</title>
+<link rel="stylesheet" href="../assets/deck.css">
+<style>
+  .node { position: absolute; display: flex; flex-direction: column;
+          align-items: center; justify-content: center; font-size: 19px;
+          font-weight: 700; color: var(--ink); text-align: center; }
+  .shape-label { position: absolute; font-size: 16px; color: var(--ink-3);
+                 background: #ffffff; padding: 0 6px; }
+  .flow { position: absolute; height: 2px; color: var(--ink-2); background: currentColor; }
+  .bend { position: absolute; color: var(--ink-2); }
+  .stage { position: absolute; display: flex; align-items: center;
+           justify-content: center; font-size: 19px; font-weight: 700;
+           color: #ffffff; }
+</style>
+</head>
+<body>
+
+<!-- 1 — flowchart: diamond, cylinders, elbow connectors -->
+<section>
+  <div class="kicker">feature showcase</div>
+  <div class="title">Flowcharts — preset shapes and elbow connectors</div>
+
+  <div class="node" style="left:120px; top:340px; width:200px; height:70px; background:var(--blue-tint); border:1px solid var(--blue); border-radius:35px;">Request</div>
+  <div class="flow" data-line data-arrow style="left:322px; top:374px; width:133px;"></div>
+
+  <div class="node" data-shape="diamond" style="left:460px; top:290px; width:240px; height:170px; background:var(--yellow-tint); border:1px solid var(--yellow-dark);"></div>
+  <div class="node" style="left:500px; top:350px; width:160px; height:50px;">cache hit?</div>
+
+  <!-- yes: elbow up-right into Redis -->
+  <div class="bend" data-elbow data-arrow style="--arrow-y:0%; left:580px; top:235px; width:355px; height:55px; border-left:2px solid; border-top:2px solid;"></div>
+  <div class="shape-label" style="left:600px; top:212px;">hit</div>
+  <!-- no: elbow down-right into Postgres -->
+  <div class="bend" data-elbow data-arrow style="--arrow-y:100%; left:580px; top:460px; width:355px; height:165px; border-left:2px solid; border-bottom:2px solid;"></div>
+  <div class="shape-label" style="left:600px; top:634px;">miss</div>
+
+  <div class="node" data-shape="cylinder" style="left:940px; top:170px; width:200px; height:130px; background:var(--green-tint); border:1px solid var(--green);">Redis</div>
+  <div class="node" data-shape="cylinder" style="left:940px; top:560px; width:200px; height:130px; background:var(--red-tint); border:1px solid var(--red);">Postgres</div>
+
+  <!-- both stores feed metrics: dashed diagonals -->
+  <div class="flow" data-line data-dashed style="left:1140px; top:234px; width:184.4px; transform:rotate(49.4deg); transform-origin:0 50%;"></div>
+  <div class="flow" data-line data-dashed style="left:1140px; top:624px; width:277.3px; transform:rotate(-64.36deg); transform-origin:0 50%;"></div>
+  <div class="node" data-shape="hexagon" style="left:1260px; top:320px; width:220px; height:110px; background:var(--surface); border:1px solid var(--line);">metrics</div>
+
+  <div class="foot"><span>deck-engine feature showcase</span><span>1</span></div>
+  <aside class="notes">
+    <p>Walk through the read path first; the diamond is the only branch point.</p>
+    <p>Mention that cache hit rate is 94% in production, so the Postgres path is rare.</p>
+  </aside>
+</section>
+
+<!-- 2 — GTM shapes: chevron process, pyramid, callout -->
+<section>
+  <div class="kicker">feature showcase</div>
+  <div class="title">GTM visuals — process, pyramid, callout</div>
+
+  <div class="stage" data-shape="pentagon" style="left:80px; top:200px; width:300px; height:90px; background:var(--blue);">Discover</div>
+  <div class="stage" data-shape="chevron" style="left:400px; top:200px; width:300px; height:90px; background:var(--blue-dark);">Evaluate</div>
+  <div class="stage" data-shape="chevron" style="left:720px; top:200px; width:300px; height:90px; background:var(--green);">Adopt</div>
+  <div class="stage" data-shape="chevron" style="left:1040px; top:200px; width:300px; height:90px; background:var(--green-dark);">Expand</div>
+
+  <div class="node" data-shape="triangle" style="left:300px; top:400px; width:200px; height:110px; background:var(--blue);"></div>
+  <div class="node" data-shape="trapezoid" style="left:250px; top:520px; width:300px; height:110px; background:var(--blue-dark);"></div>
+  <div class="node" data-shape="trapezoid" style="left:200px; top:640px; width:400px; height:110px; background:var(--ink-2);"></div>
+  <div class="shape-label" style="left:560px; top:440px;">strategic (12 accts)</div>
+  <div class="shape-label" style="left:580px; top:565px;">mid-market (140)</div>
+  <div class="shape-label" style="left:630px; top:685px;">self-serve (9k)</div>
+
+  <div class="node" data-shape="callout" style="left:850px; top:430px; width:600px; height:220px; background:var(--yellow-tint); border:1px solid var(--yellow-dark);"></div>
+  <div style="position:absolute; left:890px; top:470px; width:520px; font-size:22px; font-style:italic; color:var(--ink);">
+    "We replaced three tools the week we adopted it."
+  </div>
+  <div style="position:absolute; left:890px; top:580px; width:520px; font-size:17px; color:var(--ink-2);">
+    <b>Dana K.</b> — VP Platform, Fictional Corp
+  </div>
+
+  <div class="foot"><span>deck-engine feature showcase</span><span>2</span></div>
+  <aside class="notes">Land the quote, then the pyramid: self-serve funds the motion, strategic pays for the roadmap.</aside>
+</section>
+
+<!-- 3 — lists, links, emphasis, alpha overlay, rotated label -->
+<section>
+  <div class="kicker">feature showcase</div>
+  <div class="title">Lists, links, emphasis, overlays</div>
+
+  <div class="card" style="left:80px; top:200px; width:660px; height:560px;"></div>
+  <div class="card-title" style="position:absolute; left:110px; top:222px; font-size:23px; font-weight:700; color:var(--blue-dark);">Rollout plan</div>
+  <ul style="position:absolute; left:110px; top:280px; width:600px;">
+    <li>Ship the <b>native converter</b> behind a flag</li>
+    <li>Enable for design partners
+      <ul>
+        <li>weekly office hours</li>
+        <li>shared triage channel</li>
+      </ul>
+    </li>
+    <li>Public launch with <a href="https://github.com/sidthe/google-slides-rendering-engine">google-slides-rendering-engine</a> docs</li>
+  </ul>
+  <ol style="position:absolute; left:110px; top:560px; width:600px;">
+    <li>Freeze the spec</li>
+    <li>Run the migration rehearsal</li>
+    <li>Flip the default</li>
+  </ol>
+
+  <div style="position:absolute; left:820px; top:280px; width:600px; font-size:22px; color:var(--ink);">
+    Pricing: <s>$48</s> <b style="color:#188038;">$36</b> per seat, <u>annual only</u>.
+  </div>
+
+  <!-- alpha overlay panel -->
+  <div style="position:absolute; left:820px; top:360px; width:600px; height:260px; background:var(--blue); border-radius:12px;"></div>
+  <div style="position:absolute; left:820px; top:510px; width:600px; height:110px; background:rgba(32,33,36,0.55); border-radius:12px;"></div>
+  <div style="position:absolute; left:850px; top:540px; width:540px; font-size:20px; font-weight:700; color:#ffffff;">Semi-transparent overlays stay semi-transparent</div>
+
+  <!-- rotated axis label beside a mini scale -->
+  <div style="position:absolute; left:0px; top:484px; width:172px; text-align:center; font-size:16px; color:var(--ink-3); transform:rotate(-90deg);">adoption (%)</div>
+
+  <div class="foot"><span>deck-engine feature showcase</span><span>3</span></div>
+  <aside class="notes">The strikethrough price is the anchor; do not skip it.</aside>
+</section>
+
+</body>
+</html>

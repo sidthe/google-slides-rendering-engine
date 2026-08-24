@@ -1,0 +1,2670 @@
+{
+ "scenes": [
+  {
+   "w": 1600,
+   "h": 900,
+   "background": "FFFFFF",
+   "elements": [
+    {
+     "kind": "box",
+     "x": 80,
+     "y": 97,
+     "w": 14,
+     "h": 14,
+     "fill": "4285F4",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.5,
+     "oval": true,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 102,
+     "y": 97,
+     "w": 14,
+     "h": 14,
+     "fill": "EA4335",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.5,
+     "oval": true,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 124,
+     "y": 97,
+     "w": 14,
+     "h": 14,
+     "fill": "FBBC04",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.5,
+     "oval": true,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 146,
+     "y": 97,
+     "w": 14,
+     "h": 14,
+     "fill": "34A853",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.5,
+     "oval": true,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 292,
+     "w": 1440,
+     "h": 105,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 90,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "deck-engine",
+         "bold": false,
+         "italic": false,
+         "color": "202124",
+         "size": 90,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 400,
+     "w": 1200,
+     "h": 35,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 30,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "Native, editable decks from HTML — PPTX and Google Slides, zero screenshots",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 30,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 80,
+     "y": 470,
+     "w": 220,
+     "h": 44,
+     "fill": "E8F0FE",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.5,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 470,
+     "w": 220,
+     "h": 44,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 15,
+     "fontColor": "1967D2",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "DEMO DECK",
+         "bold": true,
+         "italic": false,
+         "color": "1967D2",
+         "size": 15,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 862,
+     "w": 150.42,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "deck-engine example",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 1511,
+     "y": 862,
+     "w": 9,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "1",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "w": 1600,
+   "h": 900,
+   "background": "FFFFFF",
+   "elements": [
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 52,
+     "w": 154.81,
+     "h": 24,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 20,
+     "fontColor": "1967D2",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "components",
+         "bold": true,
+         "italic": false,
+         "color": "1967D2",
+         "size": 20,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 82,
+     "w": 1440,
+     "h": 61,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 52,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "Stat tiles and a shape-drawn bar chart",
+         "bold": false,
+         "italic": false,
+         "color": "202124",
+         "size": 52,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 80,
+     "y": 180,
+     "w": 340,
+     "h": 150,
+     "fill": "E6F4EA",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.08,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 102,
+     "y": 204,
+     "w": 296,
+     "h": 69.3,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 1.05,
+     "fontSize": 66,
+     "fontColor": "188038",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "98.6%",
+         "bold": false,
+         "italic": false,
+         "color": "188038",
+         "size": 66,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 102,
+     "y": 283.3,
+     "w": 296,
+     "h": 40.78,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 1.2,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "of shapes rendered natively (editable in Slides and PowerPoint)",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 440,
+     "y": 180,
+     "w": 340,
+     "h": 150,
+     "fill": "E8F0FE",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.08,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 462,
+     "y": 204,
+     "w": 296,
+     "h": 69.3,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 1.05,
+     "fontSize": 66,
+     "fontColor": "1967D2",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "0",
+         "bold": false,
+         "italic": false,
+         "color": "1967D2",
+         "size": 66,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 462,
+     "y": 283.3,
+     "w": 296,
+     "h": 40.78,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 1.2,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "screenshots — every element stays a real shape or text box",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 800,
+     "y": 180,
+     "w": 340,
+     "h": 150,
+     "fill": "FEF7E0",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.08,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 204,
+     "w": 296,
+     "h": 52.5,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 1.05,
+     "fontSize": 50,
+     "fontColor": "B06000",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "1600x900",
+         "bold": false,
+         "italic": false,
+         "color": "B06000",
+         "size": 50,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 266.5,
+     "w": 296,
+     "h": 40.78,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 1.2,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "slide canvas: position elements like CSS pixels",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 80,
+     "y": 370,
+     "w": 1440,
+     "h": 430,
+     "fill": "F8F9FA",
+     "border": "DADCE0",
+     "borderW": 1,
+     "radius": 0.03,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 101,
+     "y": 389,
+     "w": 298.91,
+     "h": 27,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 23,
+     "fontColor": "1967D2",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "Latency by build (illustrative)",
+         "bold": true,
+         "italic": false,
+         "color": "1967D2",
+         "size": 23,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 741,
+     "w": 46,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "r",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "0ms",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "line",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 175,
+     "y1": 750.5,
+     "x2": 1430,
+     "y2": 750.5,
+     "color": "DADCE0",
+     "widthPx": 1,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 591,
+     "w": 46,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "r",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "50ms",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "line",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 175,
+     "y1": 600.5,
+     "x2": 1430,
+     "y2": 600.5,
+     "color": "DADCE0",
+     "widthPx": 1,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 441,
+     "w": 46,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "r",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "100ms",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "line",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 175,
+     "y1": 450.5,
+     "x2": 1430,
+     "y2": 450.5,
+     "color": "DADCE0",
+     "widthPx": 1,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 262,
+     "y": 624,
+     "w": 46,
+     "h": 126,
+     "fill": "4285F4",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 225,
+     "y": 598,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "42",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 314,
+     "y": 510,
+     "w": 46,
+     "h": 240,
+     "fill": "FBBC04",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 277,
+     "y": 484,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "80",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 231,
+     "y": 762,
+     "w": 160,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "v1",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 574,
+     "y": 657,
+     "w": 46,
+     "h": 93,
+     "fill": "4285F4",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 537,
+     "y": 631,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "31",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 626,
+     "y": 567,
+     "w": 46,
+     "h": 183,
+     "fill": "FBBC04",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 589,
+     "y": 541,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "61",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 543,
+     "y": 762,
+     "w": 160,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "v2",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 886,
+     "y": 684,
+     "w": 46,
+     "h": 66,
+     "fill": "4285F4",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 849,
+     "y": 658,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "22",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 938,
+     "y": 630,
+     "w": 46,
+     "h": 120,
+     "fill": "FBBC04",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 901,
+     "y": 604,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "40",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 855,
+     "y": 762,
+     "w": 160,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "v3",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 1198,
+     "y": 696,
+     "w": 46,
+     "h": 54,
+     "fill": "4285F4",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 1161,
+     "y": 670,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "18",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 1250,
+     "y": 669,
+     "w": 46,
+     "h": 81,
+     "fill": "FBBC04",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.13,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 1213,
+     "y": 643,
+     "w": 120,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "27",
+         "bold": true,
+         "italic": false,
+         "color": "202124",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 1167,
+     "y": 762,
+     "w": 160,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "ctr",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "v4",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 1200,
+     "y": 410,
+     "w": 117.31,
+     "h": 20,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 17,
+     "fontColor": "5F6368",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "p50p90",
+         "bold": false,
+         "italic": false,
+         "color": "5F6368",
+         "size": 17,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 1200,
+     "y": 414,
+     "w": 12,
+     "h": 12,
+     "fill": "4285F4",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.25,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "box",
+     "x": 1270.66,
+     "y": 414,
+     "w": 12,
+     "h": 12,
+     "fill": "FBBC04",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.25,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 862,
+     "w": 150.42,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "deck-engine example",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 1511,
+     "y": 862,
+     "w": 9,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "2",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "w": 1600,
+   "h": 900,
+   "background": "FFFFFF",
+   "elements": [
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 52,
+     "w": 154.81,
+     "h": 24,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 20,
+     "fontColor": "1967D2",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "components",
+         "bold": true,
+         "italic": false,
+         "color": "1967D2",
+         "size": 20,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 82,
+     "w": 1440,
+     "h": 61,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 52,
+     "fontColor": "202124",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "Tables and code blocks",
+         "bold": false,
+         "italic": false,
+         "color": "202124",
+         "size": 52,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "table",
+     "x": 80,
+     "y": 180,
+     "w": 1160,
+     "h": 210,
+     "fill": "",
+     "border": "DADCE0",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": [
+      300,
+      560,
+      300
+     ],
+     "rowH": 42,
+     "defSize": 18,
+     "rows": [
+      [
+       {
+        "fill": "F8F9FA",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "Component",
+            "bold": true,
+            "italic": false,
+            "color": "202124",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "F8F9FA",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "What it draws",
+            "bold": true,
+            "italic": false,
+            "color": "202124",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "F8F9FA",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "Becomes",
+            "bold": true,
+            "italic": false,
+            "color": "202124",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "div with background",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "rounded rects, tiles, cards, pills",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "native shape",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "text",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "rich text with per-span ",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           },
+           {
+            "text": "bold",
+            "bold": true,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           },
+           {
+            "text": ", color, ",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           },
+           {
+            "text": "italics",
+            "bold": false,
+            "italic": true,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "native text box",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "table",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "grids with per-cell fills",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "native table",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "hr / thin div",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "hairlines, arrows via data-arrow",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "fill": "",
+        "paras": [
+         {
+          "runs": [
+           {
+            "text": "native line",
+            "bold": false,
+            "italic": false,
+            "color": "5F6368",
+            "size": 18,
+            "font": "Roboto, Arial, sans-serif"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "x": 80,
+     "y": 480,
+     "w": 1440,
+     "h": 240,
+     "fill": "1E1E1E",
+     "border": "",
+     "borderW": 0,
+     "radius": 0.04,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "",
+     "spacing": 0,
+     "fontSize": 0,
+     "fontColor": "",
+     "fontFam": "",
+     "paras": null,
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 480,
+     "w": 1440,
+     "h": 240,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 1.55,
+     "fontSize": 20,
+     "fontColor": "D4D4D4",
+     "fontFam": "\"Roboto Mono\", monospace",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "deckgen check examples/demo.html",
+         "bold": false,
+         "italic": false,
+         "color": "D4D4D4",
+         "size": 20,
+         "font": "\"Roboto Mono\", monospace"
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "text": "deckgen screenshot examples/demo.html -o shots/",
+         "bold": false,
+         "italic": false,
+         "color": "D4D4D4",
+         "size": 20,
+         "font": "\"Roboto Mono\", monospace"
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "text": "deckgen build examples/demo.html -o demo.pptx",
+         "bold": false,
+         "italic": false,
+         "color": "D4D4D4",
+         "size": 20,
+         "font": "\"Roboto Mono\", monospace"
+        }
+       ]
+      },
+      {
+       "runs": [
+        {
+         "text": "deckgen push examples/demo.html -title \"deck-engine demo\"",
+         "bold": false,
+         "italic": false,
+         "color": "D4D4D4",
+         "size": 20,
+         "font": "\"Roboto Mono\", monospace"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 80,
+     "y": 862,
+     "w": 150.42,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "deck-engine example",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    },
+    {
+     "kind": "text",
+     "x": 1511,
+     "y": 862,
+     "w": 9,
+     "h": 19,
+     "fill": "",
+     "border": "",
+     "borderW": 0,
+     "radius": 0,
+     "oval": false,
+     "x1": 0,
+     "y1": 0,
+     "x2": 0,
+     "y2": 0,
+     "color": "",
+     "widthPx": 0,
+     "dashed": false,
+     "arrow": false,
+     "align": "l",
+     "spacing": 0,
+     "fontSize": 16,
+     "fontColor": "80868B",
+     "fontFam": "Roboto, Arial, sans-serif",
+     "paras": [
+      {
+       "runs": [
+        {
+         "text": "3",
+         "bold": false,
+         "italic": false,
+         "color": "80868B",
+         "size": 16,
+         "font": "Roboto, Arial, sans-serif"
+        }
+       ]
+      }
+     ],
+     "colW": null,
+     "rowH": 0,
+     "defSize": 0,
+     "rows": null
+    }
+   ],
+   "warnings": []
+  }
+ ],
+ "warnings": []
+}

@@ -1,0 +1,138 @@
+[
+ {
+  "createSlide": {
+   "objectId": "sl001",
+   "slideLayoutReference": {
+    "predefinedLayout": "BLANK"
+   }
+  }
+ },
+ {
+  "updatePageProperties": {
+   "objectId": "sl001",
+   "pageProperties": {
+    "pageBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 1,
+        "green": 1,
+        "blue": 1
+       }
+      }
+     }
+    }
+   },
+   "fields": "pageBackgroundFill.solidFill.color"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e001",
+   "shapeType": "ELLIPSE",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 80010,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 80010,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 571500,
+     "translateY": 571500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e001",
+   "shapeProperties": {
+    "shapeBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.258824,
+        "green": 0.521569,
+        "blue": 0.956863
+       }
+      }
+     }
+    },
+    "outline": {
+     "propertyState": "NOT_RENDERED"
+    }
+   },
+   "fields": "shapeBackgroundFill.solidFill.color,outline.propertyState"
+  }
+ },
+ {
+  "createShape": {
+   "objectId": "sl001e002",
+   "shapeType": "ELLIPSE",
+   "elementProperties": {
+    "pageObjectId": "sl001",
+    "size": {
+     "width": {
+      "magnitude": 342900,
+      "unit": "EMU"
+     },
+     "height": {
+      "magnitude": 228600,
+      "unit": "EMU"
+     }
+    },
+    "transform": {
+     "scaleX": 1,
+     "scaleY": 1,
+     "translateX": 1143000,
+     "translateY": 571500,
+     "unit": "EMU"
+    }
+   }
+  }
+ },
+ {
+  "updateShapeProperties": {
+   "objectId": "sl001e002",
+   "shapeProperties": {
+    "shapeBackgroundFill": {
+     "solidFill": {
+      "color": {
+       "rgbColor": {
+        "red": 0.996078,
+        "green": 0.968627,
+        "blue": 0.878431
+       }
+      }
+     }
+    },
+    "outline": {
+     "outlineFill": {
+      "solidFill": {
+       "color": {
+        "rgbColor": {
+         "red": 0.690196,
+         "green": 0.376471
+        }
+       }
+      }
+     },
+     "weight": {
+      "magnitude": 1.5,
+      "unit": "PT"
+     }
+    }
+   },
+   "fields": "shapeBackgroundFill.solidFill.color,outline.outlineFill.solidFill.color,outline.weight"
+  }
+ }
+]

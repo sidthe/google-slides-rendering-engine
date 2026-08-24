@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<p:sld xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
+<p:cSld><p:bg><p:bgPr><a:solidFill><a:srgbClr val="FFFFFF"/></a:solidFill><a:effectLst/></p:bgPr></p:bg>
+<p:spTree><p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr>
+<p:grpSpPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="0" cy="0"/><a:chOff x="0" y="0"/><a:chExt cx="0" cy="0"/></a:xfrm></p:grpSpPr>
+<p:sp><p:nvSpPr><p:cNvPr id="2" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="609600" y="396240"/><a:ext cx="9906000" cy="198120"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="1200" b="1" dirty="0"><a:solidFill><a:srgbClr val="1967D2"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>COMPONENTS</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="3" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="609600" y="624840"/><a:ext cx="10972800" cy="502920"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="3100" b="0" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>Stat tiles and a shape-drawn bar chart</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="4" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="609600" y="1371600"/><a:ext cx="2590800" cy="1143000"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 8000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="E6F4EA"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="5" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="777240" y="1493520"/><a:ext cx="2255520" cy="411480"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="4000" b="0" dirty="0"><a:solidFill><a:srgbClr val="188038"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>98.6%</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="6" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="777240" y="1935480"/><a:ext cx="2255520" cy="487680"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr><a:lnSpc><a:spcPct val="110000"/></a:lnSpc></a:pPr><a:r><a:rPr lang="en-US" sz="1050" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>of shapes rendered natively (editable in Slides and PowerPoint)</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="7" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="3352800" y="1371600"/><a:ext cx="2590800" cy="1143000"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 8000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="E8F0FE"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="8" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="3520440" y="1493520"/><a:ext cx="2255520" cy="411480"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="4000" b="0" dirty="0"><a:solidFill><a:srgbClr val="1967D2"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>0</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="9" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="3520440" y="1935480"/><a:ext cx="2255520" cy="487680"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr><a:lnSpc><a:spcPct val="110000"/></a:lnSpc></a:pPr><a:r><a:rPr lang="en-US" sz="1050" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>external dependencies beyond the Go standard library</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="10" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="6096000" y="1371600"/><a:ext cx="2590800" cy="1143000"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 8000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="FEF7E0"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="11" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="6263640" y="1493520"/><a:ext cx="2255520" cy="335280"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="3000" b="0" dirty="0"><a:solidFill><a:srgbClr val="B06000"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>1600x900</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="12" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="6263640" y="1859280"/><a:ext cx="2255520" cy="563880"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr><a:lnSpc><a:spcPct val="110000"/></a:lnSpc></a:pPr><a:r><a:rPr lang="en-US" sz="1050" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>design grid: position shapes like CSS pixels</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="13" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="609600" y="2819400"/><a:ext cx="10972800" cy="3276600"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 6000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="F8F9FA"/></a:solidFill><a:ln w="12700"><a:solidFill><a:srgbClr val="DADCE0"/></a:solidFill></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="14" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="624840" y="2819400"/><a:ext cx="10942320" cy="53340"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 50000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="4285F4"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="15" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="762000" y="2956560"/><a:ext cx="10668000" cy="198120"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="1400" b="1" dirty="0"><a:solidFill><a:srgbClr val="1967D2"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>Latency by build (illustrative)</a:t></a:r></a:p></p:txBody></p:sp>
+<p:cxnSp><p:nvCxnSpPr><p:cNvPr id="16" name="line"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr>
+<p:spPr><a:xfrm><a:off x="1333500" y="5486400"/><a:ext cx="9563100" cy="0"/></a:xfrm>
+<a:prstGeom prst="line"><a:avLst/></a:prstGeom>
+<a:ln w="7620"><a:solidFill><a:srgbClr val="DADCE0"/></a:solidFill></a:ln></p:spPr></p:cxnSp>
+<p:sp><p:nvSpPr><p:cNvPr id="17" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="990600" y="5417820"/><a:ext cx="289560" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="r"></a:pPr><a:r><a:rPr lang="en-US" sz="950" b="0" dirty="0"><a:solidFill><a:srgbClr val="80868B"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>0ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:cxnSp><p:nvCxnSpPr><p:cNvPr id="18" name="line"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr>
+<p:spPr><a:xfrm><a:off x="1333500" y="4972050"/><a:ext cx="9563100" cy="0"/></a:xfrm>
+<a:prstGeom prst="line"><a:avLst/></a:prstGeom>
+<a:ln w="7620"><a:solidFill><a:srgbClr val="DADCE0"/></a:solidFill></a:ln></p:spPr></p:cxnSp>
+<p:sp><p:nvSpPr><p:cNvPr id="19" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="990600" y="4903470"/><a:ext cx="289560" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="r"></a:pPr><a:r><a:rPr lang="en-US" sz="950" b="0" dirty="0"><a:solidFill><a:srgbClr val="80868B"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>25ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:cxnSp><p:nvCxnSpPr><p:cNvPr id="20" name="line"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr>
+<p:spPr><a:xfrm><a:off x="1333500" y="4457700"/><a:ext cx="9563100" cy="0"/></a:xfrm>
+<a:prstGeom prst="line"><a:avLst/></a:prstGeom>
+<a:ln w="7620"><a:solidFill><a:srgbClr val="DADCE0"/></a:solidFill></a:ln></p:spPr></p:cxnSp>
+<p:sp><p:nvSpPr><p:cNvPr id="21" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="990600" y="4389120"/><a:ext cx="289560" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="r"></a:pPr><a:r><a:rPr lang="en-US" sz="950" b="0" dirty="0"><a:solidFill><a:srgbClr val="80868B"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>50ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:cxnSp><p:nvCxnSpPr><p:cNvPr id="22" name="line"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr>
+<p:spPr><a:xfrm><a:off x="1333500" y="3943350"/><a:ext cx="9563100" cy="0"/></a:xfrm>
+<a:prstGeom prst="line"><a:avLst/></a:prstGeom>
+<a:ln w="7620"><a:solidFill><a:srgbClr val="DADCE0"/></a:solidFill></a:ln></p:spPr></p:cxnSp>
+<p:sp><p:nvSpPr><p:cNvPr id="23" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="990600" y="3874770"/><a:ext cx="289560" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="r"></a:pPr><a:r><a:rPr lang="en-US" sz="950" b="0" dirty="0"><a:solidFill><a:srgbClr val="80868B"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>75ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:cxnSp><p:nvCxnSpPr><p:cNvPr id="24" name="line"/><p:cNvCxnSpPr/><p:nvPr/></p:nvCxnSpPr>
+<p:spPr><a:xfrm><a:off x="1333500" y="3429000"/><a:ext cx="9563100" cy="0"/></a:xfrm>
+<a:prstGeom prst="line"><a:avLst/></a:prstGeom>
+<a:ln w="7620"><a:solidFill><a:srgbClr val="DADCE0"/></a:solidFill></a:ln></p:spPr></p:cxnSp>
+<p:sp><p:nvSpPr><p:cNvPr id="25" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="990600" y="3360420"/><a:ext cx="289560" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="r"></a:pPr><a:r><a:rPr lang="en-US" sz="950" b="0" dirty="0"><a:solidFill><a:srgbClr val="80868B"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>100ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="26" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="2157412" y="4622292"/><a:ext cx="350520" cy="864108"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="4285F4"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="27" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="1928812" y="4454652"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>42ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="28" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="2530792" y="3840480"/><a:ext cx="350520" cy="1645920"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="FBBC04"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="29" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="2302192" y="3672840"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>80ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="30" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="1333500" y="5547360"/><a:ext cx="2371725" cy="152400"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"><a:lnSpc><a:spcPct val="100000"/></a:lnSpc></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>v1</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="31" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="4529137" y="4848605"/><a:ext cx="350520" cy="637794"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="4285F4"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="32" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="4300537" y="4680965"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>31ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="33" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="4902517" y="4231385"/><a:ext cx="350520" cy="1255013"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="FBBC04"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="34" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="4673917" y="4063745"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>61ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="35" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="3705225" y="5547360"/><a:ext cx="2371725" cy="152400"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"><a:lnSpc><a:spcPct val="100000"/></a:lnSpc></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>v2</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="36" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="6900862" y="5033772"/><a:ext cx="350520" cy="452628"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="4285F4"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="37" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="6672262" y="4866132"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>22ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="38" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="7274242" y="4663440"/><a:ext cx="350520" cy="822960"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="FBBC04"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="39" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="7045642" y="4495800"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>40ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="40" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="6076950" y="5547360"/><a:ext cx="2371725" cy="152400"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"><a:lnSpc><a:spcPct val="100000"/></a:lnSpc></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>v3</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="41" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="9272587" y="5116068"/><a:ext cx="350520" cy="370332"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="4285F4"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="42" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="9043987" y="4948428"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>18ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="43" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="9645967" y="4930902"/><a:ext cx="350520" cy="555498"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 10000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="FBBC04"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="44" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="9417367" y="4763262"/><a:ext cx="807720" cy="137160"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="1" dirty="0"><a:solidFill><a:srgbClr val="202124"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>27ms</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="45" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="8448675" y="5547360"/><a:ext cx="2371725" cy="152400"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="ctr"><a:lnSpc><a:spcPct val="100000"/></a:lnSpc></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>v4</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="46" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="990600" y="5814060"/><a:ext cx="91440" cy="91440"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 25000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="4285F4"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="47" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="1127760" y="5791200"/><a:ext cx="2590800" cy="152400"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>p50</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="48" name="rect"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="1514856" y="5814060"/><a:ext cx="91440" cy="91440"/></a:xfrm>
+<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 25000"/></a:avLst></a:prstGeom>
+<a:solidFill><a:srgbClr val="FBBC04"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="49" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="1652016" y="5791200"/><a:ext cx="2590800" cy="152400"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="1000" b="0" dirty="0"><a:solidFill><a:srgbClr val="5F6368"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>p90</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="50" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="609600" y="6568440"/><a:ext cx="8763000" cy="167640"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr></a:pPr><a:r><a:rPr lang="en-US" sz="950" b="0" dirty="0"><a:solidFill><a:srgbClr val="80868B"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>deck-engine example</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp><p:nvSpPr><p:cNvPr id="51" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
+<p:spPr><a:xfrm><a:off x="10515600" y="6568440"/><a:ext cx="1066800" cy="167640"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
+<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr><a:p><a:pPr algn="r"></a:pPr><a:r><a:rPr lang="en-US" sz="950" b="0" dirty="0"><a:solidFill><a:srgbClr val="80868B"/></a:solidFill><a:latin typeface="Roboto"/><a:cs typeface="Roboto"/></a:rPr><a:t>2</a:t></a:r></a:p></p:txBody></p:sp></p:spTree></p:cSld><p:clrMapOvr><a:overrideClrMapping bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/></p:clrMapOvr></p:sld>

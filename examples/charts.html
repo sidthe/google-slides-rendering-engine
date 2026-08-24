@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- deck-engine chart & table recipes: line chart (rotated segments +
+     markers), stacked bars, and a numeric table with aligned columns.
+     Pies are intentionally absent: the Slides API cannot set wedge angles,
+     so use bars/lines instead (see AGENTS.md).                            -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>deck-engine charts</title>
+<link rel="stylesheet" href="../assets/deck.css">
+<style>
+  .panel-title { position: absolute; font-size: 23px; font-weight: 700; color: var(--ink); }
+  .tick { position: absolute; width: 60px; text-align: right; font-size: 16px; color: var(--ink-3); }
+  .axis-label { position: absolute; width: 120px; text-align: center; font-size: 16px; color: var(--ink-2); }
+  .seg { position: absolute; height: 3px; color: var(--blue); background: currentColor;
+         transform-origin: 0 50%; border-radius: 2px; }
+  .dot { position: absolute; width: 12px; height: 12px; border-radius: 50%;
+         background: var(--blue); }
+  .val { position: absolute; width: 80px; text-align: center; font-size: 15px;
+         font-weight: 700; color: var(--ink); }
+  .sbar { position: absolute; width: 70px; }
+  .legend { position: absolute; font-size: 17px; color: var(--ink-2); }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px;
+              margin: 0 6px 0 24px; }
+  .legend i:first-child { margin-left: 0; }
+  td.num, th.num { text-align: right; }
+</style>
+</head>
+<body>
+
+<!-- 1 — line chart + stacked bars -->
+<section>
+  <div class="kicker">recipes</div>
+  <div class="title">Line and stacked-bar charts, drawn as shapes</div>
+
+  <!-- left panel: line chart -->
+  <div class="card" style="left:80px; top:200px; width:700px; height:560px;"></div>
+  <div class="panel-title" style="left:110px; top:224px;">Revenue ($M)</div>
+  <div class="tick" style="left:70px; top:271px;">40</div>
+  <div class="hairline" style="left:140px; top:280px; width:600px;"></div>
+  <div class="tick" style="left:70px; top:421px;">20</div>
+  <div class="hairline" style="left:140px; top:430px; width:600px;"></div>
+  <div class="tick" style="left:70px; top:571px;">0</div>
+  <div class="hairline" style="left:140px; top:580px; width:600px;"></div>
+
+  <div class="seg" data-line style="left:160px; top:488.5px; width:118.85px; transform:rotate(-22.25deg);"></div>
+  <div class="seg" data-line style="left:270px; top:443.5px; width:112.38px; transform:rotate(11.81deg);"></div>
+  <div class="seg" data-line style="left:380px; top:466.5px; width:129.32px; transform:rotate(-31.72deg);"></div>
+  <div class="seg" data-line style="left:490px; top:398.5px; width:118.85px; transform:rotate(-22.25deg);"></div>
+  <div class="seg" data-line style="left:600px; top:353.5px; width:125.30px; transform:rotate(-28.61deg);"></div>
+
+  <div class="dot" style="left:154px; top:484px;"></div>
+  <div class="dot" style="left:264px; top:439px;"></div>
+  <div class="dot" style="left:374px; top:462px;"></div>
+  <div class="dot" style="left:484px; top:394px;"></div>
+  <div class="dot" style="left:594px; top:349px;"></div>
+  <div class="dot" style="left:704px; top:289px;"></div>
+
+  <div class="val" style="left:120px; top:452px;">12</div>
+  <div class="val" style="left:230px; top:407px;">18</div>
+  <div class="val" style="left:340px; top:474px;">15</div>
+  <div class="val" style="left:450px; top:362px;">24</div>
+  <div class="val" style="left:560px; top:317px;">30</div>
+  <div class="val" style="left:670px; top:257px;">38</div>
+
+  <div class="axis-label" style="left:100px; top:592px;">Jan</div>
+  <div class="axis-label" style="left:210px; top:592px;">Feb</div>
+  <div class="axis-label" style="left:320px; top:592px;">Mar</div>
+  <div class="axis-label" style="left:430px; top:592px;">Apr</div>
+  <div class="axis-label" style="left:540px; top:592px;">May</div>
+  <div class="axis-label" style="left:650px; top:592px;">Jun</div>
+
+  <!-- right panel: stacked bars -->
+  <div class="card" style="left:820px; top:200px; width:700px; height:560px;"></div>
+  <div class="panel-title" style="left:850px; top:224px;">Signups by quarter (k)</div>
+  <div class="hairline" style="left:850px; top:580px; width:640px;"></div>
+
+  <div class="sbar" style="left:900px; top:460px; height:120px; background:var(--blue);"></div>
+  <div class="sbar" style="left:900px; top:400px; height:60px; background:var(--yellow);"></div>
+  <div class="val" style="left:895px; top:368px;">18</div>
+  <div class="sbar" style="left:1050px; top:420px; height:160px; background:var(--blue);"></div>
+  <div class="sbar" style="left:1050px; top:340px; height:80px; background:var(--yellow);"></div>
+  <div class="val" style="left:1045px; top:308px;">24</div>
+  <div class="sbar" style="left:1200px; top:390px; height:190px; background:var(--blue);"></div>
+  <div class="sbar" style="left:1200px; top:320px; height:70px; background:var(--yellow);"></div>
+  <div class="val" style="left:1195px; top:288px;">26</div>
+  <div class="sbar" style="left:1350px; top:350px; height:230px; background:var(--blue);"></div>
+  <div class="sbar" style="left:1350px; top:240px; height:110px; background:var(--yellow);"></div>
+  <div class="val" style="left:1345px; top:208px;">34</div>
+
+  <div class="axis-label" style="left:875px; top:592px;">Q1</div>
+  <div class="axis-label" style="left:1025px; top:592px;">Q2</div>
+  <div class="axis-label" style="left:1175px; top:592px;">Q3</div>
+  <div class="axis-label" style="left:1325px; top:592px;">Q4</div>
+
+  <div class="legend" style="left:850px; top:660px;"><i style="background:var(--blue);"></i>self-serve<i style="background:var(--yellow);"></i>sales-led</div>
+
+  <div class="foot"><span>deck-engine chart recipes</span><span>1</span></div>
+</section>
+
+<!-- 2 — numeric table -->
+<section>
+  <div class="kicker">recipes</div>
+  <div class="title">Data tables with aligned numeric columns</div>
+
+  <table style="left:80px; top:200px; width:1440px;">
+    <tr>
+      <th style="width:400px;">Region</th>
+      <th class="num" style="width:260px;">Q1 ($k)</th>
+      <th class="num" style="width:260px;">Q2 ($k)</th>
+      <th class="num" style="width:260px;">Q3 ($k)</th>
+      <th class="num" style="width:260px;">Growth</th>
+    </tr>
+    <tr><td>North America</td><td class="num">1,240</td><td class="num">1,410</td><td class="num">1,690</td><td class="num"><b style="color:#188038;">+19.9%</b></td></tr>
+    <tr><td>EMEA</td><td class="num">980</td><td class="num">1,050</td><td class="num">1,180</td><td class="num"><b style="color:#188038;">+12.4%</b></td></tr>
+    <tr><td>APAC</td><td class="num">610</td><td class="num">700</td><td class="num">860</td><td class="num"><b style="color:#188038;">+22.9%</b></td></tr>
+    <tr><td>LATAM</td><td class="num">240</td><td class="num">230</td><td class="num">210</td><td class="num"><b style="color:#C5221F;">−8.7%</b></td></tr>
+  </table>
+
+  <div class="tile" style="left:80px; top:560px; width:440px; height:150px; background:var(--blue-tint);">
+    <div class="n" style="color:var(--blue-dark);">$3.9M</div>
+    <div class="label">Q3 total across regions</div>
+  </div>
+  <div class="tile" style="left:560px; top:560px; width:440px; height:150px; background:var(--green-tint);">
+    <div class="n" style="color:var(--green-dark);">+15.6%</div>
+    <div class="label">weighted quarter-over-quarter growth</div>
+  </div>
+  <div class="tile" style="left:1040px; top:560px; width:440px; height:150px; background:var(--red-tint);">
+    <div class="n" style="color:var(--red-dark);">1</div>
+    <div class="label">region needs an intervention plan (LATAM)</div>
+  </div>
+
+  <div class="foot"><span>deck-engine chart recipes</span><span>2</span></div>
+</section>
+
+</body>
+</html>
