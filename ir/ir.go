@@ -81,6 +81,11 @@ type Text struct {
 	DefColor string
 	DefFont  string
 	Rot      float64
+	// WrapSlack is set by the HTML front end for frames derived from Chrome's
+	// exact painted text bounds. Native presentation engines can wrap the
+	// same run a few pixels earlier; emitters add safe width on the trailing
+	// edge when this is true. Builder-authored frames stay exact.
+	WrapSlack bool `json:"-"`
 }
 
 // Line is a straight connector from (X1,Y1) to (X2,Y2). Arrow puts a

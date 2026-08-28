@@ -29,13 +29,19 @@ cd cmd/deckgen && go build -o deckgen .
 
 ./deckgen check      ../../examples/demo.html               # warnings report
 ./deckgen screenshot ../../examples/demo.html -o shots/     # per-slide PNGs
-./deckgen build      ../../examples/demo.html -o demo.pptx  # PPTX
+./deckgen build      ../../examples/demo.html -o demo.pptx  # PPTX tuned for Slides import
+./deckgen build      ../../examples/demo.html -target powerpoint -o demo-powerpoint.pptx
 ./deckgen push       ../../examples/demo.html -title Demo   # Google Slides
 ```
 
 Requirements: Chrome/Chromium on PATH (or `DECKGEN_CHROME=/path/to/chrome`).
 
-### Google auth for `push`
+`build` is entirely local. Its default `google-slides` target uses a 10in
+Slides-compatible PPTX canvas and preserves table/text geometry through the
+Google Slides import path. Use `-target powerpoint` for a conventional
+PowerPoint-sized file.
+
+### Google auth for `push` and optional `import`
 
 `deckgen push` needs OAuth credentials with the
 `https://www.googleapis.com/auth/presentations` scope. Two options:
@@ -43,15 +49,23 @@ Requirements: Chrome/Chromium on PATH (or `DECKGEN_CHROME=/path/to/chrome`).
 1. **Application Default Credentials** (tried first):
 
    ```sh
-   gcloud auth application-default login \
-     --scopes=openid,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/presentations
+    gcloud auth application-default login \
+     --scopes=openid,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/presentations,https://www.googleapis.com/auth/drive.file
    ```
 
 2. **OAuth client JSON**: create an OAuth client (type: Desktop app) in
    Google Cloud Console (with the Slides API enabled), download the JSON,
    then `deckgen push … -oauth-client client_secret.json` (or save it as
    `~/.config/deckgen/client_secret.json`). A browser consent tab opens
-   once; the token is cached at `~/.config/deckgen/token.json`.
+once; the token is cached at `~/.config/deckgen/token.json`.
+
+`deckgen import deck.html -title Demo` is optional: it uploads a locally
+generated PPTX and converts it into a native Google Slides presentation. It
+uses the narrowly scoped `drive.file` permission (only files deckgen creates
+or opens), so the Google Drive API must be enabled in the OAuth project. If
+you prefer not to enable Drive API, import the locally generated PPTX through
+the Google Slides UI, then use `deckgen snap <presentation-id>` to inspect
+Google's own rendered PNGs. Never commit an OAuth client JSON or token file.
 
 ## Quick start (Go library)
 

@@ -206,11 +206,33 @@ func textXML(v ir.Text, id int, rels *slideRels) string {
 	if v.Rot != 0 {
 		rot = fmt.Sprintf(` rot="%d"`, int(v.Rot*60000))
 	}
+	tx, tw := v.X, v.W
+	if v.WrapSlack {
+		// Chrome exposes the painted glyph width, while Office/Slides needs a
+		// few extra pixels to keep a one-line label whole. Preserve alignment
+		// while adding that breathing room: centered labels expand equally and
+		// right-aligned labels expand to the left.
+		extra := tw * 0.12
+		switch textAlign(v.Paras) {
+		case "ctr":
+			tx -= extra / 2
+		case "r":
+			tx -= extra
+		}
+		tw += extra
+	}
 	return fmt.Sprintf(`<p:sp><p:nvSpPr><p:cNvPr id="%d" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
 <p:spPr><a:xfrm%s><a:off x="%d" y="%d"/><a:ext cx="%d" cy="%d"/></a:xfrm>
 <a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
 <p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr>%s</p:txBody></p:sp>`,
-		id, rot, emu(v.X), emu(v.Y), emu(v.W), emu(v.H), body.String())
+		id, rot, emu(tx), emu(v.Y), emu(tw), emu(v.H), body.String())
+}
+
+func textAlign(paras []ir.Para) string {
+	if len(paras) == 0 || paras[0].Align == "" {
+		return "l"
+	}
+	return paras[0].Align
 }
 
 func lineXML(v ir.Line, id int) string {
@@ -322,7 +344,11 @@ func tableXML(v ir.Table, id int, rels *slideRels) string {
 				}
 				sb.WriteString("</a:p>")
 			}
-			sb.WriteString(fmt.Sprintf(`</a:txBody><a:tcPr marL="91440" marR="91440" marT="45720" marB="45720"><a:lnB w="6350"><a:solidFill><a:srgbClr val="%s"/></a:solidFill></a:lnB><a:solidFill><a:srgbClr val="%s"/></a:solidFill></a:tcPr></a:tc>`, v.BorderColor, c.Fill))
+			fill := `<a:noFill/>`
+			if c.Fill != "" {
+				fill = fillXML(c.Fill, 0)
+			}
+			sb.WriteString(fmt.Sprintf(`</a:txBody><a:tcPr marL="91440" marR="91440" marT="45720" marB="45720"><a:lnB w="6350"><a:solidFill><a:srgbClr val="%s"/></a:solidFill></a:lnB>%s</a:tcPr></a:tc>`, v.BorderColor, fill))
 		}
 		sb.WriteString("</a:tr>")
 	}
