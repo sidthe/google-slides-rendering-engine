@@ -133,6 +133,11 @@ func mapText(el Element) ir.Text {
 		DefColor: orDefault(el.FontColor, fallbackInk),
 		DefFont:  gslides.ResolveFont(orDefault(el.FontFam, fallbackFont)),
 		Rot:      el.Rot,
+		// The extractor retains a visual bounding box, not the source text
+		// container. A single visual line needs a small native-renderer safety
+		// margin; giving that margin to an already-wrapped block can instead
+		// unwrap it and push a title beyond the right edge after PPTX import.
+		WrapSlack: el.FontSize <= 0 || el.H <= el.FontSize*1.7,
 	}
 }
 
@@ -153,7 +158,10 @@ func mapTable(el Element) ir.Table {
 					r.Font = orDefault(r.Font, fallbackFont)
 				}
 			}
-			rows[ri][ci] = ir.Cell{Fill: orDefault(c.Fill, fallbackFill), Paras: paras}
+			// An absent CSS fill is transparent, not white. Preserving that
+			// distinction matters when a table is placed on a dark slide: a
+			// white fallback turns inherited light text into an artifact.
+			rows[ri][ci] = ir.Cell{Fill: c.Fill, Paras: paras}
 		}
 	}
 	return ir.Table{

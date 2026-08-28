@@ -40,13 +40,15 @@ func main() {
 	case "check":
 		err = runCheck(ctx, htmlPath, flagValue(args, "-scene", ""))
 	case "build":
-		err = runBuild(ctx, htmlPath, flagValue(args, "-o", strings.TrimSuffix(htmlPath, ".html")+".pptx"))
+		err = runBuild(ctx, htmlPath, flagValue(args, "-o", strings.TrimSuffix(htmlPath, ".html")+".pptx"), flagValue(args, "-target", "google-slides"))
 	case "requests":
 		err = runRequests(ctx, htmlPath)
 	case "screenshot":
 		err = runScreenshot(ctx, htmlPath, flagValue(args, "-o", "shots"))
 	case "push":
 		err = runPush(ctx, htmlPath, flagValue(args, "-title", ""), flagValue(args, "-oauth-client", ""))
+	case "import":
+		err = runImport(ctx, htmlPath, flagValue(args, "-title", ""), flagValue(args, "-oauth-client", ""), flagValue(args, "-o", ""), hasFlag(args, "-reauth"))
 	case "snap":
 		// htmlPath is a presentation ID here
 		err = runSnap(ctx, htmlPath, flagValue(args, "-o", "shots-slides"), flagValue(args, "-oauth-client", ""))
@@ -65,10 +67,13 @@ func usage() {
 
 usage:
   deckgen check      deck.html                 extract, report warnings
-  deckgen build      deck.html [-o out.pptx]   write .pptx
+  deckgen build      deck.html [-o out.pptx] [-target google-slides|powerpoint]
+                                               write a .pptx (Google Slides import target by default)
   deckgen requests   deck.html                 print Slides batchUpdate JSON
   deckgen screenshot deck.html [-o shots/]     per-slide PNGs
   deckgen push       deck.html [-title T] [-oauth-client client_secret.json]
+  deckgen import     deck.html [-title T] [-o out.pptx] [-reauth]
+                                               build for, upload to, and convert in Google Slides
   deckgen snap       <presentationId> [-o shots-slides/]   download Google's renders of a pushed deck
 `)
 }
@@ -80,6 +85,15 @@ func flagValue(args []string, name, def string) string {
 		}
 	}
 	return def
+}
+
+func hasFlag(args []string, name string) bool {
+	for _, a := range args {
+		if a == name {
+			return true
+		}
+	}
+	return false
 }
 
 // extract runs Chrome, maps to IR, and prints warnings to stderr.
@@ -125,16 +139,24 @@ func runCheck(ctx context.Context, htmlPath, scenePath string) error {
 	return nil
 }
 
-func runBuild(ctx context.Context, htmlPath, out string) error {
+func runBuild(ctx context.Context, htmlPath, out, target string) error {
 	d, _, err := extract(ctx, htmlPath)
 	if err != nil {
 		return err
 	}
-	if err := pptx.Write(out, d); err != nil {
+	switch target {
+	case "google-slides", "google", "slides":
+		err = pptx.WriteGoogleSlides(out, d)
+	case "powerpoint", "pptx":
+		err = pptx.Write(out, d)
+	default:
+		return fmt.Errorf("unknown build target %q (use google-slides or powerpoint)", target)
+	}
+	if err != nil {
 		return err
 	}
 	st, _ := os.Stat(out)
-	fmt.Printf("saved %s (%d bytes, %d slides)\n", out, st.Size(), len(d.Slides))
+	fmt.Printf("saved %s (%d bytes, %d slides, target %s)\n", out, st.Size(), len(d.Slides), target)
 	return nil
 }
 

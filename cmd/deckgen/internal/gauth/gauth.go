@@ -1,8 +1,8 @@
 // Package gauth obtains an authorized *http.Client for the Slides API.
 // Order: Application Default Credentials first (GOOGLE_APPLICATION_CREDENTIALS,
 // gcloud ADC, metadata server), then an OAuth client JSON with a loopback
-// browser consent flow and a cached token. Only the presentations scope is
-// requested.
+// browser consent flow and a cached token. The Drive file scope is used only
+// to upload a generated PPTX as a Google Slides presentation.
 package gauth
 
 import (
@@ -23,13 +23,18 @@ import (
 	"golang.org/x/oauth2/google"
 )
 
-// Scope is the only OAuth scope deckgen requests.
+// Scope is retained for callers that need the core Slides permission.
 const Scope = "https://www.googleapis.com/auth/presentations"
 
-// ScopeHint is printed when a credential lacks the presentations scope —
-// by far the most common push failure with gcloud user ADC.
-const ScopeHint = "hint: your Application Default Credentials likely lack the presentations scope; re-run:\n" +
-	"  gcloud auth application-default login --scopes=openid,https://www.googleapis.com/auth/cloud-platform," + Scope
+// DriveFileScope grants access only to files deckgen creates or opens, which
+// is enough for the PPTX import calibration loop.
+const DriveFileScope = "https://www.googleapis.com/auth/drive.file"
+
+var Scopes = []string{Scope, DriveFileScope}
+
+// ScopeHint is printed when credentials lack the required Slides/Drive scopes.
+const ScopeHint = "hint: your Application Default Credentials likely lack the Google Slides import scopes; re-run:\n" +
+	"  gcloud auth application-default login --scopes=openid,https://www.googleapis.com/auth/cloud-platform," + Scope + "," + DriveFileScope
 
 func configDir() (string, error) {
 	home, err := os.UserHomeDir()
@@ -44,11 +49,23 @@ func configDir() (string, error) {
 // default client-secret location (~/.config/deckgen/client_secret.json) is
 // the fallback.
 func Client(ctx context.Context, oauthClientPath string) (*http.Client, error) {
+	return client(ctx, oauthClientPath, false)
+}
+
+// Reauthorize always starts the browser consent flow. Use it when the cached
+// credential predates an additional deckgen API scope.
+func Reauthorize(ctx context.Context, oauthClientPath string) (*http.Client, error) {
+	return client(ctx, oauthClientPath, true)
+}
+
+func client(ctx context.Context, oauthClientPath string, forceBrowser bool) (*http.Client, error) {
 	if oauthClientPath != "" {
-		return oauthClient(ctx, oauthClientPath)
+		return oauthClient(ctx, oauthClientPath, forceBrowser)
 	}
-	if creds, err := google.FindDefaultCredentials(ctx, Scope); err == nil {
-		return oauth2.NewClient(ctx, creds.TokenSource), nil
+	if !forceBrowser {
+		if creds, err := google.FindDefaultCredentials(ctx, Scopes...); err == nil {
+			return oauth2.NewClient(ctx, creds.TokenSource), nil
+		}
 	}
 	dir, err := configDir()
 	if err != nil {
@@ -56,20 +73,20 @@ func Client(ctx context.Context, oauthClientPath string) (*http.Client, error) {
 	}
 	def := filepath.Join(dir, "client_secret.json")
 	if _, err := os.Stat(def); err == nil {
-		return oauthClient(ctx, def)
+		return oauthClient(ctx, def, forceBrowser)
 	}
 	return nil, errors.New(`no Google credentials found. Either:
-  - run: gcloud auth application-default login --scopes=openid,https://www.googleapis.com/auth/cloud-platform,` + Scope + `
+  - run: gcloud auth application-default login --scopes=openid,https://www.googleapis.com/auth/cloud-platform,` + Scope + `,` + DriveFileScope + `
   - or create an OAuth client (Desktop app) in Google Cloud Console, download its JSON,
     and pass -oauth-client client_secret.json (or save it as ~/.config/deckgen/client_secret.json)`)
 }
 
-func oauthClient(ctx context.Context, clientPath string) (*http.Client, error) {
+func oauthClient(ctx context.Context, clientPath string, forceBrowser bool) (*http.Client, error) {
 	b, err := os.ReadFile(clientPath)
 	if err != nil {
 		return nil, err
 	}
-	conf, err := google.ConfigFromJSON(b, Scope)
+	conf, err := google.ConfigFromJSON(b, Scopes...)
 	if err != nil {
 		return nil, fmt.Errorf("%s: not a valid OAuth client JSON: %w", clientPath, err)
 	}
@@ -79,12 +96,14 @@ func oauthClient(ctx context.Context, clientPath string) (*http.Client, error) {
 	}
 	cachePath := filepath.Join(dir, "token.json")
 
-	if tok := loadToken(cachePath); tok != nil {
-		ts := conf.TokenSource(ctx, tok)
-		if t, err := ts.Token(); err == nil {
-			return oauth2.NewClient(ctx, &savingSource{ts: oauth2.ReuseTokenSource(t, ts), path: cachePath, last: t.AccessToken}), nil
+	if !forceBrowser {
+		if tok := loadToken(cachePath); tok != nil {
+			ts := conf.TokenSource(ctx, tok)
+			if t, err := ts.Token(); err == nil {
+				return oauth2.NewClient(ctx, &savingSource{ts: oauth2.ReuseTokenSource(t, ts), path: cachePath, last: t.AccessToken}), nil
+			}
+			// cached token unusable (revoked/expired refresh) — fall through
 		}
-		// cached token unusable (revoked/expired refresh) — fall through
 	}
 
 	tok, err := loopbackFlow(ctx, conf)
