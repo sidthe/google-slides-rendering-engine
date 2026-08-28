@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/sidthe/google-slides-rendering-engine/cmd/deckgen/internal/gauth"
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
+	"github.com/deck-engine/deck-engine/cmd/deckgen/internal/gauth"
+	"github.com/deck-engine/deck-engine/gslides"
 )
 
 func runPush(ctx context.Context, htmlPath, title, oauthClient string) error {

@@ -8,10 +8,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	deck "github.com/sidthe/google-slides-rendering-engine"
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
-	"github.com/sidthe/google-slides-rendering-engine/internal/demo"
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	deck "github.com/deck-engine/deck-engine"
+	"github.com/deck-engine/deck-engine/gslides"
+	"github.com/deck-engine/deck-engine/internal/demo"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 var update = flag.Bool("update", false, "rewrite golden files")

@@ -5,10 +5,16 @@ and Google Slides — with no images, no screenshots, no embedded renders.
 Every box becomes a real shape, every text a real text box, every table a
 real table.
 
-Built for AI harnesses (Gemini CLI, Claude Code, …): the model writes
-HTML/CSS — which models are very good at — headless Chrome does the layout,
-and `deckgen` rebuilds the result natively. See **AGENTS.md** for the
-authoring guide a harness should follow.
+Built for AI coding assistants: the model writes HTML/CSS, headless Chrome
+does the layout, and `deckgen` rebuilds the result natively.
+
+## Read before authoring decks
+
+**Agents must read [`docs/authoring.md`](docs/authoring.md) before creating or
+editing a deck.** It is the complete authoring contract: slide geometry,
+supported HTML/CSS, native-editability limits, visual design rules, validation
+workflow, and fidelity boundaries. Agents using Gemini CLI should also read
+[`docs/gemini.md`](docs/gemini.md).
 
 ```
  deck.html (1600×900 <section> per slide, any CSS)
@@ -35,7 +41,7 @@ cd cmd/deckgen && go build -o deckgen .
 ./deckgen build      ../../examples/demo.html -target powerpoint -o demo-powerpoint.pptx
 ./deckgen push       ../../examples/demo.html -title Demo   # Google Slides via the API
 ./deckgen import     ../../examples/demo.html -title Demo   # Google Slides via PPTX upload
-./deckgen snap       <presentationId> -o shots-slides/      # Google's own renders
+./deckgen snap       <presentationId> -o shots-slides/      # Slides service renders
 ```
 
 Requirements: Chrome/Chromium on PATH (or `DECKGEN_CHROME=/path/to/chrome`).
@@ -61,10 +67,10 @@ cannot set. `push` needs one less API and one less scope, and it is the path
 the Go library exposes directly.
 
 Without the Drive API, run `deckgen build`, import the file through the Google
-Slides UI, then use `deckgen snap <presentation-id>` to inspect Google's own
+Slides UI, then use `deckgen snap <presentation-id>` to inspect the service's
 rendered PNGs.
 
-### Google auth for `push`, `import` and `snap`
+### Google Slides auth for `push`, `import` and `snap`
 
 Credentials need the `https://www.googleapis.com/auth/presentations` scope,
 plus `https://www.googleapis.com/auth/drive.file` for `import`. The
@@ -78,7 +84,7 @@ plus `https://www.googleapis.com/auth/drive.file` for `import`. The
    ```
 
 2. **OAuth client JSON**: create an OAuth client (type: Desktop app) in
-   Google Cloud Console (with the Slides API enabled, and the Drive API for
+   the Cloud Console (with the Slides API enabled, and the Drive API for
    `import`), download the JSON, then pass
    `-oauth-client client_secret.json` (or save it as
    `~/.config/deckgen/client_secret.json`). A browser consent tab opens once;
@@ -114,10 +120,10 @@ Run the demo: `go run ./example demo.pptx`
 |---|---|---|
 | IR | `ir/` | typed deck model: `Rect`, `Oval`, `AutoShape`, `Text`, `Line`, `Elbow`, `Table` on a 1600×900 grid; the contract between front ends and emitters |
 | PPTX emitter | `pptx/` | native OOXML package writer (stdlib only); `Write` for PowerPoint, `WriteGoogleSlides` for the Slides import canvas |
-| Slides emitter | `gslides/` | pure `ir.Deck → batchUpdate` request plan, `Push`, `ImportPPTX`, `Thumbnails` (works with any authorized `*http.Client`; no Google SDK) |
+| Slides emitter | `gslides/` | pure `ir.Deck → batchUpdate` request plan, `Push`, `ImportPPTX`, `Thumbnails` (works with any authorized `*http.Client`; no provider SDK) |
 | Builder API | root | `Deck`, `Slide`, shape methods, `P/R/B/BC/RC` text helpers |
 | Style kit | `style.go` | Go-level house components (`Title`, `Tile`, `Card`, `BarChart`, …) |
-| HTML front end | `cmd/deckgen/` | headless-Chrome extraction, scene→IR mapper, CLI, Google auth |
+| HTML front end | `cmd/deckgen/` | headless-Chrome extraction, scene→IR mapper, CLI, Slides auth |
 | Starter CSS | `assets/deck.css` | the house look as CSS classes + palette variables |
 
 The root module has **zero external dependencies**; Chrome, chromedp and
@@ -136,8 +142,7 @@ bounds carry `ir.Text.WrapSlack`, and both emitters add 12% trailing width for
 those frames without moving the text's visual alignment. Builder-authored
 frames stay exact.
 
-Known gaps in the `push` route (also in AGENTS.md, so harnesses design around
-them):
+Known gaps in the `push` route:
 
 | Gap | Cause | Effect |
 |---|---|---|
@@ -145,7 +150,7 @@ them):
 | text insets | API can't zero text-box insets | frames auto-compensated by the default insets |
 | table row height | `minRowHeight` only | overflowing text grows rows |
 | table cell margins | not settable | slight text offset inside cells |
-| fonts | Slides font catalog | `Google Sans` → Roboto etc. via `gslides.Substitutions` |
+| fonts | Slides font catalog | unsupported families → Roboto via `gslides.Substitutions` |
 
 The font substitution applies to both routes. The other four are why `import`
 exists.
@@ -158,7 +163,7 @@ exists.
 - Speaker notes ARE supported (`<aside class="notes">` → native notes in
   both backends), as are bulleted/numbered lists, hyperlinks, preset
   diagram shapes (diamond/cylinder/hexagon/chevron/…), elbow connectors,
-  semi-transparent fills and rotated text — see AGENTS.md.
+  semi-transparent fills and rotated text.
 - Fonts referenced by name, not embedded — stay on Slides-available fonts.
 - HTML conversion is deliberately lossy for non-flat styling: gradients,
   shadows and transforms are approximated or dropped, with warnings from
@@ -183,12 +188,12 @@ Slides request JSON (`gslides/testdata/`), and scene→IR mapping
 
 After any change to the Slides emitter (inset constants in
 `gslides/units.go`, autofit, table borders, font map) or to the import scaling
-in `pptx/google_import.go`, compare Chrome's render against Google's:
+in `pptx/google_import.go`, compare Chrome's render against the Slides service:
 
 ```sh
 deckgen screenshot examples/demo.html -o shots/          # what Chrome rendered
 deckgen push examples/demo.html -title "calibration"     # prints URL with <id>
-deckgen snap <id> -o shots-slides/                       # what Google rendered
+deckgen snap <id> -o shots-slides/                       # what Slides rendered
 ```
 
 Overlay `shots/slideNN.png` and `shots-slides/slideNN.png`; text should

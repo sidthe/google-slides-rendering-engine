@@ -75,9 +75,9 @@ func client(ctx context.Context, oauthClientPath string, forceBrowser bool) (*ht
 	if _, err := os.Stat(def); err == nil {
 		return oauthClient(ctx, def, forceBrowser)
 	}
-	return nil, errors.New(`no Google credentials found. Either:
+	return nil, errors.New(`no Slides credentials found. Either:
   - run: gcloud auth application-default login --scopes=openid,https://www.googleapis.com/auth/cloud-platform,` + Scope + `,` + DriveFileScope + `
-  - or create an OAuth client (Desktop app) in Google Cloud Console, download its JSON,
+	  - or create an OAuth client (Desktop app) in the Cloud Console, download its JSON,
     and pass -oauth-client client_secret.json (or save it as ~/.config/deckgen/client_secret.json)`)
 }
 
@@ -132,7 +132,7 @@ func loopbackFlow(ctx context.Context, conf *oauth2.Config) (*oauth2.Token, erro
 	verifier := oauth2.GenerateVerifier()
 	authURL := conf.AuthCodeURL(state, oauth2.AccessTypeOffline, oauth2.S256ChallengeOption(verifier))
 
-	fmt.Fprintf(os.Stderr, "Opening browser for Google consent…\nIf it does not open, visit:\n  %s\n", authURL)
+	fmt.Fprintf(os.Stderr, "Opening browser for Slides consent…\nIf it does not open, visit:\n  %s\n", authURL)
 	openBrowser(authURL)
 
 	type outcome struct {

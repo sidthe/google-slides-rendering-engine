@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 func dashXML(dashed bool) string {

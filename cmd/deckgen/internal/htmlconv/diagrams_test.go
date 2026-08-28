@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // TestMapScenesDiagrams pins the diagram-critical conversions from a

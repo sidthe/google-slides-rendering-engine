@@ -2,12 +2,11 @@ package gslides
 
 import "strings"
 
-// Substitutions maps font names that regular Google Slides users cannot
-// select (or CSS generic families from the HTML front end) to fonts that
+// Substitutions maps font names unavailable in Google Slides (or CSS generic
+// families from the HTML front end) to fonts that
 // exist in Slides. Lookup is case-insensitive; unknown names pass through
 // unchanged. Callers may add or override entries before emitting.
 var Substitutions = map[string]string{
-	"google sans":    "Roboto",
 	"product sans":   "Roboto",
 	"sans-serif":     "Roboto",
 	"serif":          "Georgia",

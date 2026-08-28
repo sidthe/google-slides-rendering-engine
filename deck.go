@@ -11,8 +11,8 @@
 package deck
 
 import (
-	"github.com/sidthe/google-slides-rendering-engine/ir"
-	"github.com/sidthe/google-slides-rendering-engine/pptx"
+	"github.com/deck-engine/deck-engine/ir"
+	"github.com/deck-engine/deck-engine/pptx"
 )
 
 // ---------- runs & paragraphs (shared with the IR) ----------

@@ -8,7 +8,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // DefaultBaseURL is the Slides API endpoint.

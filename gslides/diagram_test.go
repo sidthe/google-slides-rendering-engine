@@ -3,8 +3,8 @@ package gslides_test
 import (
 	"testing"
 
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/gslides"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // TestGoldenDiagramPrimitives covers the connector/outline features that

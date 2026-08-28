@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 var update = flag.Bool("update", false, "rewrite golden files")

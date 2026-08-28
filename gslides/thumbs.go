@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-// Thumbnail is one rendered slide image, as produced by Google's own
+// Thumbnail is one rendered slide image, as produced by the Slides
 // renderer — the ground truth for fidelity calibration against the HTML
 // screenshots.
 type Thumbnail struct {

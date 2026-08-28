@@ -7,7 +7,7 @@ import (
 )
 
 // TestPushE2E pushes the demo deck to a real Google Slides presentation.
-// It needs Chrome plus Google credentials, so it only runs when
+// It needs Chrome plus Slides credentials, so it only runs when
 // DECKGEN_E2E=1. The created presentation is left in place for inspection;
 // its URL is printed to stdout.
 func TestPushE2E(t *testing.T) {

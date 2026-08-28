@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/gslides"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // The HTML deck contract: sections are 1600x900 CSS px, so px == design

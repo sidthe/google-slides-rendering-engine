@@ -4,7 +4,7 @@
 package demo
 
 import (
-	deck "github.com/sidthe/google-slides-rendering-engine"
+	deck "github.com/deck-engine/deck-engine"
 )
 
 // Build returns the demo deck.

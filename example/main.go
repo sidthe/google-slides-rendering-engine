@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/sidthe/google-slides-rendering-engine/internal/demo"
+	"github.com/deck-engine/deck-engine/internal/demo"
 )
 
 func main() {

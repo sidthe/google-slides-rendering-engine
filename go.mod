@@ -1,3 +1,3 @@
-module github.com/sidthe/google-slides-rendering-engine
+module github.com/deck-engine/deck-engine
 
 go 1.25.0

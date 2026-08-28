@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/gslides"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // TestGoldenFeatures covers the Tier 1+2 additions: nested bullets and

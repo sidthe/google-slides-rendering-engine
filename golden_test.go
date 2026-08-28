@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/sidthe/google-slides-rendering-engine/internal/demo"
+	"github.com/deck-engine/deck-engine/internal/demo"
 )
 
 // TestGoldenPackage byte-compares every part of the demo deck's package

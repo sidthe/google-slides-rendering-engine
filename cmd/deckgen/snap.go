@@ -6,11 +6,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/sidthe/google-slides-rendering-engine/cmd/deckgen/internal/gauth"
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
+	"github.com/deck-engine/deck-engine/cmd/deckgen/internal/gauth"
+	"github.com/deck-engine/deck-engine/gslides"
 )
 
-// runSnap downloads Google's own PNG renders of a pushed presentation —
+// runSnap downloads PNG renders of a pushed presentation —
 // the ground truth to compare against `deckgen screenshot` output when
 // calibrating fidelity.
 func runSnap(ctx context.Context, presentationID, outDir, oauthClient string) error {

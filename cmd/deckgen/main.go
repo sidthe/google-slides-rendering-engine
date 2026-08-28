@@ -20,10 +20,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sidthe/google-slides-rendering-engine/cmd/deckgen/internal/htmlconv"
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
-	"github.com/sidthe/google-slides-rendering-engine/ir"
-	"github.com/sidthe/google-slides-rendering-engine/pptx"
+	"github.com/deck-engine/deck-engine/cmd/deckgen/internal/htmlconv"
+	"github.com/deck-engine/deck-engine/gslides"
+	"github.com/deck-engine/deck-engine/ir"
+	"github.com/deck-engine/deck-engine/pptx"
 )
 
 func main() {
@@ -74,7 +74,7 @@ usage:
   deckgen push       deck.html [-title T] [-oauth-client client_secret.json]
   deckgen import     deck.html [-title T] [-o out.pptx] [-reauth]
                                                build for, upload to, and convert in Google Slides
-  deckgen snap       <presentationId> [-o shots-slides/]   download Google's renders of a pushed deck
+  deckgen snap       <presentationId> [-o shots-slides/]   download Slides renders of a pushed deck
 `)
 }
 
@@ -145,7 +145,7 @@ func runBuild(ctx context.Context, htmlPath, out, target string) error {
 		return err
 	}
 	switch target {
-	case "google-slides", "google", "slides":
+	case "google-slides", "slides":
 		err = pptx.WriteGoogleSlides(out, d)
 	case "powerpoint", "pptx":
 		err = pptx.Write(out, d)

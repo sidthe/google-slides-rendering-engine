@@ -3,7 +3,7 @@ package pptx
 import (
 	"fmt"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // ThemeXML renders the OOXML theme part for t.

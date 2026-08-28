@@ -2,8 +2,7 @@
 """
 Secret & PII scanner — the enforcement behind the "nothing leaks to GitHub" rule.
 
-Used by git hooks (pre-commit / pre-push), by CI, and by the Claude Code
-PreToolUse hook that gates git push / commit / gh commands.
+Used by git hooks (pre-commit / pre-push) and CI.
 
 Modes:
     --staged            scan staged changes            (pre-commit)
@@ -54,7 +53,7 @@ RULES: list[Rule] = [
     Rule("github-fine-grained-pat", re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,}\b"), "secret"),
     Rule("anthropic-api-key", re.compile(r"\bsk-ant-[A-Za-z0-9\-_]{20,}\b"), "secret"),
     Rule("openai-api-key", re.compile(r"\bsk-(?:proj-)?[A-Za-z0-9]{32,}\b"), "secret"),
-    Rule("google-api-key", re.compile(r"\bAIza[0-9A-Za-z\-_]{35}\b"), "secret"),
+    Rule("api-key-prefix", re.compile(r"\bAIza[0-9A-Za-z\-_]{35}\b"), "secret"),
     Rule("slack-token", re.compile(r"\bxox[baprs]-[A-Za-z0-9\-]{10,}\b"), "secret"),
     Rule("stripe-live-key", re.compile(r"\b(?:sk|rk)_live_[A-Za-z0-9]{20,}\b"), "secret"),
     Rule("npm-token", re.compile(r"\bnpm_[A-Za-z0-9]{36}\b"), "secret"),
@@ -88,7 +87,7 @@ PLACEHOLDER_VALUES = re.compile(
 # Domains that are reserved for documentation or are non-identifying.
 SAFE_EMAIL_DOMAINS = (
     "example.com", "example.org", "example.net", "test.com", "localhost",
-    "users.noreply.github.com", "noreply.github.com", "sentry.io", "email.com",
+    "sentry.io", "email.com",
 )
 SAFE_EMAIL_LOCALPARTS = ("noreply", "no-reply", "you", "your", "user", "someone", "me", "test", "email")
 
@@ -98,7 +97,7 @@ SKIP_PATH_GLOBS = (
     "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.ico", "*.pdf", "*.zip",
     "*.gz", "*.tar", "*.woff", "*.woff2", "*.ttf", "*.eot", "*.mp4", "*.mov",
     "*.wasm", "*.so", "*.dylib", "*.dll", "*.class", "*.jar",
-    "package-lock.json", "*/package-lock.json", "go.sum", "*/go.sum",
+    "package-lock.json", "*/package-lock.json",
     "*.min.js", "*.min.css", "*.map",
 )
 
@@ -107,7 +106,10 @@ FORBIDDEN_FILE_GLOBS = (
     ".env", "*/.env", ".env.*", "*/.env.*",
     "*.pem", "*.key", "*.p12", "*.pfx", "*.keystore", "*.jks",
     "id_rsa", "id_dsa", "id_ecdsa", "id_ed25519", "*/id_rsa", "*/id_ed25519",
-    ".npmrc", "*/.npmrc", ".pypirc", "credentials.json", "*/credentials.json",
+    ".npmrc", "*/.npmrc", ".pypirc", ".netrc", "*/.netrc",
+    ".aws/credentials", "*/.aws/credentials", "credentials.json", "*/credentials.json",
+    "client_secret*.json", "*/client_secret*.json", "token.json", "*/token.json",
+    "tokens.json", "*/tokens.json",
     "service-account*.json", "*/service-account*.json",
 )
 FORBIDDEN_FILE_EXCEPTIONS = (".env.example", ".env.sample", ".env.template", "*/.env.example", "*/.env.sample")
@@ -346,6 +348,15 @@ def revision_diff(revision: str) -> str:
     return sh(["git", "show", "--unified=0", "--format=", revision])
 
 
+def scan_commit_metadata(revision: str, allowlist: list[str]) -> list[Finding]:
+    """Scan author, committer and message metadata exposed by public history."""
+    metadata = sh([
+        "git", "show", "-s", "--format=author: %an <%ae>%ncommitter: %cn <%ce>%n%n%B",
+        revision,
+    ])
+    return scan_text(f"commit:{revision}", metadata, allowlist)
+
+
 def policy_path(repo_root: str, path: str) -> str:
     """Make explicit paths comparable with repository-relative policy globs."""
     if not os.path.isabs(path):
@@ -391,6 +402,9 @@ def main() -> int:
         paths = changed_paths(args.range)
         findings += check_forbidden_files(paths, policy)
         findings += scan_diff(revision_diff(args.range), allowlist)
+        revs = [r for r in sh(["git", "rev-list", args.range]).splitlines() if r]
+        for rev in revs:
+            findings += scan_commit_metadata(rev, allowlist)
         scanned = f"{len(paths)} file(s) in {args.range}"
 
     elif args.files:
@@ -418,6 +432,7 @@ def main() -> int:
         for rev in revs:
             findings += check_forbidden_files(changed_paths(rev), policy)
             findings += scan_diff(revision_diff(rev), allowlist)
+            findings += scan_commit_metadata(rev, allowlist)
         scanned = f"{len(revs)} commit(s) of history"
 
     # Deduplicate: the same literal repeated is one problem, not twenty.

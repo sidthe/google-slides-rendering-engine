@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	deck "github.com/sidthe/google-slides-rendering-engine"
-	"github.com/sidthe/google-slides-rendering-engine/gslides"
+	deck "github.com/deck-engine/deck-engine"
+	"github.com/deck-engine/deck-engine/gslides"
 )
 
 func TestPushEndpointsAndChunking(t *testing.T) {

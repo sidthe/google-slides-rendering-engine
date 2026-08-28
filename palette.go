@@ -26,9 +26,8 @@ const (
 	WHITE   = "FFFFFF"
 	DARK    = "1E1E1E" // code block background
 	CODET   = "D4D4D4" // code text
-	// FONT is "Roboto" (not "Google Sans") so text renders with the intended
-	// face for regular Google Slides users; Google Sans is not selectable
-	// there and silently falls back to Arial.
+	// FONT is Roboto so text renders consistently in Google Slides and through
+	// the public API.
 	FONT = "Roboto"
 	MONO = "Roboto Mono"
 )

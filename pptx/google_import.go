@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // Google Slides imports widescreen PPTX files onto its fixed 10in x 5.625in

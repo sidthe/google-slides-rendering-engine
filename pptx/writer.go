@@ -10,7 +10,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // Geometry: the 1600x900 design grid mapped onto a 16:9 slide.

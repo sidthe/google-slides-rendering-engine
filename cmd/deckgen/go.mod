@@ -1,11 +1,11 @@
-module github.com/sidthe/google-slides-rendering-engine/cmd/deckgen
+module github.com/deck-engine/deck-engine/cmd/deckgen
 
 go 1.27.0
 
 require (
 	github.com/chromedp/cdproto v0.0.0-20260714215040-dc233986426f
 	github.com/chromedp/chromedp v0.16.0
-	github.com/sidthe/google-slides-rendering-engine v0.0.0
+	github.com/deck-engine/deck-engine v0.0.0
 	golang.org/x/oauth2 v0.36.0
 )
 
@@ -19,4 +19,4 @@ require (
 	golang.org/x/sys v0.47.0 // indirect
 )
 
-replace github.com/sidthe/google-slides-rendering-engine => ../..
+replace github.com/deck-engine/deck-engine => ../..

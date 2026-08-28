@@ -47,7 +47,7 @@ func session(ctx context.Context, htmlPath string, fn func(ctx context.Context) 
 	)
 	if err != nil {
 		if strings.Contains(err.Error(), "executable file not found") {
-			return fmt.Errorf("headless Chrome/Chromium not found — install Google Chrome, or point DECKGEN_CHROME at a chrome binary: %w", err)
+			return fmt.Errorf("headless Chrome/Chromium not found — install Chrome, or point DECKGEN_CHROME at a chrome binary: %w", err)
 		}
 		return err
 	}

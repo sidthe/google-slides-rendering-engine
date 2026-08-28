@@ -8,7 +8,7 @@ import (
 	"math"
 	"strings"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 // Group is an atomic run of requests for one object (create + text +

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sidthe/google-slides-rendering-engine/ir"
+	"github.com/deck-engine/deck-engine/ir"
 )
 
 func TestWriteGoogleSlidesScalesCanvasAndPointMagnitudes(t *testing.T) {
