@@ -64,12 +64,27 @@
   // paragraphs of styled runs. Nested block elements are skipped (the main
   // walk emits them separately); <br> starts a new paragraph.
   const collectParas = (el, crossBlocks) => {
+    const elCs = getComputedStyle(el);
+    const isPre = elCs.whiteSpace.startsWith("pre") || el.tagName === "PRE" || el.tagName === "CODE" || el.classList.contains("code") || elCs.fontFamily.toLowerCase().includes("mono");
     const paras = [];
     let runs = [];
     const flush = () => { paras.push({ runs }); runs = []; };
     const add = (text, style) => {
-      text = text.replace(/\s+/g, " ");
-      if (!text.trim()) return;
+      if (isPre) {
+        text = text.replace(/\r\n/g, "\n");
+        const parts = text.split("\n");
+        for (let i = 0; i < parts.length; i++) {
+          if (i > 0) flush();
+          if (parts[i].length > 0) {
+            const last = runs[runs.length - 1];
+            if (last && sameStyle(last.style, style)) last.text += parts[i];
+            else runs.push({ text: parts[i], style });
+          }
+        }
+        return;
+      }
+      text = text.replace(/[ \t\r\n]+/g, " ");
+      if (!text.replace(/[ \t\r\n]+/g, "").length && !text.includes("\u00a0")) return;
       const last = runs[runs.length - 1];
       if (last && sameStyle(last.style, style)) last.text += text;
       else runs.push({ text, style });
@@ -87,14 +102,14 @@
         rec(c, runStyle(ccs, clink), clink);
       }
     };
-    rec(el, runStyle(getComputedStyle(el), ""), "");
+    rec(el, runStyle(elCs, ""), "");
     flush();
-    // trim leading/trailing spaces produced by whitespace collapsing
+    // trim leading/trailing spaces produced by whitespace collapsing in non-pre text
     for (const p of paras) {
-      if (p.runs.length) {
-        p.runs[0].text = p.runs[0].text.replace(/^ +/, "");
+      if (p.runs.length && !isPre) {
+        p.runs[0].text = p.runs[0].text.replace(/^[ \t\r\n]+/, "");
         const last = p.runs[p.runs.length - 1];
-        last.text = last.text.replace(/ +$/, "");
+        last.text = last.text.replace(/[ \t\r\n]+$/, "");
       }
       p.runs = p.runs.filter((r) => r.text.length);
     }
@@ -103,9 +118,11 @@
 
   // hasDirectInlineText: does el own text that no nested block claims?
   const hasDirectInlineText = (el) => {
+    const elCs = getComputedStyle(el);
+    const isPre = elCs.whiteSpace.startsWith("pre") || el.tagName === "PRE" || el.tagName === "CODE" || el.classList.contains("code") || elCs.fontFamily.toLowerCase().includes("mono");
     const rec = (node) => {
       for (const c of node.childNodes) {
-        if (c.nodeType === Node.TEXT_NODE && c.textContent.trim()) return true;
+        if (c.nodeType === Node.TEXT_NODE && (c.textContent.trim() || c.textContent.includes("\u00a0") || (isPre && c.textContent.length))) return true;
         if (c.nodeType !== Node.ELEMENT_NODE || SKIP_TAGS.has(c.tagName) || MEDIA_TAGS.has(c.tagName)) continue;
         const ccs = getComputedStyle(c);
         if (ccs.display === "none" || ccs.visibility === "hidden") continue;
@@ -124,6 +141,8 @@
   // inside a card (for example, <b>Label</b>body), which makes native Slides
   // overlay the two text boxes.
   const inlineTextRect = (el) => {
+    const elCs = getComputedStyle(el);
+    const isPre = elCs.whiteSpace.startsWith("pre") || el.tagName === "PRE" || el.tagName === "CODE" || el.classList.contains("code") || elCs.fontFamily.toLowerCase().includes("mono");
     let left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
     const add = (rect) => {
       if (!rect || rect.width <= 0 || rect.height <= 0) return;
@@ -131,7 +150,7 @@
       right = Math.max(right, rect.right); bottom = Math.max(bottom, rect.bottom);
     };
     const addText = (node) => {
-      if (!node.textContent.trim()) return;
+      if (!node.textContent.trim() && !node.textContent.includes("\u00a0") && (!isPre || !node.textContent.length)) return;
       const range = document.createRange();
       range.selectNode(node);
       for (const rect of range.getClientRects()) add(rect);
