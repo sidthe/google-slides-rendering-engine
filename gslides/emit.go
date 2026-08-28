@@ -213,6 +213,13 @@ func emitText(slideID, id string, v ir.Text) []Request {
 	// the way the PPTX writer does, so grow the frame by the default insets
 	// to land the text itself on the grid position.
 	w := emu(v.W) + 2*insetLR
+	// Chrome's painted text bounds are exact, but Slides can need a little
+	// more width for the same Roboto run. Add right-side slack to left-aligned
+	// text only: titles and body copy avoid spurious wrapping while centered
+	// diagram labels keep their visual center.
+	if v.WrapSlack && isLeftAligned(v.Paras) {
+		w += emu(v.W * 0.12)
+	}
 	h := emu(v.H) + 2*insetTB
 	px, py := emu(v.X)-insetLR, emu(v.Y)-insetTB
 	tr := &AffineTransform{ScaleX: 1, ScaleY: 1, TranslateX: px, TranslateY: py, Unit: "EMU"}
@@ -243,6 +250,10 @@ func emitText(slideID, id string, v ir.Text) []Request {
 		}},
 	}
 	return append(reqs, textRequests(id, nil, v.Paras, v.DefSize, v.DefColor, v.DefFont, true)...)
+}
+
+func isLeftAligned(paras []ir.Para) bool {
+	return len(paras) == 0 || paras[0].Align == "" || paras[0].Align == "l"
 }
 
 func emitLine(slideID, id string, v ir.Line) []Request {
@@ -387,6 +398,12 @@ func emitTable(slideID, id string, v ir.Table) []Request {
 	for ri, row := range v.Rows {
 		for ci, c := range row {
 			loc := &TableCellLocation{RowIndex: ri, ColumnIndex: ci}
+			fill := solid(c.Fill)
+			fields := "tableCellBackgroundFill.solidFill.color"
+			if c.Fill == "" {
+				fill = transparentFill()
+				fields += ",tableCellBackgroundFill.solidFill.alpha"
+			}
 			reqs = append(reqs, Request{UpdateTableCellProperties: &UpdateTableCellPropertiesRequest{
 				ObjectID: id,
 				TableRange: &TableRange{
@@ -395,9 +412,9 @@ func emitTable(slideID, id string, v ir.Table) []Request {
 					ColumnSpan: 1,
 				},
 				TableCellProperties: &TableCellProperties{
-					TableCellBackgroundFill: &TableCellBackgroundFill{SolidFill: solid(c.Fill)},
+					TableCellBackgroundFill: &TableCellBackgroundFill{SolidFill: fill},
 				},
-				Fields: "tableCellBackgroundFill.solidFill.color",
+				Fields: fields,
 			}})
 			reqs = append(reqs, textRequests(id, loc, c.Paras, v.DefSize, "", "", true)...)
 		}

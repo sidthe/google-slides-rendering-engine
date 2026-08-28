@@ -117,6 +117,38 @@
     return rec(el);
   };
 
+  // inlineTextRect returns the painted bounds of text owned by el: direct
+  // text nodes plus inline descendants. A block child is emitted separately
+  // by walk(), so it must not enlarge this frame. Using el's full box here
+  // loses the text's CSS position when a block label precedes direct text
+  // inside a card (for example, <b>Label</b>body), which makes native Slides
+  // overlay the two text boxes.
+  const inlineTextRect = (el) => {
+    let left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
+    const add = (rect) => {
+      if (!rect || rect.width <= 0 || rect.height <= 0) return;
+      left = Math.min(left, rect.left); top = Math.min(top, rect.top);
+      right = Math.max(right, rect.right); bottom = Math.max(bottom, rect.bottom);
+    };
+    const addText = (node) => {
+      if (!node.textContent.trim()) return;
+      const range = document.createRange();
+      range.selectNode(node);
+      for (const rect of range.getClientRects()) add(rect);
+    };
+    const rec = (node) => {
+      for (const c of node.childNodes) {
+        if (c.nodeType === Node.TEXT_NODE) { addText(c); continue; }
+        if (c.nodeType !== Node.ELEMENT_NODE || SKIP_TAGS.has(c.tagName) || MEDIA_TAGS.has(c.tagName)) continue;
+        const ccs = getComputedStyle(c);
+        if (ccs.display === "none" || ccs.visibility === "hidden" || !isInline(ccs)) continue;
+        rec(c);
+      }
+    };
+    rec(el);
+    return Number.isFinite(left) ? { left, top, right, bottom, width: right - left, height: bottom - top } : null;
+  };
+
   const flatRuns = (paras) =>
     paras.map((p) => ({
       bullet: p.bullet || "",
@@ -410,10 +442,11 @@
         if (b.fill || b.border) elements.push(b);
         if (hasDirectInlineText(el)) {
           const paras = collectParas(el, false);
+          const textRect = inlineTextRect(el);
           if (paras.length) {
             elements.push({
               kind: "text",
-              ...r,
+              ...(textRect ? rel(textRect) : r),
               align: alignOf(cs),
               spacing: spacingOf(cs),
               fontSize: round(px(cs.fontSize)),
@@ -424,7 +457,12 @@
           }
         }
       }
-      for (const c of el.children) walk(c);
+      // Inline descendants are already preserved as rich runs in their
+      // parent's text box. Walking them again duplicates text in native
+      // output; block descendants retain independent CSS geometry.
+      for (const c of el.children) {
+        if (!isInline(getComputedStyle(c))) walk(c);
+      }
     };
 
     for (const c of section.children) walk(c);

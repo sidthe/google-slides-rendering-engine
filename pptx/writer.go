@@ -42,6 +42,13 @@ func Write(path string, d *ir.Deck) error {
 
 // WriteTo streams the .pptx package to w.
 func WriteTo(w io.Writer, d *ir.Deck) error {
+	return writeTo(w, d, slideW, slideH)
+}
+
+// writeTo streams a package with an explicit canvas size. The regular
+// PowerPoint writer uses the conventional 13.333in widescreen canvas. The
+// Google-import writer below uses Slides' native 10in canvas instead.
+func writeTo(w io.Writer, d *ir.Deck, canvasW, canvasH int) error {
 	z := zip.NewWriter(w)
 	add := func(name, content string) error {
 		zw, err := z.Create(name)
@@ -112,7 +119,7 @@ func WriteTo(w io.Writer, d *ir.Deck) error {
 <p:sldMasterIdLst><p:sldMasterId id="2147483648" r:id="rIdM"/></p:sldMasterIdLst>%s
 <p:sldIdLst>%s</p:sldIdLst>
 <p:sldSz cx="%d" cy="%d"/><p:notesSz cx="%d" cy="%d"/>
-</p:presentation>`, notesMasterList, sldIds.String(), slideW, slideH, slideH, slideW))
+</p:presentation>`, notesMasterList, sldIds.String(), canvasW, canvasH, canvasH, canvasW))
 
 	// minimal theme
 	add("ppt/theme/theme1.xml", ThemeXML(d.Theme))

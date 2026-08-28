@@ -116,6 +116,17 @@ func TestMapScenesShapes(t *testing.T) {
 	}
 }
 
+func TestMapTextOnlyAddsWrapSlackToOneVisualLine(t *testing.T) {
+	oneLine := mapText(Element{Kind: "text", W: 220, H: 28, FontSize: 24})
+	if !oneLine.WrapSlack {
+		t.Fatal("single visual line should retain native-renderer wrap slack")
+	}
+	twoLines := mapText(Element{Kind: "text", W: 800, H: 108, FontSize: 48})
+	if twoLines.WrapSlack {
+		t.Fatal("multi-line visual text must not gain width and unwrap after import")
+	}
+}
+
 // TestExtractLive runs the real Chrome extraction; skipped when Chrome is
 // unavailable or DECKGEN_SKIP_CHROME is set.
 func TestExtractLive(t *testing.T) {
