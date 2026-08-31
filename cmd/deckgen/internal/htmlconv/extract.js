@@ -60,23 +60,100 @@
     a.underline === b.underline && a.strike === b.strike &&
     a.size === b.size && a.font === b.font && a.link === b.link;
 
+  // ---- CSS white-space processing model ----
+  //
+  // The extractor mirrors what Chrome paints, so white space is handled the
+  // way CSS defines it rather than by collapsing everything. CSS splits the
+  // behaviour into two switches, which Chrome exposes on the
+  // white-space-collapse longhand; the shorthand is the fallback for older
+  // builds. white-space inherits, so a <span> inside a <pre> reports
+  // "preserve" with no special case.
+  const WS_MODES = {
+    "collapse":        { spaces: false, breaks: false },
+    "preserve":        { spaces: true,  breaks: true  },
+    "preserve-breaks": { spaces: false, breaks: true  },
+    "preserve-spaces": { spaces: true,  breaks: false },
+    "break-spaces":    { spaces: true,  breaks: true  },
+  };
+  const WS_SHORTHAND = {
+    "normal": "collapse", "nowrap": "collapse",
+    "pre": "preserve", "pre-wrap": "preserve",
+    "pre-line": "preserve-breaks", "break-spaces": "break-spaces",
+  };
+  // Collapsible white space per CSS Text: space, tab, LF, CR, FF. U+00A0 is
+  // deliberately absent — CSS never collapses it, though JS \s and trim() do.
+  const WS_RUN = /[ \t\r\n\f]+/g;
+  const wsOf = (cs) =>
+    WS_MODES[cs.whiteSpaceCollapse] ||
+    WS_MODES[WS_SHORTHAND[cs.whiteSpace]] ||
+    WS_MODES.collapse;
+
+  // hasContent: does a text node carry anything Chrome would paint? Under a
+  // space-preserving parent every character counts; otherwise a character
+  // outside the collapsible set is needed. NBSP counts either way.
+  const hasContent = (text, ws) =>
+    ws.spaces ? text.length > 0 : text.replace(WS_RUN, "").length > 0;
+
+  // collapseParagraph applies the collapsing that cannot be done per text
+  // node: Chrome collapses a space ending one run against a space starting
+  // the next, and drops white space at both ends of the line. Runs that came
+  // from a preserving context are left alone.
+  const collapseParagraph = (runs) => {
+    let prevSpace = true; // start of line: leading white space is dropped
+    let seen = false;     // any non-space content yet?
+    for (const r of runs) {
+      if (!r.collapsible) { prevSpace = false; seen = true; continue; }
+      if (prevSpace) r.text = r.text.replace(/^ +/, "");
+      if (r.text.length) {
+        prevSpace = r.text.endsWith(" ");
+        if (r.text.replace(WS_RUN, "").length) seen = true;
+      }
+      if (!seen) prevSpace = true;
+    }
+    // trailing white space at the end of the line
+    for (let i = runs.length - 1; i >= 0; i--) {
+      const r = runs[i];
+      if (!r.collapsible) break;
+      r.text = r.text.replace(/ +$/, "");
+      if (r.text.length) break;
+    }
+    return runs.filter((r) => r.text.length);
+  };
+
   // collectParas gathers the inline content of a block element as
   // paragraphs of styled runs. Nested block elements are skipped (the main
   // walk emits them separately); <br> starts a new paragraph.
   const collectParas = (el, crossBlocks) => {
+    const elCs = getComputedStyle(el);
+    const elWs = wsOf(elCs);
     const paras = [];
     let runs = [];
     const flush = () => { paras.push({ runs }); runs = []; };
-    const add = (text, style) => {
-      text = text.replace(/\s+/g, " ");
-      if (!text.trim()) return;
+    const push = (text, style, ws) => {
+      if (!text.length) return;
       const last = runs[runs.length - 1];
-      if (last && sameStyle(last.style, style)) last.text += text;
-      else runs.push({ text, style });
+      if (last && last.collapsible === !ws.spaces && sameStyle(last.style, style)) last.text += text;
+      else runs.push({ text, style, collapsible: !ws.spaces });
     };
-    const rec = (node, style, link) => {
+    const add = (text, style, ws) => {
+      if (!ws.breaks) {
+        // segment breaks collapse into spaces alongside tabs and space runs
+        push(text.replace(WS_RUN, " "), style, ws);
+        return;
+      }
+      let t = text.replace(/\r\n?/g, "\n");
+      if (!ws.spaces) {
+        t = t.replace(/[ \t\f]+/g, " ").replace(/ *\n */g, "\n");
+      }
+      const lines = t.split("\n");
+      for (let i = 0; i < lines.length; i++) {
+        if (i > 0) flush();
+        if (lines[i].length) push(lines[i], style, ws);
+      }
+    };
+    const rec = (node, style, link, ws) => {
       for (const c of node.childNodes) {
-        if (c.nodeType === Node.TEXT_NODE) { add(c.textContent, style); continue; }
+        if (c.nodeType === Node.TEXT_NODE) { add(c.textContent, style, ws); continue; }
         if (c.nodeType !== Node.ELEMENT_NODE || SKIP_TAGS.has(c.tagName) && c.tagName !== "BR") continue;
         if (c.tagName === "BR") { flush(); continue; }
         if (MEDIA_TAGS.has(c.tagName)) continue;
@@ -84,37 +161,37 @@
         if (ccs.display === "none" || ccs.visibility === "hidden") continue;
         if (!crossBlocks && !isInline(ccs)) continue; // nested block: emitted separately
         const clink = c.tagName === "A" && c.getAttribute("href") ? c.href : link;
-        rec(c, runStyle(ccs, clink), clink);
+        rec(c, runStyle(ccs, clink), clink, wsOf(ccs));
       }
     };
-    rec(el, runStyle(getComputedStyle(el), ""), "");
+    rec(el, runStyle(elCs, ""), "", elWs);
     flush();
-    // trim leading/trailing spaces produced by whitespace collapsing
     for (const p of paras) {
-      if (p.runs.length) {
-        p.runs[0].text = p.runs[0].text.replace(/^ +/, "");
-        const last = p.runs[p.runs.length - 1];
-        last.text = last.text.replace(/ +$/, "");
-      }
-      p.runs = p.runs.filter((r) => r.text.length);
+      p.runs = collapseParagraph(p.runs);
+      for (const r of p.runs) delete r.collapsible;
     }
-    return paras.filter((p) => p.runs.length);
+    if (!elWs.breaks) return paras.filter((p) => p.runs.length);
+    // Preserved breaks: blank lines are content and must survive. Chrome
+    // removes a single segment break at the end of a block, so a pre block
+    // whose text ends in a newline is not one line taller.
+    if (paras.length > 1 && !paras[paras.length - 1].runs.length) paras.pop();
+    return paras;
   };
 
   // hasDirectInlineText: does el own text that no nested block claims?
   const hasDirectInlineText = (el) => {
-    const rec = (node) => {
+    const rec = (node, ws) => {
       for (const c of node.childNodes) {
-        if (c.nodeType === Node.TEXT_NODE && c.textContent.trim()) return true;
+        if (c.nodeType === Node.TEXT_NODE && hasContent(c.textContent, ws)) return true;
         if (c.nodeType !== Node.ELEMENT_NODE || SKIP_TAGS.has(c.tagName) || MEDIA_TAGS.has(c.tagName)) continue;
         const ccs = getComputedStyle(c);
         if (ccs.display === "none" || ccs.visibility === "hidden") continue;
         if (!isInline(ccs)) continue;
-        if (rec(c)) return true;
+        if (rec(c, wsOf(ccs))) return true;
       }
       return false;
     };
-    return rec(el);
+    return rec(el, wsOf(getComputedStyle(el)));
   };
 
   // inlineTextRect returns the painted bounds of text owned by el: direct
@@ -130,22 +207,22 @@
       left = Math.min(left, rect.left); top = Math.min(top, rect.top);
       right = Math.max(right, rect.right); bottom = Math.max(bottom, rect.bottom);
     };
-    const addText = (node) => {
-      if (!node.textContent.trim()) return;
+    const addText = (node, ws) => {
+      if (!hasContent(node.textContent, ws)) return;
       const range = document.createRange();
       range.selectNode(node);
       for (const rect of range.getClientRects()) add(rect);
     };
-    const rec = (node) => {
+    const rec = (node, ws) => {
       for (const c of node.childNodes) {
-        if (c.nodeType === Node.TEXT_NODE) { addText(c); continue; }
+        if (c.nodeType === Node.TEXT_NODE) { addText(c, ws); continue; }
         if (c.nodeType !== Node.ELEMENT_NODE || SKIP_TAGS.has(c.tagName) || MEDIA_TAGS.has(c.tagName)) continue;
         const ccs = getComputedStyle(c);
         if (ccs.display === "none" || ccs.visibility === "hidden" || !isInline(ccs)) continue;
-        rec(c);
+        rec(c, wsOf(ccs));
       }
     };
-    rec(el);
+    rec(el, wsOf(getComputedStyle(el)));
     return Number.isFinite(left) ? { left, top, right, bottom, width: right - left, height: bottom - top } : null;
   };
 
