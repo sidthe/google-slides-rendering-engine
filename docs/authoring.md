@@ -110,6 +110,37 @@ number tiles instead of pie and donut charts.
 Tables convert natively. Keep cell text short, right-align numeric cells, and
 leave enough vertical space because Slides can grow a row when text overflows.
 
+## Code blocks
+
+Use `<pre class="code">` for code, manifests and anything whose indentation
+carries meaning. The `.code` class sets `white-space: pre-wrap`, so line
+breaks, indentation and blank lines are kept exactly as written and reach the
+deck unchanged. Colour syntax with nested `<span>` elements; they inherit the
+white-space handling.
+
+```html
+<pre class="code" style="left:80px; top:180px; width:720px; height:420px;">
+<span style="color:#569CD6">spec</span>:
+  <span style="color:#9CDCFE">selector</span>:
+    <span style="color:#9CDCFE">matchLabels</span>:
+      <span style="color:#CE9178">compute-class</span>: prefer-n4
+</pre>
+```
+
+Write the code flush against the left edge of the file. Indentation in the
+source becomes indentation on the slide.
+
+Do not pad with `&nbsp;`. Real spaces work now, and a non-breaking space is
+kept verbatim, so the two together double the indent.
+
+`<div class="code">` also works, but the HTML parser keeps a newline that
+directly follows the opening tag, which Chrome paints as a blank first line.
+`<pre>` drops it. That is the only difference between the two forms.
+
+Everywhere else white space collapses the way CSS specifies it: runs of
+spaces, tabs and newlines become one space, and space at the start or end of
+a line is dropped. A non-breaking space is never collapsed, in any element.
+
 ## Visual design rules
 
 1. Use the palette variables from `assets/deck.css`: `--ink`, `--ink-2`,
