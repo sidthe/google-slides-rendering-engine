@@ -15,6 +15,10 @@ import (
 // Regenerate with:
 //
 //	deckgen check examples/features.html -scene cmd/deckgen/internal/htmlconv/testdata/features-scene.json
+//
+// Roboto and Roboto Mono must be installed locally before regenerating.
+// The stylesheet names them with no @font-face, so Chrome silently falls
+// back and bakes the wrong text metrics into the fixture.
 func TestMapScenesFeatures(t *testing.T) {
 	b, err := os.ReadFile(filepath.Join("testdata", "features-scene.json"))
 	if err != nil {

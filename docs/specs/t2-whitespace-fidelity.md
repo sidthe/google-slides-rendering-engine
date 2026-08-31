@@ -227,10 +227,10 @@ when Chrome is absent, following the existing `TestExtractLive` pattern.
 - **Decks authored around the bug.** A deck that inserted `&nbsp;` to work
   around collapsed spacing now gets both the NBSP and the real space. This
   is a correction, but it changes existing output.
-- **Google Slides import of leading spaces is not verified here.** The PPTX
-  carries them in `<a:t>`; whether Slides preserves leading spaces on import
-  needs a `deckgen import` run against a real account, which needs
-  credentials this workspace does not have. Left open.
+- **Google Slides import of leading spaces: verified, closed.** The PPTX
+  carries them in `<a:t>`, and a real import on 2026-08-31 kept them. Code
+  blocks indent correctly in Slides with plain spaces, so no NBSP padding is
+  needed in the writer.
 - **`white-space-collapse` support.** Chrome 114 and later expose the
   longhand. The shorthand fallback covers older builds, and
   `preserve-spaces` has no shorthand spelling, so it is reachable only via

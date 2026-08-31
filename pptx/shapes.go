@@ -7,6 +7,7 @@ package pptx
 
 import (
 	"fmt"
+	"math"
 	"strings"
 
 	"github.com/deck-engine/deck-engine/ir"
@@ -176,7 +177,7 @@ func textXML(v ir.Text, id int, rels *slideRels) string {
 		if len(p.Runs) == 0 {
 			// size the blank spacer line like the surrounding text; without an
 			// explicit sz it inherits the 18pt default and inflates the block
-			body.WriteString(fmt.Sprintf(`<a:endParaRPr lang="en-US" sz="%d"/>`, int(v.DefSize*100)))
+			body.WriteString(fmt.Sprintf(`<a:endParaRPr lang="en-US" sz="%d"/>`, int(math.Round(v.DefSize*100))))
 		}
 		for _, r := range p.Runs {
 			size := v.DefSize
@@ -198,7 +199,7 @@ func textXML(v ir.Text, id int, rels *slideRels) string {
 			i, u, st := runAttrs(r)
 			body.WriteString(fmt.Sprintf(
 				`<a:r><a:rPr lang="en-US" sz="%d" b="%s"%s%s%s dirty="0"><a:solidFill><a:srgbClr val="%s"/></a:solidFill><a:latin typeface="%s"/><a:cs typeface="%s"/>%s</a:rPr><a:t>%s</a:t></a:r>`,
-				int(size*100), b, i, u, st, color, esc(font), esc(font), linkXML(r, rels), esc(r.Text)))
+				int(math.Round(size*100)), b, i, u, st, color, esc(font), esc(font), linkXML(r, rels), esc(r.Text)))
 		}
 		body.WriteString("</a:p>")
 	}
@@ -340,7 +341,7 @@ func tableXML(v ir.Table, id int, rels *slideRels) string {
 					i, u, st := runAttrs(r)
 					sb.WriteString(fmt.Sprintf(
 						`<a:r><a:rPr lang="en-US" sz="%d" b="%s"%s%s%s><a:solidFill><a:srgbClr val="%s"/></a:solidFill><a:latin typeface="%s"/>%s</a:rPr><a:t>%s</a:t></a:r>`,
-						int(size*100), b, i, u, st, r.Color, r.Font, linkXML(r, rels), esc(r.Text)))
+						int(math.Round(size*100)), b, i, u, st, r.Color, r.Font, linkXML(r, rels), esc(r.Text)))
 				}
 				sb.WriteString("</a:p>")
 			}

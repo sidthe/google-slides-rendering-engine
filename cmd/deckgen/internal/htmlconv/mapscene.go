@@ -2,6 +2,7 @@ package htmlconv
 
 import (
 	"fmt"
+	"math"
 	"strings"
 
 	"github.com/deck-engine/deck-engine/gslides"
@@ -12,6 +13,13 @@ import (
 // grid units 1:1. Point values differ: the 1600-unit slide is 13.333in wide
 // (120 px/in), so 1 CSS px = 72/120 = 0.6 pt.
 const pxToPt = 0.6
+
+// pt converts CSS px to points, rounded to 2dp. Binary floating point makes
+// the raw product ragged: a 23px font lands a hair under 13.8, carrying
+// seventeen significant digits. The PPTX writer emits sizes as int(pt*100),
+// so an unrounded value truncates one hundredth low. Rounding here keeps the
+// golden fixtures readable; shapes.go rounds again at the point of emission.
+func pt(px float64) float64 { return math.Round(px*pxToPt*100) / 100 }
 
 // Palette fallbacks matching the root package's defaults, used where HTML
 // gave no color.
@@ -55,13 +63,13 @@ func MapScenes(res *Result) (*ir.Deck, []string) {
 			case "line":
 				slide.Shapes = append(slide.Shapes, ir.Line{
 					X1: el.X1, Y1: el.Y1, X2: el.X2, Y2: el.Y2,
-					Color: el.Color, Wpt: el.WidthPx * pxToPt,
+					Color: el.Color, Wpt: pt(el.WidthPx),
 					Arrow: el.Arrow, ArrowStart: el.ArrowStart, Dashed: el.Dashed,
 				})
 			case "elbow":
 				slide.Shapes = append(slide.Shapes, ir.Elbow{
 					X1: el.X1, Y1: el.Y1, X2: el.X2, Y2: el.Y2,
-					Color: el.Color, Wpt: el.WidthPx * pxToPt,
+					Color: el.Color, Wpt: pt(el.WidthPx),
 					Arrow: el.Arrow, ArrowStart: el.ArrowStart, Dashed: el.Dashed,
 				})
 			case "text":
@@ -106,7 +114,7 @@ func mapBox(el Element, warns *[]string, prefix string) ir.Shape {
 			return ir.AutoShape{
 				Frame:  ir.Frame{X: el.X, Y: el.Y, W: el.W, H: el.H},
 				Preset: preset,
-				Fill:   el.Fill, Line: el.Border, LineWpt: el.BorderW * pxToPt,
+				Fill:   el.Fill, Line: el.Border, LineWpt: pt(el.BorderW),
 				Dashed: el.Dashed, FillAlpha: el.FillAlpha,
 			}
 		}
@@ -114,13 +122,13 @@ func mapBox(el Element, warns *[]string, prefix string) ir.Shape {
 	if el.Oval {
 		return ir.Oval{
 			Frame: ir.Frame{X: el.X, Y: el.Y, W: el.W, H: el.H},
-			Fill:  el.Fill, Line: el.Border, LineWpt: el.BorderW * pxToPt,
+			Fill:  el.Fill, Line: el.Border, LineWpt: pt(el.BorderW),
 			Dashed: el.Dashed, FillAlpha: el.FillAlpha,
 		}
 	}
 	return ir.Rect{
 		Frame: ir.Frame{X: el.X, Y: el.Y, W: el.W, H: el.H},
-		Fill:  el.Fill, Line: el.Border, LineWpt: el.BorderW * pxToPt,
+		Fill:  el.Fill, Line: el.Border, LineWpt: pt(el.BorderW),
 		Radius: el.Radius, Dashed: el.Dashed, FillAlpha: el.FillAlpha,
 	}
 }
@@ -129,7 +137,7 @@ func mapText(el Element) ir.Text {
 	return ir.Text{
 		Frame:    ir.Frame{X: el.X, Y: el.Y, W: el.W, H: el.H},
 		Paras:    mapParas(el.Paras, el.Align, el.Spacing),
-		DefSize:  el.FontSize * pxToPt,
+		DefSize:  pt(el.FontSize),
 		DefColor: orDefault(el.FontColor, fallbackInk),
 		DefFont:  gslides.ResolveFont(orDefault(el.FontFam, fallbackFont)),
 		Rot:      el.Rot,
@@ -168,7 +176,7 @@ func mapTable(el Element) ir.Table {
 		X: el.X, Y: el.Y,
 		ColW: el.ColW, RowH: el.RowH,
 		Rows:        rows,
-		DefSize:     el.DefSize * pxToPt,
+		DefSize:     pt(el.DefSize),
 		BorderColor: orDefault(el.Border, fallbackLine),
 	}
 }
@@ -182,7 +190,7 @@ func mapParas(paras []Para, align string, spacing float64) []ir.Para {
 				Text: r.Text, Bold: r.Bold, Italic: r.Italic,
 				Underline: r.Underline, Strike: r.Strike,
 				Color: r.Color,
-				Size:  r.Size * pxToPt,
+				Size:  pt(r.Size),
 				Font:  gslides.ResolveFont(orDefault(r.Font, fallbackFont)),
 				Link:  r.Link,
 			}
