@@ -4,14 +4,17 @@
    "w": 1600,
    "h": 900,
    "background": "FFFFFF",
+   "notes": "",
    "elements": [
     {
      "kind": "text",
      "x": 80,
      "y": 52,
-     "w": 93.45,
+     "w": 93.47,
      "h": 24,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -30,16 +33,22 @@
      "fontSize": 20,
      "fontColor": "1967D2",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "recipes",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "1967D2",
          "size": 20,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -53,9 +62,11 @@
      "kind": "text",
      "x": 80,
      "y": 82,
-     "w": 1440,
+     "w": 844.98,
      "h": 61,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -74,16 +85,22 @@
      "fontSize": 52,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Sequence diagram — token issuance",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 52,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -99,7 +116,9 @@
      "y": 180,
      "w": 220,
      "h": 64,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.16,
@@ -118,6 +137,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -126,11 +146,13 @@
     },
     {
      "kind": "text",
-     "x": 120,
-     "y": 180,
-     "w": 220,
-     "h": 64,
+     "x": 203.77,
+     "y": 200,
+     "w": 52.47,
+     "h": 24,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -149,16 +171,22 @@
      "fontSize": 20,
      "fontColor": "1967D2",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Client",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "1967D2",
          "size": 20,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -174,7 +202,9 @@
      "y": 180,
      "w": 220,
      "h": 64,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.16,
@@ -193,6 +223,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -201,11 +232,13 @@
     },
     {
      "kind": "text",
-     "x": 500,
-     "y": 180,
-     "w": 220,
-     "h": 64,
+     "x": 552.8,
+     "y": 200,
+     "w": 114.39,
+     "h": 24,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -224,16 +257,22 @@
      "fontSize": 20,
      "fontColor": "1967D2",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "API Gateway",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "1967D2",
          "size": 20,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -249,7 +288,9 @@
      "y": 180,
      "w": 220,
      "h": 64,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.16,
@@ -268,6 +309,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -276,11 +318,13 @@
     },
     {
      "kind": "text",
-     "x": 880,
-     "y": 180,
-     "w": 220,
-     "h": 64,
+     "x": 932.63,
+     "y": 200,
+     "w": 114.73,
+     "h": 24,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -299,16 +343,22 @@
      "fontSize": 20,
      "fontColor": "1967D2",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Auth Service",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "1967D2",
          "size": 20,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -324,7 +374,9 @@
      "y": 180,
      "w": 220,
      "h": 64,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.16,
@@ -343,6 +395,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -351,11 +404,13 @@
     },
     {
      "kind": "text",
-     "x": 1260,
-     "y": 180,
-     "w": 220,
-     "h": 64,
+     "x": 1333.83,
+     "y": 200,
+     "w": 72.33,
+     "h": 24,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -374,16 +429,22 @@
      "fontSize": 20,
      "fontColor": "1967D2",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "User DB",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "1967D2",
          "size": 20,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -399,7 +460,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -418,6 +481,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -430,7 +494,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -449,6 +515,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -461,7 +528,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -480,6 +549,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -492,7 +562,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -511,6 +583,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -523,7 +596,9 @@
      "y": 292,
      "w": 14,
      "h": 330,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.21,
@@ -542,6 +617,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -554,7 +630,9 @@
      "y": 352,
      "w": 14,
      "h": 210,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.21,
@@ -573,6 +651,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -585,7 +664,9 @@
      "y": 412,
      "w": 14,
      "h": 90,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.21,
@@ -604,6 +685,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -616,7 +698,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -635,6 +719,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -643,11 +728,13 @@
     },
     {
      "kind": "text",
-     "x": 250,
+     "x": 325.69,
      "y": 270,
-     "w": 330,
+     "w": 178.61,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -666,16 +753,22 @@
      "fontSize": 16,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "POST /login (credentials)",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -691,7 +784,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -710,6 +805,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -718,11 +814,13 @@
     },
     {
      "kind": "text",
-     "x": 640,
+     "x": 735.95,
      "y": 330,
-     "w": 320,
+     "w": 128.08,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -741,16 +839,22 @@
      "fontSize": 16,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "verify(credentials)",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -766,7 +870,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -785,6 +891,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -793,11 +900,13 @@
     },
     {
      "kind": "text",
-     "x": 1020,
+     "x": 1118.53,
      "y": 390,
-     "w": 320,
+     "w": 122.92,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -816,16 +925,22 @@
      "fontSize": 16,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "SELECT user, salt",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -841,7 +956,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -860,6 +977,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -868,11 +986,13 @@
     },
     {
      "kind": "text",
-     "x": 1020,
+     "x": 1166.78,
      "y": 450,
-     "w": 320,
+     "w": 26.42,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -891,16 +1011,22 @@
      "fontSize": 16,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "row",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -916,7 +1042,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -935,6 +1063,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -943,11 +1072,13 @@
     },
     {
      "kind": "text",
-     "x": 640,
+     "x": 751.95,
      "y": 510,
-     "w": 320,
+     "w": 96.09,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -966,16 +1097,22 @@
      "fontSize": 16,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
-         "text": "JWT (15 min)",
+         "text": "JWT (15 min)",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -991,7 +1128,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1010,6 +1149,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1018,11 +1158,13 @@
     },
     {
      "kind": "text",
-     "x": 250,
+     "x": 360.75,
      "y": 570,
-     "w": 330,
+     "w": 108.48,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1041,16 +1183,22 @@
      "fontSize": 16,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "200 OK + token",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1066,7 +1214,9 @@
      "y": 600,
      "w": 400,
      "h": 69.19,
+     "shape": "",
      "fill": "FEF7E0",
+     "fillAlpha": 0,
      "border": "B06000",
      "borderW": 1,
      "radius": 0.09,
@@ -1085,6 +1235,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1093,11 +1244,13 @@
     },
     {
      "kind": "text",
-     "x": 1080,
-     "y": 600,
-     "w": 400,
-     "h": 69.19,
+     "x": 1097,
+     "y": 614,
+     "w": 337.64,
+     "h": 40.59,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1116,16 +1269,22 @@
      "fontSize": 16,
      "fontColor": "B06000",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Failed verifications are rate-limited per device: 5 attempts, then exponential backoff.",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "B06000",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1141,7 +1300,9 @@
      "y": 862,
      "w": 204.06,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1160,16 +1321,22 @@
      "fontSize": 16,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "deck-engine diagram recipes",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1185,7 +1352,9 @@
      "y": 862,
      "w": 9,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1204,16 +1373,22 @@
      "fontSize": 16,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "1",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1230,14 +1405,17 @@
    "w": 1600,
    "h": 900,
    "background": "FFFFFF",
+   "notes": "",
    "elements": [
     {
      "kind": "text",
      "x": 80,
      "y": 52,
-     "w": 93.45,
+     "w": 93.47,
      "h": 24,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1256,16 +1434,22 @@
      "fontSize": 20,
      "fontColor": "1967D2",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "recipes",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "1967D2",
          "size": 20,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1279,9 +1463,11 @@
      "kind": "text",
      "x": 80,
      "y": 82,
-     "w": 1440,
+     "w": 638.56,
      "h": 61,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1300,16 +1486,22 @@
      "fontSize": 52,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Architecture — request path",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 52,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1325,7 +1517,9 @@
      "y": 190,
      "w": 1090,
      "h": 620,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "80868B",
      "borderW": 2,
      "radius": 0.02,
@@ -1344,6 +1538,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1354,9 +1549,11 @@
      "kind": "text",
      "x": 460,
      "y": 206,
-     "w": 94.81,
+     "w": 94.83,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1375,16 +1572,22 @@
      "fontSize": 16,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "cloud vpc",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1400,7 +1603,9 @@
      "y": 455,
      "w": 200,
      "h": 80,
+     "shape": "",
      "fill": "E8F0FE",
+     "fillAlpha": 0,
      "border": "4285F4",
      "borderW": 1,
      "radius": 0.13,
@@ -1419,6 +1624,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1431,7 +1637,9 @@
      "y": 472.5,
      "w": 49.84,
      "h": 23,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1450,16 +1658,22 @@
      "fontSize": 19,
      "fontColor": "1967D2",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Client",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "1967D2",
          "size": 19,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1475,7 +1689,9 @@
      "y": 499.5,
      "w": 86.67,
      "h": 18,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1494,16 +1710,22 @@
      "fontSize": 15,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "web / mobile",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 15,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1519,7 +1741,9 @@
      "y": 460,
      "w": 180,
      "h": 70,
+     "shape": "",
      "fill": "F8F9FA",
+     "fillAlpha": 0,
      "border": "DADCE0",
      "borderW": 1,
      "radius": 0.14,
@@ -1538,6 +1762,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1550,7 +1775,9 @@
      "y": 483.5,
      "w": 22.41,
      "h": 23,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1569,16 +1796,22 @@
      "fontSize": 19,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "LB",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 19,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1594,7 +1827,9 @@
      "y": 300,
      "w": 230,
      "h": 80,
+     "shape": "",
      "fill": "F8F9FA",
+     "fillAlpha": 0,
      "border": "DADCE0",
      "borderW": 1,
      "radius": 0.13,
@@ -1613,6 +1848,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1623,9 +1859,11 @@
      "kind": "text",
      "x": 852.55,
      "y": 317.5,
-     "w": 84.89,
+     "w": 84.91,
      "h": 23,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1644,16 +1882,22 @@
      "fontSize": 19,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "API pod A",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 19,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1669,7 +1913,9 @@
      "y": 344.5,
      "w": 60.77,
      "h": 18,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1688,16 +1934,22 @@
      "fontSize": 15,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "stateless",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 15,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1713,7 +1965,9 @@
      "y": 610,
      "w": 230,
      "h": 80,
+     "shape": "",
      "fill": "F8F9FA",
+     "fillAlpha": 0,
      "border": "DADCE0",
      "borderW": 1,
      "radius": 0.13,
@@ -1732,6 +1986,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1740,11 +1995,13 @@
     },
     {
      "kind": "text",
-     "x": 852.88,
+     "x": 852.86,
      "y": 627.5,
-     "w": 84.25,
+     "w": 84.27,
      "h": 23,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1763,16 +2020,22 @@
      "fontSize": 19,
      "fontColor": "202124",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "API pod B",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "202124",
          "size": 19,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1788,7 +2051,9 @@
      "y": 654.5,
      "w": 60.77,
      "h": 18,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1807,16 +2072,22 @@
      "fontSize": 15,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "stateless",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 15,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1832,7 +2103,9 @@
      "y": 300,
      "w": 180,
      "h": 80,
+     "shape": "",
      "fill": "E6F4EA",
+     "fillAlpha": 0,
      "border": "34A853",
      "borderW": 1,
      "radius": 0.13,
@@ -1851,6 +2124,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1859,11 +2133,13 @@
     },
     {
      "kind": "text",
-     "x": 1203.3,
+     "x": 1203.28,
      "y": 317.5,
-     "w": 53.41,
+     "w": 53.42,
      "h": 23,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1882,16 +2158,22 @@
      "fontSize": 19,
      "fontColor": "188038",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Cache",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "188038",
          "size": 19,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1907,7 +2189,9 @@
      "y": 344.5,
      "w": 37.05,
      "h": 18,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -1926,16 +2210,22 @@
      "fontSize": 15,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Redis",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 15,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -1951,7 +2241,9 @@
      "y": 610,
      "w": 180,
      "h": 80,
+     "shape": "",
      "fill": "FEF7E0",
+     "fillAlpha": 0,
      "border": "B06000",
      "borderW": 1,
      "radius": 0.13,
@@ -1970,6 +2262,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -1978,11 +2271,13 @@
     },
     {
      "kind": "text",
-     "x": 1202.55,
+     "x": 1202.53,
      "y": 627.5,
-     "w": 54.91,
+     "w": 54.92,
      "h": 23,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2001,16 +2296,22 @@
      "fontSize": 19,
      "fontColor": "B06000",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Queue",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "B06000",
          "size": 19,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -2026,7 +2327,9 @@
      "y": 654.5,
      "w": 57.95,
      "h": 18,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2045,16 +2348,22 @@
      "fontSize": 15,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Pub/Sub",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 15,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -2070,7 +2379,9 @@
      "y": 455,
      "w": 180,
      "h": 80,
+     "shape": "",
      "fill": "FCE8E6",
+     "fillAlpha": 0,
      "border": "EA4335",
      "borderW": 1,
      "radius": 0.13,
@@ -2089,6 +2400,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2099,9 +2411,11 @@
      "kind": "text",
      "x": 1191.64,
      "y": 472.5,
-     "w": 76.7,
+     "w": 76.72,
      "h": 23,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2120,16 +2434,22 @@
      "fontSize": 19,
      "fontColor": "C5221F",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Postgres",
          "bold": true,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "C5221F",
          "size": 19,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -2145,7 +2465,9 @@
      "y": 499.5,
      "w": 50.78,
      "h": 18,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2164,16 +2486,22 @@
      "fontSize": 15,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "primary",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 15,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -2189,7 +2517,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2208,6 +2538,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2220,7 +2551,9 @@
      "y": 466,
      "w": 150,
      "h": 18,
+     "shape": "",
      "fill": "FFFFFF",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2239,6 +2572,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2247,11 +2581,13 @@
     },
     {
      "kind": "text",
-     "x": 305,
+     "x": 356.56,
      "y": 466,
-     "w": 150,
+     "w": 46.88,
      "h": 18,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2270,16 +2606,22 @@
      "fontSize": 15,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "HTTPS",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 15,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -2295,7 +2637,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2314,6 +2658,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2326,7 +2671,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2345,6 +2692,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2357,7 +2705,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2376,6 +2726,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2388,7 +2739,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2407,6 +2760,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2419,7 +2773,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2438,6 +2794,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2450,7 +2807,9 @@
      "y": 0,
      "w": 0,
      "h": 0,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2469,6 +2828,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2481,7 +2841,9 @@
      "y": 720,
      "w": 420,
      "h": 69.19,
+     "shape": "",
      "fill": "FEF7E0",
+     "fillAlpha": 0,
      "border": "B06000",
      "borderW": 1,
      "radius": 0.09,
@@ -2500,6 +2862,7 @@
      "fontSize": 0,
      "fontColor": "",
      "fontFam": "",
+     "rot": 0,
      "paras": null,
      "colW": null,
      "rowH": 0,
@@ -2508,11 +2871,13 @@
     },
     {
      "kind": "text",
-     "x": 470,
-     "y": 720,
-     "w": 420,
-     "h": 69.19,
+     "x": 487,
+     "y": 734,
+     "w": 369.53,
+     "h": 40.59,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2531,16 +2896,22 @@
      "fontSize": 16,
      "fontColor": "B06000",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "Pods are horizontally scaled; sticky sessions are not required.",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "B06000",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -2556,7 +2927,9 @@
      "y": 862,
      "w": 204.06,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2575,16 +2948,22 @@
      "fontSize": 16,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "deck-engine diagram recipes",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }
@@ -2600,7 +2979,9 @@
      "y": 862,
      "w": 9,
      "h": 19,
+     "shape": "",
      "fill": "",
+     "fillAlpha": 0,
      "border": "",
      "borderW": 0,
      "radius": 0,
@@ -2619,16 +3000,22 @@
      "fontSize": 16,
      "fontColor": "80868B",
      "fontFam": "Roboto, Arial, sans-serif",
+     "rot": 0,
      "paras": [
       {
+       "bullet": "",
+       "level": 0,
        "runs": [
         {
          "text": "2",
          "bold": false,
          "italic": false,
+         "underline": false,
+         "strike": false,
          "color": "80868B",
          "size": 16,
-         "font": "Roboto, Arial, sans-serif"
+         "font": "Roboto, Arial, sans-serif",
+         "link": ""
         }
        ]
       }

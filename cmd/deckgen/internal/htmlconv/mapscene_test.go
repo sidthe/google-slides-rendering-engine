@@ -32,6 +32,10 @@ func loadFixture(t *testing.T) *Result {
 // Chrome. Regenerate the fixture with:
 //
 //	deckgen check examples/demo.html -scene cmd/deckgen/internal/htmlconv/testdata/demo-scene.json
+//
+// Roboto and Roboto Mono must be installed locally before regenerating.
+// The stylesheet names them with no @font-face, so Chrome silently falls
+// back and bakes the wrong text metrics into the fixture.
 func TestMapScenesGolden(t *testing.T) {
 	d, warns := MapScenes(loadFixture(t))
 	if len(warns) != 0 {
