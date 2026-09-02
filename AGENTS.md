@@ -253,3 +253,14 @@ Slides API limits deckgen designs around; don't fight them:
 `examples/features.html` covers flowcharts (diamond/cylinder/elbows), GTM
 shapes (chevron process, pyramid, callout), lists, links, emphasis, alpha
 overlays, rotated labels and speaker notes. Copy their structure.
+
+## Templates
+
+This file is the mechanical contract. `templates/` adds opinionated
+voice + design systems on top of it. If the user asks for a template by
+name (e.g. "use the keynote template", "speaker style"), read that
+template's `VOICE.md` and `DESIGN.md` before authoring, copy archetypes
+from its `skeleton.html`, and validate with
+`deckgen check deck.html -lint <template>`. Template lint findings are
+advisory floors (type size, word and element budgets, notes present) —
+fix them or justify the exception.

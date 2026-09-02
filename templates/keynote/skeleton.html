@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- keynote template — skeleton deck.
+     One slide per archetype, in a plausible talk order, with fictional
+     content ("Lumen", an imaginary reading app — every number is invented).
+     Copy a slide, keep its geometry, replace its words.
+     Validate: deckgen check skeleton.html -lint keynote  → 0 warnings, 0 findings. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>keynote skeleton — Lumen</title>
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+
+<!-- A1 · TITLE — brand dots, one huge title, byline. Right half stays empty. -->
+<section>
+  <div style="position:absolute; left:80px; top:120px; display:flex; gap:12px;">
+    <div style="width:16px;height:16px;border-radius:50%;background:var(--blue);"></div>
+    <div style="width:16px;height:16px;border-radius:50%;background:var(--red);"></div>
+    <div style="width:16px;height:16px;border-radius:50%;background:var(--yellow);"></div>
+    <div style="width:16px;height:16px;border-radius:50%;background:var(--green);"></div>
+  </div>
+  <div style="position:absolute; left:80px; top:300px; width:1360px; font-size:112px; font-weight:700; line-height:1.12; color:var(--ink);">Nobody finishes their reading list.</div>
+  <div style="position:absolute; left:80px; top:600px; width:1200px; font-size:30px; color:var(--ink-2);">What we learned building Lumen.</div>
+  <div style="position:absolute; left:80px; top:800px; font-size:20px; color:var(--ink-3);">A. Speaker · September 2026</div>
+  <aside class="notes">
+    <p>Title archetype: the title is a claim, not a label. No footer, no page number — anywhere in this deck.</p>
+  </aside>
+</section>
+
+<!-- A2 · FULL-BLEED STATEMENT (light) — one idea, huge type, nothing else. -->
+<section>
+  <div style="position:absolute; left:80px; top:320px; width:1400px; font-size:76px; font-weight:700; line-height:1.25; color:var(--ink);">Saving an article feels like reading it.</div>
+  <div style="position:absolute; left:80px; top:560px; width:1300px; font-size:30px; color:var(--ink-2);">That is the whole problem.</div>
+  <aside class="notes">
+    <p>Statement archetype: the slide is a backdrop; the speaker carries the argument. Secondary line optional.</p>
+  </aside>
+</section>
+
+<!-- A3 · DARK ACT BREAK — deep blue, white text, marks a turn in the story. Use 3–4 per hour. -->
+<section class="dark">
+  <div style="position:absolute; left:80px; top:220px; width:1340px; font-size:44px; font-weight:400; color:rgba(255,255,255,.85);">One thing we learned:</div>
+  <div style="position:absolute; left:80px; top:330px; width:1400px; font-size:84px; font-weight:700; line-height:1.25; color:#fff;">People want permission to skip.</div>
+  <div style="position:absolute; left:80px; top:700px; width:1200px; font-size:30px; color:rgba(255,255,255,.85);">Next: what we built around that.</div>
+  <aside class="notes">
+    <p>Act-break archetype: dark slides are the chapter marks. White at .85 opacity for secondary text, never below .70.</p>
+    <p>Say the dropped half out loud: nobody wants more to read.</p>
+  </aside>
+</section>
+
+<!-- A4 · BIG NUMBER — one number carries the slide; the label explains it. -->
+<section>
+  <div style="position:absolute; left:80px; top:170px; display:flex; align-items:center; gap:14px;"><div style="width:22px; height:22px; border-radius:50%; background:var(--blue);"></div><span style="font-size:26px; font-weight:700; color:var(--ink);">Lumen beta</span></div>
+  <div style="position:absolute; left:80px; top:250px; font-size:280px; font-weight:700; color:var(--ink);">82%</div>
+  <div style="position:absolute; left:80px; top:620px; width:1100px; font-size:34px; color:var(--ink-2);">of saved articles were never opened again.</div>
+  <div style="position:absolute; left:80px; top:720px; width:1300px; font-size:22px; color:var(--ink-3);">placeholder: use a real, sourced number</div>
+  <aside class="notes">
+    <p>Big-number archetype: one number, its meaning in the label, the source in the notes or a small line. Never three numbers competing at this size.</p>
+  </aside>
+</section>
+
+<!-- A5 · NUMBER TRIO — three related figures on one baseline, labels beneath. -->
+<section>
+  <div style="position:absolute; left:80px; top:180px; font-size:36px; font-weight:700; color:var(--ink);">Month one.</div>
+  <div style="position:absolute; left:80px; top:330px; font-size:190px; font-weight:700; color:var(--ink);">9k</div>
+  <div style="position:absolute; left:590px; top:330px; font-size:190px; font-weight:700; color:var(--ink);">41</div>
+  <div style="position:absolute; left:1100px; top:330px; font-size:190px; font-weight:700; color:var(--ink);">6</div>
+  <div style="position:absolute; left:80px; top:620px; width:460px; font-size:24px; color:var(--ink-2);">articles saved</div>
+  <div style="position:absolute; left:590px; top:620px; width:440px; font-size:24px; color:var(--ink-2);">actually finished</div>
+  <div style="position:absolute; left:1100px; top:620px; width:380px; font-size:24px; color:var(--ink-2);">angry emails about it</div>
+  <aside class="notes">
+    <p>Trio archetype: same baseline, same size, left-aligned columns. Humor is allowed in the third label.</p>
+  </aside>
+</section>
+
+<!-- A6 · CHEVRON FLOW — a process as pentagon + chevrons, micro-captions under each stage. -->
+<section>
+  <div style="position:absolute; left:80px; top:170px; width:1200px; font-size:44px; font-weight:700; color:var(--ink);">An article moves through five stages.</div>
+  <div data-shape="pentagon" style="position:absolute; left:80px; top:380px; width:278px; height:116px; background:var(--blue-dark); display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; font-weight:700;">Save</div>
+  <div data-shape="chevron" style="position:absolute; left:370px; top:380px; width:278px; height:116px; background:var(--blue-dark); display:flex; align-items:center; justify-content:center; padding-left:36px; color:#fff; font-size:24px; font-weight:700;">Rank</div>
+  <div data-shape="chevron" style="position:absolute; left:660px; top:380px; width:278px; height:116px; background:var(--blue-dark); display:flex; align-items:center; justify-content:center; padding-left:36px; color:#fff; font-size:24px; font-weight:700;">Digest</div>
+  <div data-shape="chevron" style="position:absolute; left:950px; top:380px; width:278px; height:116px; background:var(--blue-dark); display:flex; align-items:center; justify-content:center; padding-left:36px; color:#fff; font-size:24px; font-weight:700;">Read</div>
+  <div data-shape="chevron" style="position:absolute; left:1240px; top:380px; width:280px; height:116px; background:var(--green); display:flex; align-items:center; justify-content:center; padding-left:36px; color:#fff; font-size:24px; font-weight:700;">Done</div>
+  <div style="position:absolute; left:80px; top:520px; width:278px; text-align:center; font-size:20px; color:var(--ink-2);">one tap</div>
+  <div style="position:absolute; left:370px; top:520px; width:278px; text-align:center; font-size:20px; color:var(--ink-2);">by your history</div>
+  <div style="position:absolute; left:660px; top:520px; width:278px; text-align:center; font-size:20px; color:var(--ink-2);">five picks a day</div>
+  <div style="position:absolute; left:950px; top:520px; width:278px; text-align:center; font-size:20px; color:var(--ink-2);">or skip, guilt-free</div>
+  <div style="position:absolute; left:1240px; top:520px; width:280px; text-align:center; font-size:20px; color:var(--ink-2);">archived with a note</div>
+  <div style="position:absolute; left:80px; top:660px; width:1400px; font-size:36px; font-weight:700; color:var(--ink);">You decide once a day.</div>
+  <aside class="notes">
+    <p>Flow archetype: one word per stage; captions carry the detail; the final stage gets the accent color when it is the payoff.</p>
+  </aside>
+</section>
+
+<!-- A7 · STAGE / JOURNEY — numbered step with a core idea, plain facts, and enter/exit rails. Repeat per stage. -->
+<section>
+  <div style="position:absolute; left:80px; top:130px; font-size:110px; font-weight:700; color:var(--blue);">2</div>
+  <div style="position:absolute; left:80px; top:300px; font-size:52px; font-weight:700; color:var(--ink);">Rank by regret</div>
+  <div style="position:absolute; left:80px; top:395px; width:1300px; font-size:30px; color:var(--ink-2);">Sort the pile by how sorry you would be to miss it.</div>
+  <div style="position:absolute; left:80px; top:500px; width:1360px; font-size:23px; color:var(--ink); line-height:1.9;">Your own finish history beats every editorial signal we tried.<br>Length predicts finishing better than age.<br>Every rank is explained in one sentence the reader can see.</div>
+  <div style="position:absolute; left:80px; top:770px; font-size:20px; font-style:italic;"><span style="color:var(--green-dark);">enter: the pile passes fifty items</span><span style="color:var(--ink-3);">&nbsp;&nbsp;·&nbsp;&nbsp;exit: readers stop scrolling past the fold</span></div>
+  <aside class="notes">
+    <p>Stage archetype: for step-by-step journeys. The rails at the bottom say what forces you into this stage and what tells you it is done.</p>
+  </aside>
+</section>
+
+<!-- A8 · DECISION FLOW — a pipeline with a diamond and two outcome branches. -->
+<section>
+  <div style="position:absolute; left:80px; top:110px; font-size:44px; font-weight:700; color:var(--ink);"><span style="color:var(--blue);">The digest</span> · how five picks get chosen</div>
+  <div class="node mono" style="left:80px; top:330px; width:190px; height:90px; background:var(--blue-dark); color:#fff; font-size:26px; font-weight:700;">/digest</div>
+  <div class="line" data-line data-arrow style="left:274px; top:373px; width:42px;"></div>
+  <div class="node" style="left:320px; top:330px; width:230px; height:90px; background:#fff; border:1px solid var(--line); font-size:20px; color:var(--ink);">pulls the pile</div>
+  <div class="line" data-line data-arrow style="left:554px; top:373px; width:42px;"></div>
+  <div class="node" style="left:600px; top:330px; width:230px; height:90px; background:#fff; border:1px solid var(--line); font-size:20px; color:var(--ink);">scores by regret</div>
+  <div class="line" data-line data-arrow style="left:834px; top:373px; width:42px;"></div>
+  <div class="node" style="left:880px; top:330px; width:190px; height:90px; background:var(--blue); color:#fff; font-size:20px; font-weight:700;">filters</div>
+  <div class="mono" style="position:absolute; left:840px; top:440px; width:270px; text-align:center; font-size:18px; color:var(--ink-2);">length · topic · streak</div>
+  <div class="line" data-line data-arrow style="left:1074px; top:373px; width:42px;"></div>
+  <div data-shape="diamond" style="position:absolute; left:1120px; top:310px; width:160px; height:130px; background:var(--surface); border:1px solid var(--line);"></div>
+  <div style="position:absolute; left:1120px; top:360px; width:160px; text-align:center; font-size:18px; font-weight:700; color:var(--ink);">top five?</div>
+  <div class="line" data-line data-arrow style="left:1276px; top:345px; width:113px; transform:rotate(-49deg); transform-origin:0 50%;"></div>
+  <div style="position:absolute; left:1300px; top:225px; font-size:18px; color:var(--green-dark);">yes</div>
+  <div class="node" style="left:1350px; top:250px; width:170px; height:80px; background:var(--green); color:#fff; font-size:19px; font-weight:700;">today's digest</div>
+  <div class="line" data-line data-arrow style="left:1276px; top:400px; width:128px; transform:rotate(55deg); transform-origin:0 50%;"></div>
+  <div style="position:absolute; left:1090px; top:485px; width:240px; text-align:right; font-size:18px; color:var(--yellow-dark);">no</div>
+  <div class="node" style="left:1350px; top:470px; width:170px; height:90px; background:var(--yellow-tint); border:1px solid var(--yellow); color:var(--yellow-dark); font-size:19px; font-weight:700;">waits, ranked</div>
+  <div style="position:absolute; left:80px; top:640px; width:1400px; font-size:24px; color:var(--ink);">You set the filters once. The digest explains every pick.</div>
+  <aside class="notes">
+    <p>Decision-flow archetype: mono block for the trigger, plain nodes for steps, a diamond for the decision, green and yellow for the two outcomes.</p>
+  </aside>
+</section>
+
+<!-- A9 · LAYERED STACK — a system as horizontal slabs; the swappable part is a dashed circle. -->
+<section>
+  <div style="position:absolute; left:80px; top:110px; font-size:44px; font-weight:700; color:var(--ink);">What Lumen is made of.</div>
+  <div style="position:absolute; left:120px; top:210px; width:640px; height:82px; background:#fff; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; justify-content:space-between; padding:0 28px;"><span style="font-size:24px; font-weight:700; color:var(--ink);">Reading queue</span><span style="font-size:20px; color:var(--ink-2);">the pile, ranked</span></div>
+  <div style="position:absolute; left:120px; top:310px; width:640px; height:82px; background:#fff; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; justify-content:space-between; padding:0 28px;"><span style="font-size:24px; font-weight:700; color:var(--ink);">History</span><span style="font-size:20px; color:var(--ink-2);">what you actually finished</span></div>
+  <div style="position:absolute; left:120px; top:410px; width:640px; height:82px; background:#fff; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; justify-content:space-between; padding:0 28px;"><span style="font-size:24px; font-weight:700; color:var(--ink);">Digest rules</span><span style="font-size:20px; color:var(--ink-2);">your filters, written down</span></div>
+  <div style="position:absolute; left:120px; top:510px; width:640px; height:82px; background:var(--blue); border-radius:10px; display:flex; align-items:center; justify-content:space-between; padding:0 28px;"><span style="font-size:24px; font-weight:700; color:#fff;">Daily digest</span><span style="font-size:18px; color:#E8F0FE;">pick → explain → deliver</span></div>
+  <div class="line" data-line data-arrow="start" style="left:800px; top:420px; width:240px;"></div>
+  <div style="position:absolute; left:1040px; top:290px; width:180px; height:180px; border-radius:50%; border:3px dashed var(--ink-3); background:#fff; display:flex; align-items:center; justify-content:center;"><span style="font-size:24px; color:var(--ink-2);">ranker</span></div>
+  <div style="position:absolute; left:1000px; top:540px; width:480px; font-size:34px; font-weight:700; line-height:1.35; color:var(--ink);">Swap the ranker without touching the rules.</div>
+  <aside class="notes">
+    <p>Stack archetype: slabs top to bottom, one accented; the replaceable component is a dashed circle wired in by an arrow.</p>
+  </aside>
+</section>
+
+<!-- A10 · MIND MAP — a center circle with plain-text satellites on diagonal spokes. -->
+<section>
+  <div class="line" data-line style="left:800px; top:450px; width:440px; transform:rotate(-160deg); transform-origin:0 50%;"></div>
+  <div class="line" data-line style="left:800px; top:450px; width:440px; transform:rotate(-20deg); transform-origin:0 50%;"></div>
+  <div class="line" data-line style="left:800px; top:450px; width:330px; transform:rotate(180deg); transform-origin:0 50%;"></div>
+  <div class="line" data-line style="left:800px; top:450px; width:330px; transform:rotate(0deg); transform-origin:0 50%;"></div>
+  <div class="line" data-line style="left:800px; top:450px; width:230px; transform:rotate(90deg); transform-origin:0 50%;"></div>
+  <div style="position:absolute; left:700px; top:350px; width:200px; height:200px; border-radius:50%; background:var(--blue-dark); display:flex; align-items:center; justify-content:center;"><span style="font-size:26px; font-weight:700; color:#fff;">reader</span></div>
+  <div style="position:absolute; left:230px; top:230px; width:260px; text-align:right;"><div style="font-size:26px; font-weight:700; color:var(--ink);">newsletters</div><div style="font-size:18px; color:var(--ink-2);">skimmed</div></div>
+  <div style="position:absolute; left:1110px; top:230px; width:280px;"><div style="font-size:26px; font-weight:700; color:var(--ink);">longform</div><div style="font-size:18px; color:var(--ink-2);">hoarded</div></div>
+  <div style="position:absolute; left:190px; top:420px; width:260px; text-align:right;"><div style="font-size:26px; font-weight:700; color:var(--ink);">papers</div><div style="font-size:18px; color:var(--ink-2);">aspirational</div></div>
+  <div style="position:absolute; left:1150px; top:420px; width:280px;"><div style="font-size:26px; font-weight:700; color:var(--ink);">threads</div><div style="font-size:18px; color:var(--ink-2);">doom-saved</div></div>
+  <div style="position:absolute; left:680px; top:700px; width:240px; text-align:center;"><div style="font-size:26px; font-weight:700; color:var(--ink);">podcasts</div><div style="font-size:18px; color:var(--ink-2);">a separate pile</div></div>
+  <div style="position:absolute; left:80px; top:820px; width:1440px; text-align:center; font-size:24px; color:var(--ink-2);">every kind ends up in the same pile</div>
+  <aside class="notes">
+    <p>Mind-map archetype: draw the spokes first (they sit under the circle), plain text at the tips — no boxes.</p>
+  </aside>
+</section>
+
+<!-- A11 · SPECTRUM — a labelled line with dots; the audience finds itself on it. -->
+<section>
+  <div class="line" data-line data-arrow="both" style="left:160px; top:430px; width:1280px;"></div>
+  <div style="position:absolute; left:310px; top:420px; width:20px; height:20px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:790px; top:420px; width:20px; height:20px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:1270px; top:420px; width:20px; height:20px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:140px; top:320px; width:360px; text-align:center; font-size:30px; font-weight:700; color:var(--ink);">saves nothing</div>
+  <div style="position:absolute; left:560px; top:320px; width:480px; text-align:center; font-size:30px; font-weight:700; color:var(--ink);">saves, reads some</div>
+  <div style="position:absolute; left:1080px; top:320px; width:400px; text-align:center; font-size:30px; font-weight:700; color:var(--ink);">saves everything</div>
+  <div style="position:absolute; left:80px; top:640px; width:1400px; font-size:40px; font-weight:700; color:var(--ink);">Everyone in this room is somewhere on this line.</div>
+  <aside class="notes">
+    <p>Spectrum archetype: three points is enough; ask the room to self-locate — it converts a diagram into a moment.</p>
+  </aside>
+</section>
+
+<!-- A12 · COMPARISON SPLIT — hairline divider; the old way rendered gray, the new way as an artifact. -->
+<section>
+  <div style="position:absolute; left:800px; top:180px; width:2px; height:580px; background:var(--line);"></div>
+  <div style="position:absolute; left:80px; top:200px; font-size:40px; font-weight:700; color:var(--ink-3);">The pile</div>
+  <div style="position:absolute; left:80px; top:360px; width:560px; background:var(--surface); border-radius:22px; padding:26px 30px; font-size:19px; font-style:italic; color:var(--ink-3); line-height:1.5;">1,204 unread · oldest from March…</div>
+  <div style="position:absolute; left:80px; top:500px; width:420px; background:var(--surface); border-radius:22px; padding:22px 28px; font-size:19px; font-style:italic; color:var(--ink-3);">I'll get to it this weekend —</div>
+  <div style="position:absolute; left:880px; top:200px; font-size:40px; font-weight:700; color:var(--ink);">The digest</div>
+  <div style="position:absolute; left:880px; top:300px; width:200px; height:40px; background:var(--blue-tint); border-radius:8px 8px 0 0; display:flex; align-items:center; justify-content:center;"><span class="mono" style="font-size:18px; color:var(--blue-dark);">today.md</span></div>
+  <div style="position:absolute; left:880px; top:340px; width:620px; height:240px; background:#fff; border:1px solid var(--line); border-radius:0 10px 10px 10px; padding:26px 30px;">
+    <div class="mono" style="font-size:19px; line-height:2.3; color:var(--ink);"><span style="color:var(--blue-dark);">[x]</span> the piece your team argued about<br><span style="color:var(--blue-dark);">[x]</span> one 8-minute read for the train<br><span style="color:var(--ink-3);">[ ]</span> the long one, saved for Sunday</div>
+  </div>
+  <div style="position:absolute; left:880px; top:660px; width:620px; font-size:32px; font-weight:700; color:var(--ink);">Five picks. Every pick explained.</div>
+  <aside class="notes">
+    <p>Comparison archetype: gray is the message on the left — the old way literally fades. The right side is a drawn artifact, not bullets.</p>
+  </aside>
+</section>
+
+<!-- A13 · QUOTE — one verbatim quote with attribution. Never paraphrase a quote. -->
+<section>
+  <div style="position:absolute; left:80px; top:300px; width:1340px; border-left:6px solid var(--blue); padding-left:36px; font-size:44px; font-style:italic; line-height:1.45; color:var(--ink);">"I finished three things this week. I haven't done that since college."</div>
+  <div style="position:absolute; left:120px; top:600px; font-size:22px; color:var(--ink-3);">— a beta reader, June 2026 (fictional; use only real, verbatim quotes)</div>
+  <aside class="notes">
+    <p>Quote archetype: one per slide, verbatim, attributed with a date. If it needs trimming, use ellipses — never rewrite.</p>
+  </aside>
+</section>
+
+<!-- A14 · MINIMAL TABLE — a two-column mapping; hairline rules only, no cell fills. -->
+<section>
+  <div style="position:absolute; left:80px; top:170px; font-size:48px; font-weight:700; color:var(--ink);">Every feature maps to a habit.</div>
+  <table style="position:absolute; left:80px; top:290px; width:1200px; border-collapse:collapse; font-size:24px;">
+    <tr style="border-bottom:2px solid var(--ink);"><th style="text-align:left; padding:18px 20px 18px 0; font-size:20px; color:var(--ink); background:#fff;">the feature</th><th style="text-align:left; padding:18px 0; font-size:20px; color:var(--ink); background:#fff;">the habit it builds</th></tr>
+    <tr><td class="mono" style="padding:18px 20px 18px 0; color:var(--ink); border-bottom:1px solid var(--line);">one-tap save</td><td style="padding:18px 0; color:var(--ink-2); border-bottom:1px solid var(--line);">capture without commitment</td></tr>
+    <tr><td class="mono" style="padding:18px 20px 18px 0; color:var(--ink); border-bottom:1px solid var(--line);">daily digest</td><td style="padding:18px 0; color:var(--ink-2); border-bottom:1px solid var(--line);">decide once a day</td></tr>
+    <tr><td class="mono" style="padding:18px 20px 18px 0; color:var(--ink); border-bottom:1px solid var(--line);">guilt-free skip</td><td style="padding:18px 0; color:var(--ink-2); border-bottom:1px solid var(--line);">archive with a reason</td></tr>
+    <tr><td class="mono" style="padding:18px 20px 18px 0; color:var(--ink); border-bottom:1px solid var(--line);">streak calendar</td><td style="padding:18px 0; color:var(--ink-2); border-bottom:1px solid var(--line);">finish small, daily</td></tr>
+  </table>
+  <div style="position:absolute; left:80px; top:740px; font-size:32px; font-weight:700; color:var(--ink);">Ship habits.</div>
+  <aside class="notes">
+    <p>Table archetype: at most six rows, short cells, mono for artifact names. Header gets a 2px rule; rows get hairlines.</p>
+  </aside>
+</section>
+
+<!-- A15 · APP WINDOW MOCKUP — a drawn window plus an outcome card, joined by an arrow. -->
+<section>
+  <div class="win" style="left:80px; top:240px; width:700px; height:430px;">
+    <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span class="mono" style="font-size:18px; color:var(--ink-2); margin-left:240px;">lumen</span></div>
+    <div style="padding:28px 32px;">
+      <div class="mono" style="display:inline-block; font-size:18px; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:8px 18px;">⌘ S</div>
+      <div class="mono" style="font-size:18px; color:var(--ink); margin-top:30px; line-height:2;">saved: "why cities sound different at night"<br>ranked #3 of 1,204</div>
+      <div style="font-size:18px; color:var(--ink-3); margin-top:28px; border-top:1px solid var(--line); padding-top:14px;">nothing shared · stays on this device</div>
+      <div style="position:absolute; right:28px; bottom:24px; background:var(--blue); color:#fff; font-size:18px; border-radius:8px; padding:10px 22px;">Into the digest</div>
+    </div>
+  </div>
+  <div class="line" data-line data-arrow style="left:800px; top:455px; width:240px;"></div>
+  <div style="position:absolute; left:1060px; top:360px; width:460px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px 28px;">
+    <div style="display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; border-radius:50%; background:var(--green);"></div><span style="font-size:18px; color:var(--ink-2);">Tomorrow, 7:00</span></div>
+    <div style="font-size:24px; font-weight:700; color:var(--ink); margin-top:10px;">Pick 3 of 5 · about 24 minutes</div>
+    <div class="mono" style="font-size:18px; color:var(--ink-3); margin-top:8px;">digest #38</div>
+  </div>
+  <div style="position:absolute; left:80px; top:750px; width:1400px; font-size:36px; font-weight:700; color:var(--ink);">Every box is editable.</div>
+  <aside class="notes">
+    <p>Mockup archetype: window chrome from .win, mono content, one action button in the accent color. Believable at a glance is the bar.</p>
+  </aside>
+</section>
+
+<!-- A16 · TERMINAL — the one place black is allowed; highlighted output tells a story with an arc. -->
+<section>
+  <div style="position:absolute; left:80px; top:150px; width:1400px; font-size:48px; font-weight:700; color:var(--ink);">The nightly job.</div>
+  <div style="position:absolute; left:200px; top:290px; width:1200px; height:440px; background:var(--dark); border-radius:12px; padding:24px 32px;">
+    <div style="display:flex; gap:10px; align-items:center;"><div style="width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);"></div><div style="width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);"></div><div style="width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);"></div><span class="mono" style="font-size:18px; color:rgba(255,255,255,.75); margin-left:440px;">digest — run 38</span></div>
+    <div class="mono" style="font-size:20px; line-height:2.15; margin-top:22px;">
+      <span style="color:#8AB4F8;">$</span><span style="color:#fff;"> lumen digest --dry-run</span><br>
+      <span style="color:rgba(255,255,255,.75);">[pile] 1,204 items · 214 new since yesterday</span><br>
+      <span style="color:rgba(255,255,255,.75);">[rank] regret scores computed in 1.2 s</span><br>
+      <span style="color:#FDD663;">[filter] 2 picks rejected — over the 20-minute cap</span><br>
+      <span style="color:#81C995;">[digest] 5 picks selected · every pick explained</span><br>
+      <span style="color:#fff;">[done] scheduled for 7:00</span>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Terminal archetype: background is --dark (the exception to no-black), output has an arc — a snag in yellow, recovery in green, calm ending.</p>
+  </aside>
+</section>
+
+<!-- A17 · MENU BAR MOCKUP — an ambient utility drawn as the macOS light menu bar plus its panel. -->
+<section>
+  <div style="position:absolute; left:80px; top:220px; width:1440px; height:44px; background:var(--surface); border:1px solid var(--line); border-radius:8px;">
+    <div style="position:absolute; right:24px; top:0; height:44px; display:flex; align-items:center; gap:14px;">
+      <div style="width:16px; height:16px; border-radius:50%; border:3px solid var(--blue-dark);"></div>
+      <span class="mono" style="font-size:18px; color:var(--ink);">3 left&nbsp;&nbsp;&nbsp;Wed 07:12</span>
+    </div>
+  </div>
+  <div class="win" style="left:1136px; top:276px; width:360px; height:250px; border-radius:10px;">
+    <div style="padding:6px 26px;">
+      <div class="mono" style="font-size:18px; font-weight:700; color:var(--green-dark); padding:12px 0; border-bottom:1px solid var(--line);">ON TRACK</div>
+      <div class="mono" style="font-size:18px; color:var(--ink); padding:12px 0; border-bottom:1px solid var(--line);">2 of 5 read</div>
+      <div class="mono" style="font-size:18px; color:var(--ink); padding:12px 0; border-bottom:1px solid var(--line);">next: 8 min</div>
+      <div class="mono" style="font-size:18px; color:var(--ink-3); padding:12px 0;">streak: 11 days</div>
+    </div>
+  </div>
+  <div style="position:absolute; left:80px; top:420px; width:800px; font-size:56px; font-weight:700; line-height:1.25; color:var(--ink);">It stays in the corner of the screen.</div>
+  <aside class="notes">
+    <p>Menu-bar archetype: light strip, an icon, a status panel hanging under it. For ambient tools that should feel small.</p>
+  </aside>
+</section>
+
+<!-- A18 · BAR CHART — drawn from divs on hairline gridlines; values above bars; stays editable. -->
+<section>
+  <div style="position:absolute; left:80px; top:150px; font-size:44px; font-weight:700; color:var(--ink);">Articles finished per week.</div>
+  <div style="position:absolute; left:160px; top:340px; width:1280px; height:1px; background:var(--line);"></div>
+  <div style="position:absolute; left:160px; top:460px; width:1280px; height:1px; background:var(--line);"></div>
+  <div style="position:absolute; left:160px; top:580px; width:1280px; height:1px; background:var(--line);"></div>
+  <div style="position:absolute; left:160px; top:700px; width:1280px; height:2px; background:var(--ink-3);"></div>
+  <div style="position:absolute; left:240px; top:580px; width:120px; height:120px; background:var(--blue);"></div>
+  <div style="position:absolute; left:440px; top:520px; width:120px; height:180px; background:var(--blue);"></div>
+  <div style="position:absolute; left:640px; top:480px; width:120px; height:220px; background:var(--blue);"></div>
+  <div style="position:absolute; left:840px; top:400px; width:120px; height:300px; background:var(--blue);"></div>
+  <div style="position:absolute; left:1040px; top:360px; width:120px; height:340px; background:var(--blue);"></div>
+  <div style="position:absolute; left:1240px; top:380px; width:120px; height:320px; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:240px; top:540px; width:120px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">6</div>
+  <div style="position:absolute; left:440px; top:480px; width:120px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">9</div>
+  <div style="position:absolute; left:640px; top:440px; width:120px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">11</div>
+  <div style="position:absolute; left:840px; top:360px; width:120px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">15</div>
+  <div style="position:absolute; left:1040px; top:320px; width:120px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">17</div>
+  <div style="position:absolute; left:1240px; top:340px; width:120px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">16</div>
+  <div class="mono" style="position:absolute; left:240px; top:720px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">w1</div>
+  <div class="mono" style="position:absolute; left:440px; top:720px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">w2</div>
+  <div class="mono" style="position:absolute; left:640px; top:720px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">w3</div>
+  <div class="mono" style="position:absolute; left:840px; top:720px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">w4</div>
+  <div class="mono" style="position:absolute; left:1040px; top:720px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">w5</div>
+  <div class="mono" style="position:absolute; left:1240px; top:720px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">w6</div>
+  <div style="position:absolute; left:80px; top:790px; width:1400px; font-size:24px; color:var(--ink-2);">the digest shipped in week 3 — the darker bar is last week</div>
+  <aside class="notes">
+    <p>Bar-chart archetype: hairline gridlines, a 2px baseline, values above bars, one bar in a second shade to mark the story point.</p>
+  </aside>
+</section>
+
+<!-- A19 · LINE CHART — rotated line segments dot-to-dot, circle markers, value labels. -->
+<section>
+  <div style="position:absolute; left:80px; top:150px; font-size:44px; font-weight:700; color:var(--ink);">Day-30 retention, by cohort.</div>
+  <div style="position:absolute; left:160px; top:330px; width:1280px; height:1px; background:var(--line);"></div>
+  <div style="position:absolute; left:160px; top:480px; width:1280px; height:1px; background:var(--line);"></div>
+  <div style="position:absolute; left:160px; top:630px; width:1280px; height:2px; background:var(--ink-3);"></div>
+  <div class="line" data-line style="left:240px; top:560px; width:247px; transform:rotate(-14deg); transform-origin:0 50%; background:var(--blue); color:var(--blue);"></div>
+  <div class="line" data-line style="left:480px; top:500px; width:241px; transform:rotate(4.8deg); transform-origin:0 50%; background:var(--blue); color:var(--blue);"></div>
+  <div class="line" data-line style="left:720px; top:520px; width:264px; transform:rotate(-24.6deg); transform-origin:0 50%; background:var(--blue); color:var(--blue);"></div>
+  <div class="line" data-line style="left:960px; top:410px; width:243px; transform:rotate(-9.5deg); transform-origin:0 50%; background:var(--blue); color:var(--blue);"></div>
+  <div class="line" data-line style="left:1200px; top:370px; width:260px; transform:rotate(-22.6deg); transform-origin:0 50%; background:var(--blue); color:var(--blue);"></div>
+  <div style="position:absolute; left:234px; top:554px; width:14px; height:14px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:474px; top:494px; width:14px; height:14px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:714px; top:514px; width:14px; height:14px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:954px; top:404px; width:14px; height:14px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:1194px; top:364px; width:14px; height:14px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:1434px; top:264px; width:14px; height:14px; border-radius:50%; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:190px; top:510px; font-size:20px; font-weight:700; color:var(--ink);">22%</div>
+  <div style="position:absolute; left:430px; top:450px; font-size:20px; font-weight:700; color:var(--ink);">28%</div>
+  <div style="position:absolute; left:670px; top:470px; font-size:20px; font-weight:700; color:var(--ink);">26%</div>
+  <div style="position:absolute; left:910px; top:360px; font-size:20px; font-weight:700; color:var(--ink);">37%</div>
+  <div style="position:absolute; left:1150px; top:320px; font-size:20px; font-weight:700; color:var(--ink);">41%</div>
+  <div style="position:absolute; left:1390px; top:220px; font-size:20px; font-weight:700; color:var(--ink);">51%</div>
+  <div class="mono" style="position:absolute; left:180px; top:650px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">Mar</div>
+  <div class="mono" style="position:absolute; left:420px; top:650px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">Apr</div>
+  <div class="mono" style="position:absolute; left:660px; top:650px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">May</div>
+  <div class="mono" style="position:absolute; left:900px; top:650px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">Jun</div>
+  <div class="mono" style="position:absolute; left:1140px; top:650px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">Jul</div>
+  <div class="mono" style="position:absolute; left:1380px; top:650px; width:120px; text-align:center; font-size:18px; color:var(--ink-2);">Aug</div>
+  <div style="position:absolute; left:80px; top:750px; width:1400px; font-size:24px; color:var(--ink-2);">every cohort since the digest launch retains better than the one before</div>
+  <aside class="notes">
+    <p>Line-chart archetype: rotated data-line segments computed dot-to-dot (length = hypotenuse, angle = atan2), markers on top, labels near points.</p>
+  </aside>
+</section>
+
+<!-- A20 · STACKED BARS — two segments per column, totals on top. -->
+<section>
+  <div style="position:absolute; left:80px; top:150px; font-size:44px; font-weight:700; color:var(--ink);">Reads: picked by the digest vs found by scrolling.</div>
+  <div style="position:absolute; left:160px; top:700px; width:1280px; height:2px; background:var(--ink-3);"></div>
+  <div style="position:absolute; left:300px; top:560px; width:160px; height:140px; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:300px; top:490px; width:160px; height:70px; background:var(--blue-tint);"></div>
+  <div style="position:absolute; left:620px; top:520px; width:160px; height:180px; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:620px; top:470px; width:160px; height:50px; background:var(--blue-tint);"></div>
+  <div style="position:absolute; left:940px; top:450px; width:160px; height:250px; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:940px; top:410px; width:160px; height:40px; background:var(--blue-tint);"></div>
+  <div style="position:absolute; left:1260px; top:400px; width:160px; height:300px; background:var(--blue-dark);"></div>
+  <div style="position:absolute; left:1260px; top:370px; width:160px; height:30px; background:var(--blue-tint);"></div>
+  <div style="position:absolute; left:300px; top:450px; width:160px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">21</div>
+  <div style="position:absolute; left:620px; top:430px; width:160px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">23</div>
+  <div style="position:absolute; left:940px; top:370px; width:160px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">29</div>
+  <div style="position:absolute; left:1260px; top:330px; width:160px; text-align:center; font-size:20px; font-weight:700; color:var(--ink);">33</div>
+  <div class="mono" style="position:absolute; left:300px; top:720px; width:160px; text-align:center; font-size:18px; color:var(--ink-2);">May</div>
+  <div class="mono" style="position:absolute; left:620px; top:720px; width:160px; text-align:center; font-size:18px; color:var(--ink-2);">Jun</div>
+  <div class="mono" style="position:absolute; left:940px; top:720px; width:160px; text-align:center; font-size:18px; color:var(--ink-2);">Jul</div>
+  <div class="mono" style="position:absolute; left:1260px; top:720px; width:160px; text-align:center; font-size:18px; color:var(--ink-2);">Aug</div>
+  <div style="position:absolute; left:80px; top:790px; width:1400px; font-size:24px; color:var(--ink-2);">dark = digest picks · light = scrolling — the scroll share shrinks every month</div>
+  <aside class="notes">
+    <p>Stacked-bar archetype: two shades of one hue, totals above, the legend as one plain caption line — never a legend box.</p>
+  </aside>
+</section>
+
+<!-- A21 · HEATMAP — a habit calendar drawn as a cell grid; density tells the story. -->
+<section>
+  <div style="position:absolute; left:80px; top:150px; font-size:56px; font-weight:700; color:var(--ink);">Twelve weeks of reading.</div>
+  <div style="position:absolute; left:80px; top:300px;">
+    <div style="display:flex; gap:6px; margin-bottom:6px;"><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div></div>
+    <div style="display:flex; gap:6px; margin-bottom:6px;"><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div></div>
+    <div style="display:flex; gap:6px; margin-bottom:6px;"><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div></div>
+    <div style="display:flex; gap:6px; margin-bottom:6px;"><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div></div>
+    <div style="display:flex; gap:6px; margin-bottom:6px;"><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div></div>
+    <div style="display:flex; gap:6px;"><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#E8EAED;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#CEEAD6;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#34A853;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div><div style="width:24px;height:24px;border-radius:5px;background:#188038;"></div></div>
+  </div>
+  <div class="mono" style="position:absolute; left:80px; top:530px; font-size:18px; color:var(--ink-2);">JUN</div>
+  <div class="mono" style="position:absolute; left:440px; top:530px; font-size:18px; color:var(--ink-2);">JUL</div>
+  <div class="mono" style="position:absolute; left:800px; top:530px; font-size:18px; color:var(--ink-2);">AUG</div>
+  <div style="position:absolute; left:80px; top:640px; width:1300px; font-size:24px; color:var(--ink-2);">Every green square is a finished article. The streak starts when the digest does.</div>
+  <aside class="notes">
+    <p>Heatmap archetype: four intensity levels, one hue, months labelled under the grid. Density is the argument — no numbers needed.</p>
+  </aside>
+</section>
+
+<!-- A22 · VIDEO PLACEHOLDER — a full-bleed calm frame with a play button; the clip drops in post-export. -->
+<section>
+  <div style="position:absolute; left:0; top:0; width:1600px; height:900px; background:var(--surface);"></div>
+  <div style="position:absolute; left:700px; top:330px; width:200px; height:200px; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center;"><span style="font-size:80px; color:#fff;">▶</span></div>
+  <div class="mono" style="position:absolute; left:80px; top:640px; width:1440px; text-align:center; font-size:26px; color:var(--ink);">demo · save an article, get tomorrow's digest</div>
+  <div class="mono" style="position:absolute; left:80px; top:700px; width:1440px; text-align:center; font-size:18px; color:var(--ink-2);">[ video drops in here ]</div>
+  <aside class="notes">
+    <p>Video archetype: keep the frame calm; the caption states what the clip proves; 45–90 seconds, narrated live.</p>
+  </aside>
+</section>
+
+<!-- A23 · CHECKLIST CLOSE — answer the opening claim, hand over first steps as drawn checkboxes. -->
+<section>
+  <div style="position:absolute; left:80px; top:200px; width:1400px; font-size:76px; font-weight:700; color:var(--ink);">People finish their reading lists now.</div>
+  <div style="position:absolute; left:80px; top:340px; width:1400px; font-size:30px; color:var(--ink-2);">Yours could be next. Start here:</div>
+  <div style="position:absolute; left:80px; top:500px;">
+    <div style="display:flex; align-items:center; gap:18px; margin-bottom:34px;"><div style="width:20px; height:20px; border:2px solid var(--ink-2); border-radius:4px;"></div><span class="mono" style="font-size:24px; color:var(--ink);">pick a pile you actually care about</span></div>
+    <div style="display:flex; align-items:center; gap:18px; margin-bottom:34px;"><div style="width:20px; height:20px; border:2px solid var(--ink-2); border-radius:4px;"></div><span class="mono" style="font-size:24px; color:var(--ink);">set the daily number embarrassingly low</span></div>
+    <div style="display:flex; align-items:center; gap:18px;"><div style="width:20px; height:20px; border:2px solid var(--ink-2); border-radius:4px;"></div><span class="mono" style="font-size:24px; color:var(--ink);">skip loudly. archive with a reason.</span></div>
+  </div>
+  <div style="position:absolute; left:80px; top:820px; font-size:20px; color:var(--ink-3);">A. Speaker · thank you</div>
+  <aside class="notes">
+    <p>Close archetype: answer the title slide's claim, then a Monday-morning checklist — three items, imperative, doable this week.</p>
+  </aside>
+</section>
+
+</body>
+</html>

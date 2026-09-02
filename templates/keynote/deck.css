@@ -1,0 +1,60 @@
+/* keynote template — stylesheet.
+ *
+ * Extends the house stylesheet with the classes the keynote archetypes
+ * use (see DESIGN.md). Link this file from a keynote deck instead of
+ * assets/deck.css; it imports the house sheet itself.
+ */
+
+@import url("../../assets/deck.css");
+
+/* Dark act-break slides. Deep brand blue, never black — black is reserved
+ * for objects that depict something dark (a terminal). */
+section.dark { background: var(--blue-dark); }
+
+/* Connector: 3px so it survives a projector. Set `color` so preview
+ * arrowheads match; pair with data-line / data-arrow / data-dashed. */
+.line {
+  position: absolute;
+  height: 3px;
+  background: var(--ink-2);
+  color: var(--ink-2);
+}
+
+/* Diagram node: a flex-centered rounded box. Size and fill inline. */
+.node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Drawn window chrome for mockups (app windows, panels). */
+.win {
+  position: absolute;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.win .bar {
+  height: 44px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  gap: 10px;
+}
+.win .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--ink-3); }
+
+/* Monospace inline — filenames, commands, mockup content only. */
+.mono { font-family: var(--mono); }
+
+/* Pill chip (teaser rows, key-cap chips). Colors inline. */
+.pillbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 700;
+}
