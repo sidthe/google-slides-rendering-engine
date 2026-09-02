@@ -38,7 +38,7 @@ func main() {
 	var err error
 	switch cmd {
 	case "check":
-		err = runCheck(ctx, htmlPath, flagValue(args, "-scene", ""))
+		err = runCheck(ctx, htmlPath, flagValue(args, "-scene", ""), flagValue(args, "-lint", ""))
 	case "build":
 		err = runBuild(ctx, htmlPath, flagValue(args, "-o", strings.TrimSuffix(htmlPath, ".html")+".pptx"), flagValue(args, "-target", "google-slides"))
 	case "requests":
@@ -66,7 +66,7 @@ func usage() {
 	fmt.Fprint(os.Stderr, `deckgen — HTML decks to native PPTX / Google Slides
 
 usage:
-  deckgen check      deck.html                 extract, report warnings
+  deckgen check      deck.html [-lint keynote] extract, report warnings; -lint adds template checks
   deckgen build      deck.html [-o out.pptx] [-target google-slides|powerpoint]
                                                write a .pptx (Google Slides import target by default)
   deckgen requests   deck.html                 print Slides batchUpdate JSON
@@ -109,7 +109,7 @@ func extract(ctx context.Context, htmlPath string) (*ir.Deck, []string, error) {
 	return d, warns, nil
 }
 
-func runCheck(ctx context.Context, htmlPath, scenePath string) error {
+func runCheck(ctx context.Context, htmlPath, scenePath, lintTemplate string) error {
 	if scenePath != "" {
 		res, err := htmlconv.Extract(ctx, htmlPath)
 		if err != nil {
@@ -133,6 +133,22 @@ func runCheck(ctx context.Context, htmlPath, scenePath string) error {
 	shapes := 0
 	for _, s := range d.Slides {
 		shapes += len(s.Shapes)
+	}
+	lints := 0
+	if lintTemplate != "" {
+		findings, lerr := lintDeck(lintTemplate, d)
+		if lerr != nil {
+			return lerr
+		}
+		for _, f := range findings {
+			fmt.Printf("lint(%s): %s\n", lintTemplate, f)
+		}
+		lints = len(findings)
+	}
+	if lintTemplate != "" {
+		fmt.Printf("%s: %d slide(s), %d native element(s), %d warning(s), %d lint finding(s)\n",
+			htmlPath, len(d.Slides), shapes, len(warns), lints)
+		return nil
 	}
 	fmt.Printf("%s: %d slide(s), %d native element(s), %d warning(s)\n",
 		htmlPath, len(d.Slides), shapes, len(warns))

@@ -16,6 +16,27 @@ supported HTML/CSS, native-editability limits, visual design rules, validation
 workflow, and fidelity boundaries. Agents using Gemini CLI should also read
 [`docs/gemini.md`](docs/gemini.md).
 
+## Templates
+
+The authoring contract defines what renders correctly; a **template**
+defines what reads well — a voice guide, composition rules, and a catalog
+of slide archetypes with known-good geometry, plus a lint pass that keeps
+decks inside the template's floors.
+
+Available templates live under [`templates/`](templates/):
+
+- [`templates/keynote/`](templates/keynote/) — conference-keynote style:
+  one idea per slide, huge type, drawn diagrams/mockups/charts, plain
+  human copy, detail in speaker notes. Start with its `README.md`; the
+  23-slide `skeleton.html` shows every archetype with fictional content.
+
+To author against a template, read its `VOICE.md` and `DESIGN.md`, copy
+archetypes from its skeleton, and validate with the template lint:
+
+```sh
+deckgen check deck.html -lint keynote
+```
+
 ```
  deck.html (1600×900 <section> per slide, any CSS)
      │  headless Chrome + injected extractor
