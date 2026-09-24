@@ -586,15 +586,96 @@
     };
 
     for (const c of section.children) walk(c);
-    // speaker notes: hidden aside, one paragraph per block child
+    // speaker notes: hidden aside, preserving paragraphs, <br> line breaks, and <ul>/<ol>/<li> lists
     let notes = "";
     const aside = section.querySelector("aside.notes, aside[data-notes]");
     if (aside) {
-      const lines = [];
-      for (const c of aside.children) {
-        const t = c.textContent.replace(/\s+/g, " ").trim();
-        if (t) lines.push(t);
+      function inlineLines(el) {
+        const clone = el.cloneNode(true);
+        for (const nested of clone.querySelectorAll("ul, ol")) {
+          nested.remove();
+        }
+        for (const br of clone.querySelectorAll("br")) {
+          br.replaceWith("\n");
+        }
+        return clone.textContent
+          .split("\n")
+          .map(s => s.replace(/\s+/g, " ").trim());
       }
+
+      function extractList(listEl, depth) {
+        const out = [];
+        let idx = 1;
+        for (const li of listEl.children) {
+          if (li.tagName !== "LI") continue;
+          const prefix = listEl.tagName === "OL" ? `${idx++}. ` : (depth > 0 ? "  - " : "• ");
+          const contIndent = depth > 0 ? "    " : "  ";
+          const liLines = inlineLines(li);
+          let pushedFirst = false;
+          for (const l of liLines) {
+            if (!l) continue;
+            if (!pushedFirst) {
+              out.push(prefix + l);
+              pushedFirst = true;
+            } else {
+              out.push(contIndent + l);
+            }
+          }
+          for (const sub of li.children) {
+            if (sub.tagName === "UL" || sub.tagName === "OL") {
+              out.push(...extractList(sub, depth + 1));
+            }
+          }
+        }
+        return out;
+      }
+
+      function extractNoteLines(node) {
+        const out = [];
+        if (node.children.length === 0) {
+          for (const l of inlineLines(node)) {
+            if (l) out.push(l);
+          }
+          return out;
+        }
+        for (const c of node.children) {
+          const tag = c.tagName;
+          if (tag === "BR") {
+            out.push("");
+            continue;
+          }
+          if (tag === "UL" || tag === "OL") {
+            out.push(...extractList(c, 0));
+            continue;
+          }
+          const blockLines = inlineLines(c);
+          if (blockLines.length === 1 && blockLines[0] === "") {
+            out.push("");
+          } else {
+            for (const l of blockLines) {
+              out.push(l);
+            }
+          }
+          for (const sub of c.children) {
+            if (sub.tagName === "UL" || sub.tagName === "OL") {
+              out.push(...extractList(sub, 0));
+            }
+          }
+        }
+        const cleaned = [];
+        for (const l of out) {
+          if (l === "" && (cleaned.length === 0 || cleaned[cleaned.length - 1] === "")) {
+            continue;
+          }
+          cleaned.push(l);
+        }
+        while (cleaned.length > 0 && cleaned[cleaned.length - 1] === "") {
+          cleaned.pop();
+        }
+        return cleaned;
+      }
+
+      const lines = extractNoteLines(aside);
       notes = lines.length ? lines.join("\n") : aside.textContent.replace(/\s+/g, " ").trim();
     }
     // background of the section itself
