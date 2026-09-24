@@ -1,6 +1,7 @@
 package htmlconv
 
 import (
+	"encoding/base64"
 	"fmt"
 	"math"
 	"strings"
@@ -76,6 +77,16 @@ func MapScenes(res *Result) (*ir.Deck, []string) {
 				slide.Shapes = append(slide.Shapes, mapText(el))
 			case "table":
 				slide.Shapes = append(slide.Shapes, mapTable(el))
+			case "image":
+				png, err := base64.StdEncoding.DecodeString(el.PNG)
+				if err != nil || len(png) == 0 {
+					warns = append(warns, prefix+"image payload undecodable — skipped")
+					continue
+				}
+				slide.Shapes = append(slide.Shapes, ir.Picture{
+					Frame: ir.Frame{X: el.X, Y: el.Y, W: el.W, H: el.H},
+					PNG:   png,
+				})
 			default:
 				warns = append(warns, prefix+"unknown element kind "+el.Kind)
 			}

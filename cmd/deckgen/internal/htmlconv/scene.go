@@ -23,8 +23,8 @@ type Scene struct {
 }
 
 // Element is the union of extracted node kinds ("box", "line", "text",
-// "table"); which fields are meaningful depends on Kind. All geometry is in
-// CSS px relative to the section origin.
+// "table", "image"); which fields are meaningful depends on Kind. All
+// geometry is in CSS px relative to the section origin.
 type Element struct {
 	Kind string `json:"kind"`
 
@@ -43,6 +43,9 @@ type Element struct {
 	BorderW   float64 `json:"borderW"`
 	Radius    float64 `json:"radius"` // fraction of the smaller side, 0..0.5
 	Oval      bool    `json:"oval"`
+
+	// image (Kind "image"): base64-encoded PNG, rasterized by the extractor
+	PNG string `json:"png"`
 
 	// line + elbow (Kind "elbow": vertical from (x1,y1), bend, horizontal
 	// into (x2,y2))

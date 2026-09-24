@@ -23,8 +23,15 @@ Always run `check` and `screenshot` before `build` or `push`.
   deck grid unit.
 - Use the starter structure below. Keep content between y=180 and y=800;
   the title, kicker and footer positions are defined by `assets/deck.css`.
-- Use real text and styled `div`s. Do not use `<img>`, `<svg>`, `<canvas>` or
+- Use real text and styled `div`s. Do not use `<svg>`, `<canvas>` or
   `<video>`: media is omitted so the output stays natively editable.
+- `<img>` is skipped by default for the same reason. When an image is the
+  content — a screenshot, a photo, a published code sample — mark it
+  `<img data-embed …>`: the extractor rasterizes it at 2× layout size
+  (honoring `object-fit`; SVG sources work too) and the PPTX embeds it as a
+  native picture. Embedded pictures survive the `import` route into Google
+  Slides; the API `push` route skips them (Slides requires a public image
+  URL).
 
 ```html
 <!DOCTYPE html>

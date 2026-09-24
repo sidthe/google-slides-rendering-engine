@@ -58,11 +58,25 @@ func writeTo(w io.Writer, d *ir.Deck, canvasW, canvasH int) error {
 		_, err = zw.Write([]byte(content))
 		return err
 	}
+	addBytes := func(name string, content []byte) error {
+		zw, err := z.Create(name)
+		if err != nil {
+			return err
+		}
+		_, err = zw.Write(content)
+		return err
+	}
 	n := len(d.Slides)
 	hasNotes := false
+	hasImages := false
 	for _, sl := range d.Slides {
 		if sl.Notes != "" {
 			hasNotes = true
+		}
+		for _, sh := range sl.Shapes {
+			if _, ok := sh.(ir.Picture); ok {
+				hasImages = true
+			}
 		}
 	}
 
@@ -71,7 +85,11 @@ func writeTo(w io.Writer, d *ir.Deck, canvasW, canvasH int) error {
 	ct.WriteString(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
 <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
-<Default Extension="xml" ContentType="application/xml"/>
+<Default Extension="xml" ContentType="application/xml"/>`)
+	if hasImages {
+		ct.WriteString(`<Default Extension="png" ContentType="image/png"/>`)
+	}
+	ct.WriteString(`
 <Override PartName="/ppt/presentation.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml"/>
 <Override PartName="/ppt/slideMasters/slideMaster1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml"/>
 <Override PartName="/ppt/slideLayouts/slideLayout1.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml"/>
@@ -147,6 +165,7 @@ func writeTo(w io.Writer, d *ir.Deck, canvasW, canvasH int) error {
 	}
 
 	// slides
+	imgCount := 0
 	for i, sl := range d.Slides {
 		rels := &slideRels{}
 		shapes := make([]string, len(sl.Shapes))
@@ -160,6 +179,13 @@ func writeTo(w io.Writer, d *ir.Deck, canvasW, canvasH int) error {
 <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout" Target="../slideLayouts/slideLayout1.xml"/>`)
 		for k, url := range rels.links {
 			srels.WriteString(fmt.Sprintf(`<Relationship Id="rId%d" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="%s" TargetMode="External"/>`, k+2, esc(url)))
+		}
+		for k, png := range rels.images {
+			imgCount++
+			if err := addBytes(fmt.Sprintf("ppt/media/image%d.png", imgCount), png); err != nil {
+				return err
+			}
+			srels.WriteString(fmt.Sprintf(`<Relationship Id="rIdImg%d" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="../media/image%d.png"/>`, k+1, imgCount))
 		}
 		if sl.Notes != "" {
 			srels.WriteString(fmt.Sprintf(`<Relationship Id="rIdNS" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/notesSlide" Target="../notesSlides/notesSlide%d.xml"/>`, i+1))

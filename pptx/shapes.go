@@ -29,10 +29,19 @@ func fillXML(color string, alpha float64) string {
 	return fmt.Sprintf(`<a:solidFill><a:srgbClr val="%s"/></a:solidFill>`, color)
 }
 
-// slideRels accumulates per-slide relationships (hyperlinks); rId1 is
-// always the layout, so links start at rId2.
+// slideRels accumulates per-slide relationships (hyperlinks + embedded
+// images); rId1 is always the layout, so links start at rId2. Image rels
+// use their own "rIdImgN" namespace so they never collide with links.
 type slideRels struct {
-	links []string
+	links  []string
+	images [][]byte
+}
+
+// imageID registers PNG bytes for embedding and returns the picture's
+// relationship ID; the writer emits the matching media part and rel.
+func (r *slideRels) imageID(png []byte) string {
+	r.images = append(r.images, png)
+	return fmt.Sprintf("rIdImg%d", len(r.images))
 }
 
 func (r *slideRels) linkID(url string) string {
@@ -63,8 +72,19 @@ func shapeXML(sh ir.Shape, id int, rels *slideRels) string {
 		return elbowXML(v, id)
 	case ir.Table:
 		return tableXML(v, id, rels)
+	case ir.Picture:
+		return picXML(v, id, rels)
 	}
 	return ""
+}
+
+// picXML renders an embedded raster image as a native picture frame.
+func picXML(v ir.Picture, id int, rels *slideRels) string {
+	rid := rels.imageID(v.PNG)
+	return fmt.Sprintf(`<p:pic><p:nvPicPr><p:cNvPr id="%d" name="Picture %d"/><p:cNvPicPr><a:picLocks noChangeAspect="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr>`+
+		`<p:blipFill><a:blip r:embed="%s"/><a:stretch><a:fillRect/></a:stretch></p:blipFill>`+
+		`<p:spPr><a:xfrm><a:off x="%d" y="%d"/><a:ext cx="%d" cy="%d"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr></p:pic>`,
+		id, id, rid, emu(v.X), emu(v.Y), emu(v.W), emu(v.H))
 }
 
 func rectXML(v ir.Rect, id int) string {

@@ -30,6 +30,11 @@ func session(ctx context.Context, htmlPath string, fn func(ctx context.Context) 
 		chromedp.WindowSize(1600, 1000),
 		chromedp.Flag("force-device-scale-factor", "1"),
 		chromedp.Flag("hide-scrollbars", true),
+		// Decks load over file://, where every image is a distinct opaque
+		// origin; without this flag, drawing an <img data-embed> to a canvas
+		// taints it and toDataURL throws. Local extraction of a local deck —
+		// no remote content is involved.
+		chromedp.Flag("allow-file-access-from-files", true),
 	)
 	if p := os.Getenv("DECKGEN_CHROME"); p != "" {
 		opts = append(opts, chromedp.ExecPath(p))

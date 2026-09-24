@@ -443,13 +443,56 @@
       });
     };
 
+    // extractImage rasterizes an <img data-embed> at 2x layout resolution
+    // into a PNG, honoring object-fit; SVG sources rasterize here too, so
+    // the Go side only ever sees PNG bytes.
+    const extractImage = (el, r) => {
+      if (!el.complete || !el.naturalWidth) {
+        warn(el, "img not loaded — embed skipped");
+        return;
+      }
+      try {
+        const scale = 2;
+        const cw = Math.max(1, Math.round(r.w * scale));
+        const ch = Math.max(1, Math.round(r.h * scale));
+        const canvas = document.createElement("canvas");
+        canvas.width = cw;
+        canvas.height = ch;
+        const ctx = canvas.getContext("2d");
+        let dx = 0, dy = 0, dw = cw, dh = ch;
+        const fit = getComputedStyle(el).objectFit;
+        if (fit === "contain" || fit === "cover" || fit === "scale-down") {
+          const rx = cw / el.naturalWidth, ry = ch / el.naturalHeight;
+          let f = fit === "cover" ? Math.max(rx, ry) : Math.min(rx, ry);
+          if (fit === "scale-down") f = Math.min(f, scale);
+          dw = el.naturalWidth * f;
+          dh = el.naturalHeight * f;
+          dx = (cw - dw) / 2;
+          dy = (ch - dh) / 2;
+        }
+        ctx.drawImage(el, dx, dy, dw, dh);
+        const data = canvas.toDataURL("image/png");
+        elements.push({ kind: "image", ...r, png: data.slice(data.indexOf(",") + 1) });
+      } catch (e) {
+        warn(el, "img embed failed (" + e.message + ") — skipped");
+      }
+    };
+
     const walk = (el) => {
       if (SKIP_TAGS.has(el.tagName)) return;
       if (el.tagName === "ASIDE" && (el.classList.contains("notes") || el.hasAttribute("data-notes"))) return; // handled per-section
       const cs = getComputedStyle(el);
       if (cs.display === "none" || cs.visibility === "hidden" || px(cs.opacity) === 0) return;
+      if (el.tagName === "IMG" && el.hasAttribute("data-embed")) {
+        extractImage(el, rel(el.getBoundingClientRect()));
+        return;
+      }
       if (MEDIA_TAGS.has(el.tagName)) {
-        warn(el, "media element skipped (output must stay natively editable)");
+        if (el.tagName === "IMG") {
+          warn(el, "img skipped — add data-embed to embed it as a native picture");
+        } else {
+          warn(el, "media element skipped (output must stay natively editable)");
+        }
         return;
       }
       if (el.tagName === "TABLE") {
