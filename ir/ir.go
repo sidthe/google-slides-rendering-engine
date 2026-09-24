@@ -28,7 +28,7 @@ type Slide struct {
 }
 
 // Shape is the sealed sum of drawable node types: Rect, Oval, AutoShape,
-// Text, Line, Elbow, Table.
+// Text, Line, Elbow, Table, Picture.
 type Shape interface{ isShape() }
 
 // Frame is a shape's bounding box in grid units.
@@ -123,6 +123,17 @@ type Elbow struct {
 	ArrowStart     bool
 }
 
+// Picture is an embedded raster image. PNG holds the encoded PNG bytes;
+// producers rasterize source media (including SVG) at layout resolution,
+// so emitters only ever deal with one format. The pptx emitter embeds it
+// as a native picture frame; the gslides push emitter skips it (the
+// Slides API requires a public image URL), but pictures survive the
+// PPTX-import route unchanged.
+type Picture struct {
+	Frame
+	PNG []byte
+}
+
 func (Rect) isShape()      {}
 func (Oval) isShape()      {}
 func (AutoShape) isShape() {}
@@ -130,6 +141,7 @@ func (Text) isShape()      {}
 func (Line) isShape()      {}
 func (Elbow) isShape()     {}
 func (Table) isShape()     {}
+func (Picture) isShape()   {}
 
 // Run is a span of uniformly-styled text. Zero Size/Color/Font inherit the
 // containing Text/Table defaults. Link makes the run a hyperlink.

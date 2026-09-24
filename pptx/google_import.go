@@ -99,6 +99,9 @@ func scaleShape(sh ir.Shape) ir.Shape {
 		v.Y2 *= googleImportScale
 		v.Wpt *= googleImportScale
 		return v
+	case ir.Picture:
+		v.Frame = scaleFrame(v.Frame)
+		return v
 	case ir.Table:
 		v.X *= googleImportScale
 		v.Y *= googleImportScale
