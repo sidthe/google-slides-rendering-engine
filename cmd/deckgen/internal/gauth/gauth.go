@@ -64,7 +64,26 @@ func client(ctx context.Context, oauthClientPath string, forceBrowser bool) (*ht
 	}
 	if !forceBrowser {
 		if creds, err := google.FindDefaultCredentials(ctx, Scopes...); err == nil {
-			return oauth2.NewClient(ctx, creds.TokenSource), nil
+			httpClient := oauth2.NewClient(ctx, creds.TokenSource)
+			var qp struct {
+				QuotaProjectID string `json:"quota_project_id"`
+			}
+			_ = json.Unmarshal(creds.JSON, &qp)
+			quotaProj := qp.QuotaProjectID
+			if quotaProj == "" {
+				quotaProj = os.Getenv("GOOGLE_CLOUD_QUOTA_PROJECT")
+			}
+			if quotaProj == "" {
+				quotaProj = os.Getenv("CLOUDSDK_CORE_PROJECT")
+			}
+			if quotaProj != "" {
+				base := httpClient.Transport
+				if base == nil {
+					base = http.DefaultTransport
+				}
+				httpClient.Transport = &quotaTransport{base: base, quotaProject: quotaProj}
+			}
+			return httpClient, nil
 		}
 	}
 	dir, err := configDir()
@@ -220,3 +239,17 @@ func (s *savingSource) Token() (*oauth2.Token, error) {
 	}
 	return t, err
 }
+
+type quotaTransport struct {
+	base         http.RoundTripper
+	quotaProject string
+}
+
+func (t *quotaTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	if t.quotaProject != "" && req.Header.Get("X-Goog-User-Project") == "" {
+		req = req.Clone(req.Context())
+		req.Header.Set("X-Goog-User-Project", t.quotaProject)
+	}
+	return t.base.RoundTrip(req)
+}
+
