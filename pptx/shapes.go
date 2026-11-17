@@ -33,8 +33,9 @@ func fillXML(color string, alpha float64) string {
 // images); rId1 is always the layout, so links start at rId2. Image rels
 // use their own "rIdImgN" namespace so they never collide with links.
 type slideRels struct {
-	links  []string
-	images [][]byte
+	links   []string
+	images  [][]byte
+	canvasW int
 }
 
 // imageID registers PNG bytes for embedding and returns the picture's
@@ -145,7 +146,7 @@ func ovalXML(v ir.Oval, id int) string {
 // runAttrs renders the optional rPr attributes shared by text boxes and
 // table cells; empty strings for defaults keep pre-feature output
 // byte-identical.
-func runAttrs(r ir.Run) (italic, underline, strike string) {
+func runAttrs(r ir.Run) (italic, underline, strike, tracking string) {
 	if r.Italic {
 		italic = ` i="1"`
 	}
@@ -155,8 +156,18 @@ func runAttrs(r ir.Run) (italic, underline, strike string) {
 	if r.Strike {
 		strike = ` strike="sngStrike"`
 	}
+	if r.LetterSpacing != 0 {
+		if spc := int(math.Round(r.LetterSpacing * 100)); spc != 0 {
+			tracking = fmt.Sprintf(` spc="%d"`, spc)
+		}
+	}
 	return
 }
+
+// defaultBulletIndentPt is the fallback hanging indent per list level when
+// Para.BulletIndent is zero (13.5pt = 171450 EMU on 13.333in PPTX, 10.125pt =
+// 128588 EMU after 0.75 Google Slides scaling).
+const defaultBulletIndentPt = 13.5
 
 // bulletXML renders the pPr attribute prefix and child elements that turn
 // a paragraph into a list item at the given nesting level.
@@ -164,7 +175,19 @@ func bulletXML(p ir.Para) (attrs, children string) {
 	if p.Bullet == "" {
 		return "", ""
 	}
-	attrs = fmt.Sprintf(` marL="%d" indent="-342900"`, 342900*(p.Level+1))
+	indentPt := p.BulletIndent
+	if indentPt <= 0 {
+		indentPt = defaultBulletIndentPt
+	}
+	step := int(math.Round(indentPt * 12700))
+	marL := step * (p.Level + 1)
+	if p.BulletMargin > 0 {
+		marL = int(math.Round(p.BulletMargin * 12700))
+	}
+	if step > marL {
+		step = marL
+	}
+	attrs = fmt.Sprintf(` marL="%d" indent="-%d"`, marL, step)
 	switch p.Bullet {
 	case "number":
 		children = `<a:buFont typeface="Arial"/><a:buAutoNum type="arabicPeriod"/>`
@@ -190,10 +213,16 @@ func textXML(v ir.Text, id int, rels *slideRels) string {
 		}
 		spc := ""
 		if p.Spacing > 0 {
-			spc = fmt.Sprintf(`<a:lnSpc><a:spcPct val="%d"/></a:lnSpc>`, int(p.Spacing*100000))
+			spc = fmt.Sprintf(`<a:lnSpc><a:spcPct val="%d"/></a:lnSpc>`, int(math.Round(p.Spacing*100000)))
+		}
+		spcAft := ""
+		if p.SpaceAfter > 0 {
+			if pts := int(math.Round(p.SpaceAfter * 100)); pts > 0 {
+				spcAft = fmt.Sprintf(`<a:spcAft><a:spcPts val="%d"/></a:spcAft>`, pts)
+			}
 		}
 		bAttrs, bChildren := bulletXML(p)
-		body.WriteString(fmt.Sprintf(`<a:p><a:pPr%s%s>%s%s</a:pPr>`, bAttrs, algn, spc, bChildren))
+		body.WriteString(fmt.Sprintf(`<a:p><a:pPr%s%s>%s%s%s</a:pPr>`, bAttrs, algn, spc, spcAft, bChildren))
 		if len(p.Runs) == 0 {
 			// size the blank spacer line like the surrounding text; without an
 			// explicit sz it inherits the 18pt default and inflates the block
@@ -216,10 +245,20 @@ func textXML(v ir.Text, id int, rels *slideRels) string {
 			if r.Bold {
 				b = "1"
 			}
-			i, u, st := runAttrs(r)
-			body.WriteString(fmt.Sprintf(
-				`<a:r><a:rPr lang="en-US" sz="%d" b="%s"%s%s%s dirty="0"><a:solidFill><a:srgbClr val="%s"/></a:solidFill><a:latin typeface="%s"/><a:cs typeface="%s"/>%s</a:rPr><a:t>%s</a:t></a:r>`,
-				int(math.Round(size*100)), b, i, u, st, color, esc(font), esc(font), linkXML(r, rels), esc(r.Text)))
+			i, u, st, spcAttr := runAttrs(r)
+			parts := strings.Split(r.Text, "\v")
+			for pi, seg := range parts {
+				if pi > 0 {
+					body.WriteString(fmt.Sprintf(`<a:br><a:rPr lang="en-US" sz="%d" b="%s"%s%s%s%s dirty="0"/></a:br>`,
+						int(math.Round(size*100)), b, i, u, st, spcAttr))
+				}
+				if seg == "" && len(parts) > 1 {
+					continue
+				}
+				body.WriteString(fmt.Sprintf(
+					`<a:r><a:rPr lang="en-US" sz="%d" b="%s"%s%s%s%s dirty="0"><a:solidFill><a:srgbClr val="%s"/></a:solidFill><a:latin typeface="%s"/><a:cs typeface="%s"/>%s</a:rPr><a:t>%s</a:t></a:r>`,
+					int(math.Round(size*100)), b, i, u, st, spcAttr, color, esc(font), esc(font), linkXML(r, rels), esc(seg)))
+			}
 		}
 		body.WriteString("</a:p>")
 	}
@@ -228,25 +267,56 @@ func textXML(v ir.Text, id int, rels *slideRels) string {
 		rot = fmt.Sprintf(` rot="%d"`, int(v.Rot*60000))
 	}
 	tx, tw := v.X, v.W
+	ox, cx := emu(tx), emu(tw)
 	if v.WrapSlack {
 		// Chrome exposes the painted glyph width, while Office/Slides needs a
 		// few extra pixels to keep a one-line label whole. Preserve alignment
 		// while adding that breathing room: centered labels expand equally and
 		// right-aligned labels expand to the left.
 		extra := tw * 0.12
-		switch textAlign(v.Paras) {
-		case "ctr":
-			tx -= extra / 2
-		case "r":
-			tx -= extra
+		align := textAlign(v.Paras)
+		canvasW := slideW
+		if rels != nil && rels.canvasW > 0 {
+			canvasW = rels.canvasW
 		}
-		tw += extra
+		inSlide := emu(v.X) >= 0 && emu(v.X+v.W) <= canvasW
+		switch align {
+		case "ctr":
+			half := extra / 2
+			if inSlide {
+				maxW := float64(canvasW) * gridW / slideW
+				if half > v.X {
+					half = v.X
+				}
+				if rightRoom := maxW - (v.X + v.W); half > rightRoom {
+					half = rightRoom
+				}
+				if half < 0 {
+					half = 0
+				}
+			}
+			tx -= half
+			tw += 2 * half
+		case "r":
+			shift := extra
+			if inSlide && shift > v.X {
+				shift = math.Max(0, v.X)
+			}
+			tx -= shift
+			tw += shift
+		default:
+			tw += extra
+		}
+		ox, cx = emu(tx), emu(tw)
+		if align == "l" && inSlide && ox+cx > canvasW {
+			cx = canvasW - ox
+		}
 	}
 	return fmt.Sprintf(`<p:sp><p:nvSpPr><p:cNvPr id="%d" name="text"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr>
 <p:spPr><a:xfrm%s><a:off x="%d" y="%d"/><a:ext cx="%d" cy="%d"/></a:xfrm>
 <a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>
 <p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0"><a:normAutofit/></a:bodyPr>%s</p:txBody></p:sp>`,
-		id, rot, emu(tx), emu(v.Y), emu(tw), emu(v.H), body.String())
+		id, rot, ox, emu(v.Y), cx, emu(v.H), body.String())
 }
 
 func textAlign(paras []ir.Para) string {
@@ -322,32 +392,55 @@ func elbowXML(v ir.Elbow, id int) string {
 		id, fx, fy, emu(ox), emu(oy), we, he, int(v.Wpt*12700), v.Color, dash, heads)
 }
 
+func tableRowHeight(v ir.Table, ri int) float64 {
+	if len(v.RowHs) == len(v.Rows) && v.RowHs[ri] > 0 {
+		return v.RowHs[ri]
+	}
+	return v.RowH
+}
+
 func tableXML(v ir.Table, id int, rels *slideRels) string {
 	var sb strings.Builder
 	totW := 0.0
 	for _, w := range v.ColW {
 		totW += w
 	}
+	totH := v.RowH * float64(len(v.Rows))
+	if len(v.RowHs) == len(v.Rows) && len(v.RowHs) > 0 {
+		totH = 0
+		for ri := range v.Rows {
+			totH += tableRowHeight(v, ri)
+		}
+	}
 	sb.WriteString(fmt.Sprintf(`<p:graphicFrame><p:nvGraphicFramePr><p:cNvPr id="%d" name="table"/><p:cNvGraphicFramePr/><p:nvPr/></p:nvGraphicFramePr>
 <p:xfrm><a:off x="%d" y="%d"/><a:ext cx="%d" cy="%d"/></p:xfrm>
 <a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/table"><a:tbl>
-<a:tblPr firstRow="0" bandRow="0"/><a:tblGrid>`, id, emu(v.X), emu(v.Y), emu(totW), emu(v.RowH*float64(len(v.Rows)))))
+<a:tblPr firstRow="0" bandRow="0"/><a:tblGrid>`, id, emu(v.X), emu(v.Y), emu(totW), emu(totH)))
 	for _, w := range v.ColW {
 		sb.WriteString(fmt.Sprintf(`<a:gridCol w="%d"/>`, emu(w)))
 	}
 	sb.WriteString("</a:tblGrid>")
-	for _, row := range v.Rows {
-		sb.WriteString(fmt.Sprintf(`<a:tr h="%d">`, emu(v.RowH)))
+	for ri, row := range v.Rows {
+		sb.WriteString(fmt.Sprintf(`<a:tr h="%d">`, emu(tableRowHeight(v, ri))))
 		for _, c := range row {
 			sb.WriteString("<a:tc><a:txBody><a:bodyPr/>")
 			if len(c.Paras) == 0 {
 				sb.WriteString("<a:p/>")
 			}
 			for _, p := range c.Paras {
-				if p.Align != "" {
+				if p.Spacing > 0 {
+					algn := ""
+					if p.Align != "" {
+						algn = fmt.Sprintf(` algn="%s"`, p.Align)
+					}
+					sb.WriteString(fmt.Sprintf(`<a:p><a:pPr%s><a:lnSpc><a:spcPct val="%d"/></a:lnSpc></a:pPr>`, algn, int(math.Round(p.Spacing*100000))))
+				} else if p.Align != "" {
 					sb.WriteString(fmt.Sprintf(`<a:p><a:pPr algn="%s"/>`, p.Align))
 				} else {
 					sb.WriteString("<a:p>")
+				}
+				if len(p.Runs) == 0 {
+					sb.WriteString(fmt.Sprintf(`<a:endParaRPr lang="en-US" sz="%d"/>`, int(math.Round(v.DefSize*100))))
 				}
 				for _, r := range p.Runs {
 					size := v.DefSize
@@ -358,10 +451,10 @@ func tableXML(v ir.Table, id int, rels *slideRels) string {
 					if r.Bold {
 						b = "1"
 					}
-					i, u, st := runAttrs(r)
+					i, u, st, spcAttr := runAttrs(r)
 					sb.WriteString(fmt.Sprintf(
-						`<a:r><a:rPr lang="en-US" sz="%d" b="%s"%s%s%s><a:solidFill><a:srgbClr val="%s"/></a:solidFill><a:latin typeface="%s"/>%s</a:rPr><a:t>%s</a:t></a:r>`,
-						int(math.Round(size*100)), b, i, u, st, r.Color, r.Font, linkXML(r, rels), esc(r.Text)))
+						`<a:r><a:rPr lang="en-US" sz="%d" b="%s"%s%s%s%s><a:solidFill><a:srgbClr val="%s"/></a:solidFill><a:latin typeface="%s"/>%s</a:rPr><a:t>%s</a:t></a:r>`,
+						int(math.Round(size*100)), b, i, u, st, spcAttr, r.Color, r.Font, linkXML(r, rels), esc(r.Text)))
 				}
 				sb.WriteString("</a:p>")
 			}

@@ -99,13 +99,15 @@ type Line struct {
 }
 
 // Table is a simple grid. ColW are column widths, RowH the uniform row
-// height (a minimum in backends that grow rows), BorderColor the hairline
-// color between rows. Cell fills and run colors/fonts are pre-resolved by
-// the producer.
+// height (a minimum in backends that grow rows), RowHs optional per-row
+// heights overriding RowH when len(RowHs) == len(Rows), and BorderColor the
+// hairline color between rows. Cell fills and run colors/fonts are
+// pre-resolved by the producer.
 type Table struct {
 	X, Y        float64
 	ColW        []float64
 	RowH        float64
+	RowHs       []float64 `json:",omitempty"`
 	Rows        [][]Cell
 	DefSize     float64
 	BorderColor string
@@ -144,29 +146,38 @@ func (Table) isShape()     {}
 func (Picture) isShape()   {}
 
 // Run is a span of uniformly-styled text. Zero Size/Color/Font inherit the
-// containing Text/Table defaults. Link makes the run a hyperlink.
+// containing Text/Table defaults. Link makes the run a hyperlink;
+// LetterSpacing adjusts inter-character tracking in points (0 = normal).
 type Run struct {
-	Text      string
-	Bold      bool
-	Italic    bool
-	Underline bool
-	Strike    bool
-	Color     string  // hex, "" = inherit
-	Size      float64 // pt, 0 = inherit
-	Font      string  // "" = inherit
-	Link      string  // URL, "" = none
+	Text          string
+	Bold          bool
+	Italic        bool
+	Underline     bool
+	Strike        bool
+	Color         string  // hex, "" = inherit
+	Size          float64 // pt, 0 = inherit
+	Font          string  // "" = inherit
+	Link          string  // URL, "" = none
+	LetterSpacing float64 `json:",omitempty"` // pt, 0 = normal
 }
 
 // Para is one paragraph of runs. Align is "l", "ctr" or "r" ("" = left);
-// Spacing is a line-spacing multiple (0 = renderer default). Bullet turns
-// the paragraph into a list item: "disc" or "number"; Level is the list
-// nesting depth (0 = top level, meaningful only with Bullet).
+// Spacing is a line-spacing multiple (0 = renderer default); SpaceAfter adds
+// vertical space below the paragraph in points. Bullet turns the paragraph
+// into a list item: "disc" or "number"; Level is the list nesting depth
+// (0 = top level, meaningful only with Bullet); BulletIndent sets the hanging
+// indent step in points (0 = emitter default); BulletMargin optionally sets
+// the cumulative left margin in points when nested list indents are
+// non-uniform (0 = BulletIndent * (Level + 1)).
 type Para struct {
-	Runs    []Run
-	Align   string
-	Spacing float64
-	Bullet  string
-	Level   int
+	Runs         []Run
+	Align        string
+	Spacing      float64
+	SpaceAfter   float64 `json:",omitempty"`
+	Bullet       string
+	Level        int
+	BulletIndent float64 `json:",omitempty"`
+	BulletMargin float64 `json:",omitempty"`
 }
 
 // Cell is one table cell.

@@ -144,19 +144,50 @@ func mapBox(el Element, warns *[]string, prefix string) ir.Shape {
 	}
 }
 
+// cssNormalLineHeight is the em-multiple of normal single-line spacing
+// (100% in OOXML and Google Slides) for Roboto and Roboto Mono: 24px per line
+// at 20px font. CSS line-height is em-relative, whereas IR Para.Spacing is
+// single-line-relative.
+const cssNormalLineHeight = 1.2
+
+func cssSpacing(s float64) float64 {
+	if s <= 0 {
+		return 0
+	}
+	return math.Round((s/cssNormalLineHeight)*1e4) / 1e4
+}
+
+func needsWrapSlack(el Element) bool {
+	if el.NoSlack {
+		return false
+	}
+	if el.FontSize <= 0 || el.H <= el.FontSize*1.7 {
+		return true
+	}
+	// Multiple hard-broken paragraphs (<br> or preserved newlines) never unwrap
+	// across paragraph boundaries; keep single-line slack when each paragraph
+	// occupies at most one visual line.
+	if len(el.Paras) > 1 {
+		lineMult := el.Spacing
+		if lineMult <= 0 {
+			lineMult = cssNormalLineHeight
+		}
+		if el.H <= (float64(len(el.Paras))+0.45)*el.FontSize*lineMult {
+			return true
+		}
+	}
+	return false
+}
+
 func mapText(el Element) ir.Text {
 	return ir.Text{
-		Frame:    ir.Frame{X: el.X, Y: el.Y, W: el.W, H: el.H},
-		Paras:    mapParas(el.Paras, el.Align, el.Spacing),
-		DefSize:  pt(el.FontSize),
-		DefColor: orDefault(el.FontColor, fallbackInk),
-		DefFont:  gslides.ResolveFont(orDefault(el.FontFam, fallbackFont)),
-		Rot:      el.Rot,
-		// The extractor retains a visual bounding box, not the source text
-		// container. A single visual line needs a small native-renderer safety
-		// margin; giving that margin to an already-wrapped block can instead
-		// unwrap it and push a title beyond the right edge after PPTX import.
-		WrapSlack: el.FontSize <= 0 || el.H <= el.FontSize*1.7,
+		Frame:     ir.Frame{X: el.X, Y: el.Y, W: el.W, H: el.H},
+		Paras:     mapParas(el.Paras, el.Align, cssSpacing(el.Spacing)),
+		DefSize:   pt(el.FontSize),
+		DefColor:  orDefault(el.FontColor, fallbackInk),
+		DefFont:   gslides.ResolveFont(orDefault(el.FontFam, fallbackFont)),
+		Rot:       el.Rot,
+		WrapSlack: needsWrapSlack(el),
 	}
 }
 
@@ -169,7 +200,7 @@ func mapTable(el Element) ir.Table {
 			if align == "l" {
 				align = "" // left is the default; keep IR minimal
 			}
-			paras := mapParas(c.Paras, align, 0)
+			paras := mapParas(c.Paras, align, cssSpacing(c.Spacing))
 			for pi := range paras {
 				for qi := range paras[pi].Runs {
 					r := &paras[pi].Runs[qi]
@@ -183,9 +214,13 @@ func mapTable(el Element) ir.Table {
 			rows[ri][ci] = ir.Cell{Fill: c.Fill, Paras: paras}
 		}
 	}
+	var rowHs []float64
+	if len(el.RowHs) == len(rows) {
+		rowHs = append([]float64(nil), el.RowHs...)
+	}
 	return ir.Table{
 		X: el.X, Y: el.Y,
-		ColW: el.ColW, RowH: el.RowH,
+		ColW: el.ColW, RowH: el.RowH, RowHs: rowHs,
 		Rows:        rows,
 		DefSize:     pt(el.DefSize),
 		BorderColor: orDefault(el.Border, fallbackLine),
@@ -200,13 +235,23 @@ func mapParas(paras []Para, align string, spacing float64) []ir.Para {
 			runs[j] = ir.Run{
 				Text: r.Text, Bold: r.Bold, Italic: r.Italic,
 				Underline: r.Underline, Strike: r.Strike,
-				Color: r.Color,
-				Size:  pt(r.Size),
-				Font:  gslides.ResolveFont(orDefault(r.Font, fallbackFont)),
-				Link:  r.Link,
+				Color:         r.Color,
+				Size:          pt(r.Size),
+				Font:          gslides.ResolveFont(orDefault(r.Font, fallbackFont)),
+				Link:          r.Link,
+				LetterSpacing: pt(r.LetterSpacing),
 			}
 		}
-		out[i] = ir.Para{Runs: runs, Align: align, Spacing: spacing, Bullet: p.Bullet, Level: p.Level}
+		out[i] = ir.Para{
+			Runs:         runs,
+			Align:        align,
+			Spacing:      spacing,
+			SpaceAfter:   pt(p.SpaceAfter),
+			Bullet:       p.Bullet,
+			Level:        p.Level,
+			BulletIndent: pt(p.BulletIndent),
+			BulletMargin: pt(p.BulletMargin),
+		}
 	}
 	return out
 }

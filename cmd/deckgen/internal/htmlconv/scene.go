@@ -65,39 +65,46 @@ type Element struct {
 	FontSize  float64 `json:"fontSize"` // px
 	FontColor string  `json:"fontColor"`
 	FontFam   string  `json:"fontFam"`
-	Rot       float64 `json:"rot"` // clockwise degrees about the box center
+	Rot       float64 `json:"rot"`               // clockwise degrees about the box center
+	NoSlack   bool    `json:"noSlack,omitempty"` // true when W already includes >=12% container headroom
 	Paras     []Para  `json:"paras"`
 
 	// table
 	ColW    []float64 `json:"colW"`
 	RowH    float64   `json:"rowH"`
+	RowHs   []float64 `json:"rowHs,omitempty"`
 	DefSize float64   `json:"defSize"`
 	Rows    [][]Cell  `json:"rows"`
 }
 
 // Para is one paragraph of runs; Bullet/Level make it a list item.
 type Para struct {
-	Bullet string `json:"bullet"` // "", "disc", "number"
-	Level  int    `json:"level"`
-	Runs   []Run  `json:"runs"`
+	Bullet       string  `json:"bullet"` // "", "disc", "number"
+	Level        int     `json:"level"`
+	BulletIndent float64 `json:"bulletIndent,omitempty"` // px hanging step
+	BulletMargin float64 `json:"bulletMargin,omitempty"` // px cumulative left margin
+	SpaceAfter   float64 `json:"spaceAfter,omitempty"`   // px below paragraph
+	Runs         []Run   `json:"runs"`
 }
 
 // Run is a styled span.
 type Run struct {
-	Text      string  `json:"text"`
-	Bold      bool    `json:"bold"`
-	Italic    bool    `json:"italic"`
-	Underline bool    `json:"underline"`
-	Strike    bool    `json:"strike"`
-	Color     string  `json:"color"`
-	Size      float64 `json:"size"` // px
-	Font      string  `json:"font"`
-	Link      string  `json:"link"`
+	Text          string  `json:"text"`
+	Bold          bool    `json:"bold"`
+	Italic        bool    `json:"italic"`
+	Underline     bool    `json:"underline"`
+	Strike        bool    `json:"strike"`
+	Color         string  `json:"color"`
+	Size          float64 `json:"size"` // px
+	Font          string  `json:"font"`
+	Link          string  `json:"link"`
+	LetterSpacing float64 `json:"letterSpacing,omitempty"` // px
 }
 
 // Cell is one table cell.
 type Cell struct {
-	Fill  string `json:"fill"`
-	Align string `json:"align"`
-	Paras []Para `json:"paras"`
+	Fill    string  `json:"fill"`
+	Align   string  `json:"align"`
+	Spacing float64 `json:"spacing,omitempty"`
+	Paras   []Para  `json:"paras"`
 }

@@ -154,8 +154,11 @@ type UpdateParagraphStyleRequest struct {
 }
 
 type ParagraphStyle struct {
-	Alignment   string  `json:"alignment,omitempty"`
-	LineSpacing float64 `json:"lineSpacing,omitempty"` // percent, 100 = single
+	Alignment       string     `json:"alignment,omitempty"`
+	LineSpacing     float64    `json:"lineSpacing,omitempty"` // percent, 100 = single
+	IndentStart     *Dimension `json:"indentStart,omitempty"`
+	IndentFirstLine *Dimension `json:"indentFirstLine,omitempty"`
+	SpaceBelow      *Dimension `json:"spaceBelow,omitempty"`
 }
 
 // Range is a text range in UTF-16 code units.

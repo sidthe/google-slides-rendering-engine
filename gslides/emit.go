@@ -218,7 +218,13 @@ func emitText(slideID, id string, v ir.Text) []Request {
 	// text only: titles and body copy avoid spurious wrapping while centered
 	// diagram labels keep their visual center.
 	if v.WrapSlack && isLeftAligned(v.Paras) {
-		w += emu(v.W * 0.12)
+		extra := emu(v.W * 0.12)
+		if v.X >= 0 && v.X+v.W <= 1600 && emu(v.X)+emu(v.W)+extra > emu(1600) {
+			extra = emu(1600) - emu(v.X) - emu(v.W)
+		}
+		if extra > 0 {
+			w += extra
+		}
 	}
 	h := emu(v.H) + 2*insetTB
 	px, py := emu(v.X)-insetLR, emu(v.Y)-insetTB
@@ -321,6 +327,17 @@ func emitTable(slideID, id string, v ir.Table) []Request {
 	for _, w := range v.ColW {
 		totW += w
 	}
+	totH := v.RowH * float64(rows)
+	if len(v.RowHs) == rows {
+		totH = 0
+		for _, rh := range v.RowHs {
+			if rh > 0 {
+				totH += rh
+			} else {
+				totH += v.RowH
+			}
+		}
+	}
 	reqs := []Request{
 		{CreateTable: &CreateTableRequest{
 			ObjectID: id,
@@ -328,7 +345,7 @@ func emitTable(slideID, id string, v ir.Table) []Request {
 				PageObjectID: slideID,
 				Size: &Size{
 					Width:  gridDim(totW),
-					Height: gridDim(v.RowH * float64(rows)),
+					Height: gridDim(totH),
 				},
 				Transform: &AffineTransform{
 					ScaleX: 1, ScaleY: 1,
@@ -357,17 +374,27 @@ func emitTable(slideID, id string, v ir.Table) []Request {
 			Fields:                "columnWidth",
 		}})
 	}
-	// Uniform (minimum) row height.
-	allRows := make([]int, rows)
-	for i := range allRows {
-		allRows[i] = i
+	// Minimum row heights, grouping equal heights into one request.
+	byHeight := map[float64][]int{}
+	var heightOrder []float64
+	for i := 0; i < rows; i++ {
+		rh := v.RowH
+		if len(v.RowHs) == rows && v.RowHs[i] > 0 {
+			rh = v.RowHs[i]
+		}
+		if _, seen := byHeight[rh]; !seen {
+			heightOrder = append(heightOrder, rh)
+		}
+		byHeight[rh] = append(byHeight[rh], i)
 	}
-	reqs = append(reqs, Request{UpdateTableRowProperties: &UpdateTableRowPropertiesRequest{
-		ObjectID:           id,
-		RowIndices:         allRows,
-		TableRowProperties: &TableRowProperties{MinRowHeight: gridDim(v.RowH)},
-		Fields:             "minRowHeight",
-	}})
+	for _, rh := range heightOrder {
+		reqs = append(reqs, Request{UpdateTableRowProperties: &UpdateTableRowPropertiesRequest{
+			ObjectID:           id,
+			RowIndices:         byHeight[rh],
+			TableRowProperties: &TableRowProperties{MinRowHeight: gridDim(rh)},
+			Fields:             "minRowHeight",
+		}})
+	}
 	// Borders: hairline between rows and below the table (matching the
 	// PPTX writer's bottom-border-only cells), everything else transparent
 	// to kill Slides' default 1pt black grid.
@@ -460,11 +487,12 @@ func textRequests(objID string, cell *TableCellLocation, paras []ir.Para, defSiz
 		fb.WriteString(t)
 	}
 	full := fb.String()
-	if full == "" && len(paras) <= 1 {
+	if full == "" && (len(paras) == 0 || (len(paras) == 1 && paras[0].Bullet == "")) {
 		return nil
 	}
-	reqs := []Request{
-		{InsertText: &InsertTextRequest{ObjectID: objID, CellLocation: cell, Text: full, InsertionIndex: 0}},
+	var reqs []Request
+	if full != "" {
+		reqs = append(reqs, Request{InsertText: &InsertTextRequest{ObjectID: objID, CellLocation: cell, Text: full, InsertionIndex: 0}})
 	}
 
 	pre := make([]int, len(paras)) // paragraph start at insertion time
@@ -512,6 +540,24 @@ func textRequests(objID string, cell *TableCellLocation, paras []ir.Para, defSiz
 			if p.Spacing > 0 {
 				ps.LineSpacing = math.Round(p.Spacing*100*1e4) / 1e4
 				fields = append(fields, "lineSpacing")
+			}
+			if p.SpaceAfter > 0 {
+				ps.SpaceBelow = ptDim(p.SpaceAfter)
+				fields = append(fields, "spaceBelow")
+			}
+			if p.Bullet != "" && (p.BulletIndent > 0 || p.BulletMargin > 0) {
+				indentStep := p.BulletIndent
+				if indentStep <= 0 {
+					indentStep = 13.5
+				}
+				startPt := indentStep * float64(p.Level+1)
+				if p.BulletMargin > 0 {
+					startPt = p.BulletMargin
+				}
+				firstPt := math.Max(0, startPt-math.Min(indentStep, 9.6))
+				ps.IndentStart = ptDim(startPt)
+				ps.IndentFirstLine = ptDim(firstPt)
+				fields = append(fields, "indentStart", "indentFirstLine")
 			}
 			if len(fields) > 0 {
 				reqs = append(reqs, Request{UpdateParagraphStyle: &UpdateParagraphStyleRequest{

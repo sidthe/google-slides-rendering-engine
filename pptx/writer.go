@@ -167,7 +167,7 @@ func writeTo(w io.Writer, d *ir.Deck, canvasW, canvasH int) error {
 	// slides
 	imgCount := 0
 	for i, sl := range d.Slides {
-		rels := &slideRels{}
+		rels := &slideRels{canvasW: canvasW}
 		shapes := make([]string, len(sl.Shapes))
 		for j, sh := range sl.Shapes {
 			shapes[j] = shapeXML(sh, j+2, rels)

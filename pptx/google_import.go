@@ -55,11 +55,27 @@ func scaleParas(in []ir.Para) []ir.Para {
 	out := make([]ir.Para, len(in))
 	for i, p := range in {
 		out[i] = p
+		if p.SpaceAfter > 0 {
+			out[i].SpaceAfter = p.SpaceAfter * googleImportScale
+		}
+		if p.Bullet != "" {
+			indentPt := p.BulletIndent
+			if indentPt <= 0 {
+				indentPt = defaultBulletIndentPt
+			}
+			out[i].BulletIndent = indentPt * googleImportScale
+			if p.BulletMargin > 0 {
+				out[i].BulletMargin = p.BulletMargin * googleImportScale
+			}
+		}
 		out[i].Runs = make([]ir.Run, len(p.Runs))
 		for j, r := range p.Runs {
 			out[i].Runs[j] = r
 			if r.Size > 0 {
 				out[i].Runs[j].Size = r.Size * googleImportScale
+			}
+			if r.LetterSpacing != 0 {
+				out[i].Runs[j].LetterSpacing = r.LetterSpacing * googleImportScale
 			}
 		}
 	}
@@ -106,6 +122,12 @@ func scaleShape(sh ir.Shape) ir.Shape {
 		v.X *= googleImportScale
 		v.Y *= googleImportScale
 		v.RowH *= googleImportScale
+		if len(v.RowHs) > 0 {
+			v.RowHs = append([]float64(nil), v.RowHs...)
+			for i := range v.RowHs {
+				v.RowHs[i] *= googleImportScale
+			}
+		}
 		v.DefSize *= googleImportScale
 		v.ColW = append([]float64(nil), v.ColW...)
 		for i := range v.ColW {

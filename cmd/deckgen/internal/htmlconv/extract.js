@@ -53,12 +53,15 @@
     size: round(px(cs.fontSize)),
     font: cs.fontFamily,
     link: link || "",
+    letterSpacing: cs.letterSpacing === "normal" ? 0 : round(px(cs.letterSpacing)),
+    textTransform: cs.textTransform || "none",
   });
 
   const sameStyle = (a, b) =>
     a.bold === b.bold && a.italic === b.italic && a.color === b.color &&
     a.underline === b.underline && a.strike === b.strike &&
-    a.size === b.size && a.font === b.font && a.link === b.link;
+    a.size === b.size && a.font === b.font && a.link === b.link &&
+    a.letterSpacing === b.letterSpacing && a.textTransform === b.textTransform;
 
   // ---- CSS white-space processing model ----
   //
@@ -120,10 +123,41 @@
     return runs.filter((r) => r.text.length);
   };
 
+  // applyTextTransform mirrors CSS text-transform across a paragraph's runs so
+  // exported characters match the glyphs Chrome measured and painted.
+  const WORD_CHAR = /[\p{L}\p{N}'\u2019]/u;
+  const applyTextTransform = (runs) => {
+    let wordStart = true;
+    for (const r of runs) {
+      const mode = r.style.textTransform;
+      if (mode === "uppercase") {
+        r.text = r.text.toUpperCase();
+        if (r.text.length) wordStart = !WORD_CHAR.test([...r.text].pop());
+      } else if (mode === "lowercase") {
+        r.text = r.text.toLowerCase();
+        if (r.text.length) wordStart = !WORD_CHAR.test([...r.text].pop());
+      } else if (mode === "capitalize") {
+        let out = "";
+        for (const ch of r.text) {
+          if (WORD_CHAR.test(ch)) {
+            out += wordStart ? ch.toUpperCase() : ch;
+            wordStart = false;
+          } else {
+            out += ch;
+            wordStart = true;
+          }
+        }
+        r.text = out;
+      } else if (r.text.length) {
+        wordStart = !WORD_CHAR.test([...r.text].pop());
+      }
+    }
+  };
+
   // collectParas gathers the inline content of a block element as
-  // paragraphs of styled runs. Nested block elements are skipped (the main
-  // walk emits them separately); <br> starts a new paragraph.
-  const collectParas = (el, crossBlocks) => {
+  // paragraphs of styled runs. Nested block elements are skipped unless
+  // crossBlocks is true; skipLists omits nested <ul>/<ol> when collecting <li>.
+  const collectParas = (el, crossBlocks, skipLists) => {
     const elCs = getComputedStyle(el);
     const elWs = wsOf(elCs);
     const paras = [];
@@ -155,11 +189,20 @@
       for (const c of node.childNodes) {
         if (c.nodeType === Node.TEXT_NODE) { add(c.textContent, style, ws); continue; }
         if (c.nodeType !== Node.ELEMENT_NODE || SKIP_TAGS.has(c.tagName) && c.tagName !== "BR") continue;
+        if (skipLists && (c.tagName === "UL" || c.tagName === "OL")) continue;
         if (c.tagName === "BR") { flush(); continue; }
         if (MEDIA_TAGS.has(c.tagName)) continue;
         const ccs = getComputedStyle(c);
         if (ccs.display === "none" || ccs.visibility === "hidden") continue;
-        if (!crossBlocks && !isInline(ccs)) continue; // nested block: emitted separately
+        if (!isInline(ccs)) {
+          if (!crossBlocks) continue; // nested block: emitted separately
+          const blockBreak = !ccs.display.startsWith("inline");
+          if (blockBreak && runs.length) flush();
+          const clink = c.tagName === "A" && c.getAttribute("href") ? c.href : link;
+          rec(c, runStyle(ccs, clink), clink, wsOf(ccs));
+          if (blockBreak && runs.length) flush();
+          continue;
+        }
         const clink = c.tagName === "A" && c.getAttribute("href") ? c.href : link;
         rec(c, runStyle(ccs, clink), clink, wsOf(ccs));
       }
@@ -168,6 +211,7 @@
     flush();
     for (const p of paras) {
       p.runs = collapseParagraph(p.runs);
+      applyTextTransform(p.runs);
       for (const r of p.runs) delete r.collapsible;
     }
     if (!elWs.breaks) return paras.filter((p) => p.runs.length);
@@ -200,7 +244,7 @@
   // loses the text's CSS position when a block label precedes direct text
   // inside a card (for example, <b>Label</b>body), which makes native Slides
   // overlay the two text boxes.
-  const inlineTextRect = (el) => {
+  const inlineTextRect = (el, crossNonListBlocks) => {
     let left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
     const add = (rect) => {
       if (!rect || rect.width <= 0 || rect.height <= 0) return;
@@ -217,8 +261,10 @@
       for (const c of node.childNodes) {
         if (c.nodeType === Node.TEXT_NODE) { addText(c, ws); continue; }
         if (c.nodeType !== Node.ELEMENT_NODE || SKIP_TAGS.has(c.tagName) || MEDIA_TAGS.has(c.tagName)) continue;
+        if (crossNonListBlocks && (c.tagName === "UL" || c.tagName === "OL")) continue;
         const ccs = getComputedStyle(c);
-        if (ccs.display === "none" || ccs.visibility === "hidden" || !isInline(ccs)) continue;
+        if (ccs.display === "none" || ccs.visibility === "hidden") continue;
+        if (!crossNonListBlocks && !isInline(ccs)) continue;
         rec(c, wsOf(ccs));
       }
     };
@@ -227,33 +273,148 @@
   };
 
   const flatRuns = (paras) =>
-    paras.map((p) => ({
-      bullet: p.bullet || "",
-      level: p.level || 0,
-      runs: p.runs.map((r) => ({
-        text: r.text,
-        bold: r.style.bold,
-        italic: r.style.italic,
-        underline: r.style.underline,
-        strike: r.style.strike,
-        color: r.style.color,
-        size: r.style.size,
-        font: r.style.font,
-        link: r.style.link,
-      })),
-    }));
+    paras.map((p) => {
+      const out = {
+        bullet: p.bullet || "",
+        level: p.level || 0,
+        runs: p.runs.map((r) => {
+          const run = {
+            text: r.text,
+            bold: r.style.bold,
+            italic: r.style.italic,
+            underline: r.style.underline,
+            strike: r.style.strike,
+            color: r.style.color,
+            size: r.style.size,
+            font: r.style.font,
+            link: r.style.link,
+          };
+          if (r.style.letterSpacing) run.letterSpacing = r.style.letterSpacing;
+          return run;
+        }),
+      };
+      if (p.bulletIndent > 0) out.bulletIndent = p.bulletIndent;
+      if (p.bulletMargin > 0) out.bulletMargin = p.bulletMargin;
+      if (p.spaceAfter > 0) out.spaceAfter = p.spaceAfter;
+      return out;
+    });
 
-  // extractListParas flattens a ul/ol (with nesting) into bullet
-  // paragraphs; li content must be inline (nested lists recurse).
-  const extractListParas = (listEl, level, out) => {
-    const bullet = listEl.tagName === "OL" ? "number" : "disc";
-    for (const li of listEl.children) {
-      if (li.tagName !== "LI") continue;
-      for (const p of collectParas(li, false)) out.push({ ...p, bullet, level });
-      for (const sub of li.children) {
-        if (sub.tagName === "UL" || sub.tagName === "OL") extractListParas(sub, level + 1, out);
+  // mergeListItemParas joins intra-item line breaks (<br> or multiple <p>
+  // blocks inside one <li>) with U+000B soft breaks so native lists keep a
+  // single bullet or ordered-list number per <li>.
+  const mergeListItemParas = (paras, fallbackStyle) => {
+    if (paras.length <= 1) return paras;
+    const merged = [];
+    for (let i = 0; i < paras.length; i++) {
+      if (i > 0) {
+        const prev = merged[merged.length - 1];
+        const st = prev ? prev.style : (paras[i].runs[0] ? paras[i].runs[0].style : fallbackStyle);
+        if (prev && sameStyle(prev.style, st)) prev.text += "\v";
+        else merged.push({ text: "\v", style: st });
+      }
+      for (const r of paras[i].runs) {
+        const last = merged[merged.length - 1];
+        if (last && sameStyle(last.style, r.style)) last.text += r.text;
+        else merged.push({ text: r.text, style: r.style });
       }
     }
+    return [{ runs: merged }];
+  };
+
+  // collectListItems flattens a ul/ol (with nesting) into visual-order items
+  // carrying CSS indent, vertical margins, and painted bounds so the caller
+  // can compute inter-item paragraph spacing and true top/bottom bounds.
+  const collectListItems = (listEl, level, parentMarginPx, items) => {
+    const bullet = listEl.tagName === "OL" ? "number" : "disc";
+    const listCs = getComputedStyle(listEl);
+    const padLeft = round(px(listCs.paddingLeft));
+    const effStep = padLeft > 0 ? padLeft : 22.5;
+    const cumMargin = round(parentMarginPx + effStep);
+    const bulletMargin = level > 0 && Math.abs(cumMargin - effStep * (level + 1)) > 0.05 ? cumMargin : 0;
+    const listMt = px(listCs.marginTop);
+    let firstInList = true;
+    for (const li of listEl.children) {
+      if (li.tagName !== "LI") continue;
+      const liCs = getComputedStyle(li);
+      if (liCs.display === "none" || liCs.visibility === "hidden") continue;
+      const hasSubList = [...li.children].some((c) => c.tagName === "UL" || c.tagName === "OL");
+      let paras = collectParas(li, true, true);
+      if (!paras.length && !hasSubList) {
+        paras = [{ runs: [] }];
+      } else if (paras.length > 1) {
+        paras = mergeListItemParas(paras, runStyle(liCs, ""));
+      }
+      const mt = firstInList && level > 0 ? Math.max(listMt, px(liCs.marginTop)) : px(liCs.marginTop);
+      firstInList = false;
+      const mb = px(liCs.marginBottom);
+      let idx = -1;
+      if (paras.length) {
+        let rect = inlineTextRect(li, true);
+        if (!rect && !hasSubList) {
+          const lr = li.getBoundingClientRect();
+          if (lr.width > 0 && lr.height > 0) rect = lr;
+        }
+        idx = items.length;
+        items.push({
+          paras,
+          bullet,
+          level,
+          bulletIndent: padLeft,
+          bulletMargin,
+          mt,
+          mb,
+          exitMb: 0,
+          rect,
+        });
+      }
+      const beforeSub = items.length;
+      for (const sub of li.children) {
+        if (sub.tagName === "UL" || sub.tagName === "OL") {
+          const subStart = items.length;
+          collectListItems(sub, level + 1, cumMargin, items);
+          if (items.length > subStart) {
+            const subMb = px(getComputedStyle(sub).marginBottom);
+            items[items.length - 1].exitMb = Math.max(items[items.length - 1].exitMb, subMb);
+          }
+        }
+      }
+      if (items.length > beforeSub) {
+        // When a nested list ends, the enclosing <li>'s bottom margin applies
+        // after the last nested item rather than before the first nested item.
+        if (idx >= 0) items[idx].mb = 0;
+        items[items.length - 1].exitMb = Math.max(items[items.length - 1].exitMb, mb);
+      }
+    }
+  };
+
+  const extractListParas = (listEl) => {
+    const items = [];
+    collectListItems(listEl, 0, 0, items);
+    const out = [];
+    let firstRect = null, lastRect = null;
+    for (let i = 0; i < items.length; i++) {
+      const it = items[i];
+      if (it.rect) {
+        if (!firstRect) firstRect = it.rect;
+        lastRect = it.rect;
+      }
+      let gap = 0;
+      if (i + 1 < items.length) {
+        gap = round(Math.max(0, it.mb, it.exitMb, items[i + 1].mt));
+      }
+      for (let j = 0; j < it.paras.length; j++) {
+        const isLastPara = j === it.paras.length - 1;
+        out.push({
+          ...it.paras[j],
+          bullet: it.bullet,
+          level: it.level,
+          bulletIndent: it.bulletIndent,
+          bulletMargin: it.bulletMargin,
+          spaceAfter: isLastPara ? gap : 0,
+        });
+      }
+    }
+    return { listParas: out, firstRect, lastRect };
   };
 
   const extract = (section) => {
@@ -412,11 +573,53 @@
       });
     };
 
+    // textBoxRect combines painted vertical bounds from textRect with the
+    // element's CSS content-box width when el is a block container (or a
+    // centered flex/grid box), preventing premature native line wraps caused
+    // by shrinking multi-line blocks to Chrome's ragged glyph union.
+    const textBoxRect = (el, cs, textRect) => {
+      if (!textRect) return null;
+      const er = el.getBoundingClientRect();
+      const align = alignOf(cs);
+      const isFlexOrGrid = cs.display.includes("flex") || cs.display.includes("grid");
+      let cLeft = er.left + px(cs.borderLeftWidth) + px(cs.paddingLeft);
+      let cRight = er.right - px(cs.borderRightWidth) - px(cs.paddingRight);
+      if (textRect.left >= sRect.left - 1 && textRect.right <= sRect.right + 1) {
+        cLeft = Math.max(cLeft, sRect.left);
+        cRight = Math.max(cLeft, Math.min(cRight, sRect.right));
+      }
+      const cW = cRight - cLeft;
+      let left = textRect.left;
+      let right = textRect.right;
+      if (cW >= textRect.width - 0.5) {
+        const textMid = (textRect.left + textRect.right) / 2;
+        const boxMid = (cLeft + cRight) / 2;
+        if (align === "ctr" && Math.abs(textMid - boxMid) <= 3) {
+          left = cLeft;
+          right = cRight;
+        } else if (!isFlexOrGrid && align === "r" && Math.abs(cRight - textRect.right) <= 3) {
+          left = cLeft;
+          right = cRight;
+        } else if (!isFlexOrGrid && align === "l" && textRect.left >= cLeft - 2) {
+          left = textRect.left <= cLeft + 1.5 ? cLeft : textRect.left;
+          right = Math.max(cRight, textRect.right);
+        } else if (isFlexOrGrid && align === "l" && textRect.height > px(cs.fontSize) * 1.7 && cRight > textRect.right) {
+          right = cRight;
+        }
+      }
+      const width = right - left;
+      return {
+        rect: { left, top: textRect.top, right, bottom: textRect.bottom, width, height: textRect.height },
+        noSlack: textRect.width > 0 && width >= textRect.width * 1.12,
+      };
+    };
+
     const extractTable = (tbl) => {
       const rows = [...tbl.rows];
       if (!rows.length || !rows[0].cells.length) return;
       const r = rel(tbl.getBoundingClientRect());
       const colW = [...rows[0].cells].map((c) => round(c.getBoundingClientRect().width));
+      const rowHs = rows.map((tr) => round(tr.getBoundingClientRect().height));
       const rowH = round(r.h / rows.length);
       const cellBg = (td) => {
         for (let n = td; n && n !== tbl.parentElement; n = n.parentElement) {
@@ -433,13 +636,20 @@
         ...r,
         colW,
         rowH,
+        rowHs,
         border: px(getComputedStyle(first).borderBottomWidth) > 0 && bb.alpha > 0 ? bb.hex : "",
         defSize: round(px(fcs.fontSize)),
-        rows: rows.map((tr) => [...tr.cells].map((td) => ({
-          fill: cellBg(td),
-          align: alignOf(getComputedStyle(td)),
-          paras: flatRuns(collectParas(td, true)),
-        }))),
+        rows: rows.map((tr) => [...tr.cells].map((td) => {
+          const tdCs = getComputedStyle(td);
+          const sp = spacingOf(tdCs);
+          const cell = {
+            fill: cellBg(td),
+            align: alignOf(tdCs),
+            paras: flatRuns(collectParas(td, true)),
+          };
+          if (sp > 0) cell.spacing = sp;
+          return cell;
+        })),
       });
     };
 
@@ -505,14 +715,25 @@
         return;
       }
       if (el.tagName === "UL" || el.tagName === "OL") {
-        const listParas = [];
-        extractListParas(el, 0, listParas);
+        const { listParas, firstRect, lastRect } = extractListParas(el);
         if (listParas.length) {
           const li = el.querySelector("li");
           const lcs = li ? getComputedStyle(li) : cs;
+          const er = el.getBoundingClientRect();
+          const left = er.left + px(cs.borderLeftWidth);
+          const right = er.right - px(cs.borderRightWidth) - px(cs.paddingRight);
+          const top = firstRect ? firstRect.top : er.top;
+          const bottom = lastRect ? lastRect.bottom : er.bottom;
+          const listRect = rel({
+            left,
+            top,
+            width: Math.max(0, right - left),
+            height: Math.max(0, bottom - top),
+          });
           elements.push({
             kind: "text",
-            ...r,
+            ...listRect,
+            noSlack: true,
             align: alignOf(lcs),
             spacing: spacingOf(lcs),
             fontSize: round(px(lcs.fontSize)),
@@ -562,18 +783,20 @@
         if (b.fill || b.border) elements.push(b);
         if (hasDirectInlineText(el)) {
           const paras = collectParas(el, false);
-          const textRect = inlineTextRect(el);
+          const tb = textBoxRect(el, cs, inlineTextRect(el));
           if (paras.length) {
-            elements.push({
+            const elem = {
               kind: "text",
-              ...(textRect ? rel(textRect) : r),
+              ...(tb ? rel(tb.rect) : r),
               align: alignOf(cs),
               spacing: spacingOf(cs),
               fontSize: round(px(cs.fontSize)),
               fontColor: parseColor(cs.color).hex,
               fontFam: cs.fontFamily,
               paras: flatRuns(paras),
-            });
+            };
+            if (tb && tb.noSlack) elem.noSlack = true;
+            elements.push(elem);
           }
         }
       }

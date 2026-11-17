@@ -144,3 +144,76 @@ func TestPushNotes(t *testing.T) {
 		t.Errorf("notes inserts: %q", notesInserts)
 	}
 }
+
+func TestBuildEmitsBulletIndentsSpaceBelowAndPerRowHeights(t *testing.T) {
+	d := &ir.Deck{Slides: []*ir.Slide{{Shapes: []ir.Shape{
+		ir.Text{
+			Frame: ir.Frame{X: 80, Y: 82, W: 1440, H: 60}, DefSize: 30, DefColor: "202124", DefFont: "Roboto",
+			WrapSlack: true,
+			Paras:     []ir.Para{{Runs: []ir.Run{{Text: "Clamped title"}}}},
+		},
+		ir.Text{
+			Frame: ir.Frame{X: 80, Y: 200, W: 420, H: 180}, DefSize: 12, DefColor: "5F6368", DefFont: "Roboto",
+			Paras: []ir.Para{
+				{Bullet: "disc", Level: 0, BulletIndent: 15.6, Spacing: 1.125, SpaceAfter: 4.8, Runs: []ir.Run{{Text: "first"}}},
+				{Bullet: "disc", Level: 1, BulletIndent: 9.6, BulletMargin: 27.6, Spacing: 1.125, Runs: []ir.Run{{Text: "nested"}}},
+			},
+		},
+		ir.Text{
+			Frame: ir.Frame{X: 80, Y: 390, W: 200, H: 30}, DefSize: 12, DefColor: "5F6368", DefFont: "Roboto",
+			Paras: []ir.Para{{Bullet: "disc", Level: 0}}, // single empty bullet item
+		},
+		ir.Table{
+			X: 80, Y: 420, ColW: []float64{200}, RowH: 60, RowHs: []float64{40, 100, 40}, DefSize: 11,
+			BorderColor: "DADCE0",
+			Rows: [][]ir.Cell{
+				{{Paras: []ir.Para{{Runs: []ir.Run{{Text: "a", Color: "202124", Font: "Roboto"}}}}}},
+				{{Paras: []ir.Para{{Runs: []ir.Run{{Text: "b", Color: "202124", Font: "Roboto"}}}}}},
+				{{Paras: []ir.Para{{Runs: []ir.Run{{Text: "c", Color: "202124", Font: "Roboto"}}}}}},
+			},
+		},
+	}}}}
+	reqs := gslides.Build(d).Requests()
+
+	var paraStyles []*gslides.UpdateParagraphStyleRequest
+	var rowProps []*gslides.UpdateTableRowPropertiesRequest
+	var titleShape *gslides.CreateShapeRequest
+	for _, r := range reqs {
+		if r.CreateShape != nil && titleShape == nil {
+			titleShape = r.CreateShape
+		}
+		if r.UpdateParagraphStyle != nil {
+			paraStyles = append(paraStyles, r.UpdateParagraphStyle)
+		}
+		if r.UpdateTableRowProperties != nil {
+			rowProps = append(rowProps, r.UpdateTableRowProperties)
+		}
+	}
+	// Title at X=80, W=1440 clamped to X+W=1600 -> width = 1520*5715 + 2*91440 = 8869680 EMU.
+	if got := titleShape.ElementProperties.Size.Width.Magnitude; got != 8869680 {
+		t.Errorf("clamped title width = %.0f EMU, want 8869680", got)
+	}
+	if len(paraStyles) != 2 {
+		t.Fatalf("para style requests = %d, want 2", len(paraStyles))
+	}
+	// Level 0: indentStart = 15.6*0.75 = 11.7pt, indentFirstLine = (15.6-9.6)*0.75 = 4.5pt, spaceBelow = 4.8*0.75 = 3.6pt.
+	p0 := paraStyles[0].Style
+	if p0.IndentStart == nil || p0.IndentStart.Magnitude != 11.7 || p0.IndentFirstLine == nil || p0.IndentFirstLine.Magnitude != 4.5 {
+		t.Errorf("level 0 indents = start:%+v first:%+v, want 11.7pt / 4.5pt", p0.IndentStart, p0.IndentFirstLine)
+	}
+	if p0.SpaceBelow == nil || p0.SpaceBelow.Magnitude != 3.6 {
+		t.Errorf("level 0 spaceBelow = %+v, want 3.6pt", p0.SpaceBelow)
+	}
+	// Level 1 (non-uniform nested): BulletMargin 27.6*0.75 = 20.7pt, step 9.6pt -> indentFirstLine = (27.6-9.6)*0.75 = 13.5pt.
+	p1 := paraStyles[1].Style
+	if p1.IndentStart == nil || p1.IndentStart.Magnitude != 20.7 || p1.IndentFirstLine == nil || p1.IndentFirstLine.Magnitude != 13.5 {
+		t.Errorf("level 1 indents = start:%+v first:%+v, want 20.7pt / 13.5pt", p1.IndentStart, p1.IndentFirstLine)
+	}
+	if p1.SpaceBelow != nil {
+		t.Errorf("final bullet should omit spaceBelow, got %+v", p1.SpaceBelow)
+	}
+	// RowHs [40, 100, 40] -> grouped into 2 UpdateTableRowProperties requests ([0,2] at 40 and [1] at 100).
+	if len(rowProps) != 2 || len(rowProps[0].RowIndices) != 2 || len(rowProps[1].RowIndices) != 1 {
+		t.Errorf("row height grouping = %+v, want 2 groups ([0,2] and [1])", rowProps)
+	}
+}
