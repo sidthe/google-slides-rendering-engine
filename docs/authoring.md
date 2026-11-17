@@ -97,7 +97,9 @@ native straight connector; set `background: currentColor` and `color` so its
 preview arrowhead matches. For a diagonal, set `width` to √(dx²+dy²) and
 `transform: rotate(atan2(dy, dx))`.
 
-Use real list elements rather than typing bullet characters. Add notes to
+Use real list elements rather than typing bullet characters. `assets/deck.css`
+uses an `18px` list indent, matched by the `137160` EMU PPTX hanging indent, so
+more words fit per line. Add notes to
 every content slide when there are presentation talking points:
 
 ```html
@@ -157,8 +159,8 @@ a line is dropped. A non-breaking space is never collapsed, in any element.
    Mono). Both are available in Google Slides.
 3. Use x=80 as the left margin and x=1520 as the right content edge. Place
    the kicker at y=52, title at y=82, and footer at y=862.
-4. Use 52px titles, 66–90px hero numbers, 23px card titles, 20–23px body,
-   17px labels, and 16px footer/tick text. Do not use text below 15px.
+4. Use 52px titles, 66–90px hero numbers, 25px card titles, 22–24px body,
+   19px labels, and 18px footer/tick text. Do not use text below 17px.
 5. Keep one idea per slide: at most three stat tiles in a row and five content
    blocks. Prefer whitespace to density.
 6. Use sentence case except for uppercase kickers. Keep labels short and

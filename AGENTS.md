@@ -120,7 +120,9 @@ it as two joined lines (its bent connector can't form an L).
 Use real `<ul>`/`<ol>`; nest lists inside `<li>` for sub-bullets. Keep
 `<li>` content inline (text, `<b>`, `<a>`, …). Each list becomes ONE
 native text box with real bullet/number formatting at the right indent
-levels — never fake bullets with `•` characters.
+levels — never fake bullets with `•` characters. `assets/deck.css` sets
+a shallow `18px` list indent (matched by the `137160` EMU PPTX hanging
+indent) so more words fit per line.
 
 ## Speaker notes
 
@@ -207,8 +209,8 @@ text overflows (Slides has minimum row heights only).
 3. **Scaffold coordinates** (used by the starter classes): kicker at
    y=52, title at y=82, content between y=180 and y=800, footer at y=862.
    Margins: x=80 left, content ends at x=1520.
-4. **Type scale** (px): title 52, big hero numbers 66–90, card titles 23,
-   body 20–23, labels 17, footers/ticks 16. Nothing under 15px.
+4. **Type scale** (px): title 52, big hero numbers 66–90, card titles 25,
+   body 22–24, labels 19, footers/ticks 18. Nothing under 17px.
 5. **Density**: one idea per slide, ≤3 stat tiles in a row, ≤5 content
    blocks per slide. Let whitespace work; do not fill every pixel.
 6. **Charts are drawn, not embedded**: build bar charts from absolutely
@@ -239,7 +241,7 @@ Slides API limits deckgen designs around; don't fight them:
 
 - **Title slide**: accent dots at (80,96), 90px title around y=292,
   30px `--ink-2` subtitle beneath, one pill, footer.
-- **Stats + chart**: three 340×150 tiles at y=180 (x = 80, 440, 800), a
+- **Stats + chart**: three 400×164 tiles at y=180 (x = 80, 500, 920), a
   full-width card y=370..800 containing a drawn bar chart.
 - **Comparison**: two 700×540 cards side by side (x=80, x=820) with a
   7px accent strip div across each card's top, bulleted lines as separate

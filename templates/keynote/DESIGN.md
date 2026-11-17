@@ -8,8 +8,8 @@ archetype, labelled in a comment.
 ## Global rules
 
 1. **Type ladder** (px): statements 76–112 · hero numbers 110–280 ·
-   headlines 44–56 · core lines 26–30 · support 22–24 · annotations 20 ·
-   mockup mono 18. **Floor: 18px — nothing smaller, anywhere.** Two sizes
+   headlines 44–56 · core lines 26–30 · support 24–26 · annotations 22 ·
+   mockup mono 20. **Floor: 18px — nothing smaller, anywhere.** Two sizes
    on one slide must differ by ≥ 20%.
 2. **One idea per slide.** ≤ 70 visible words, ≤ 80 native elements,
    ≤ 5 content blocks. Margins 80px; one focal mass, off-center;
@@ -36,13 +36,13 @@ archetype, labelled in a comment.
 
 | # | Archetype | Use when | Key spec |
 |---|---|---|---|
-| A1 | Title | opening | claim as title, 112px; brand dots; byline 20px |
+| A1 | Title | opening | claim as title, 112px; brand dots; byline 22px |
 | A2 | Statement | one claim carries the beat | 76px, left 80, top third; optional 30px second line |
 | A3 | Dark act break | a turn in the story | `section.dark`; setup 44px @.85, claim 84px white |
-| A4 | Big number | one metric is the message | 280px number, 34px label under, source line 22px |
+| A4 | Big number | one metric is the message | 280px number, 34px label under, source line 24px |
 | A5 | Number trio | three related figures | 190px, same baseline, left-aligned columns |
-| A6 | Chevron flow | a linear process | pentagon + chevrons, 116px tall; one word each; 20px captions under; payoff stage in green |
-| A7 | Stage | step N of a journey | 110px blue number; 52px name; 30px core; 3 facts at 23px; *enter/exit* rails at bottom |
+| A6 | Chevron flow | a linear process | pentagon + chevrons, 116px tall; one word each; 22px captions under; payoff stage in green |
+| A7 | Stage | step N of a journey | 110px blue number; 52px name; 30px core; 3 facts at 25px; *enter/exit* rails at bottom |
 | A8 | Decision flow | pipeline with a branch | mono trigger block → nodes → diamond → green/yellow outcomes |
 | A9 | Layered stack | a system's layers | 82px slabs, one accented; swappable part = dashed circle + arrow |
 | A10 | Mind map | one center, many satellites | spokes drawn first (under the circle); plain text tips, no boxes |
@@ -58,7 +58,7 @@ archetype, labelled in a comment.
 | A20 | Stacked bars | two-part composition | two shades of one hue, totals above, legend as one caption line |
 | A21 | Heatmap | habit / density | 24px cells, 6px gaps, 4 intensity levels of one hue, month labels |
 | A22 | Video placeholder | a demo clip goes here | `--surface` full-bleed, 200px play circle, mono caption |
-| A23 | Checklist close | the ending | answer the opening; 3 drawn checkboxes, imperative, mono 24px |
+| A23 | Checklist close | the ending | answer the opening; 3 drawn checkboxes, imperative, mono 26px |
 
 ## Self-review before `deckgen check`
 

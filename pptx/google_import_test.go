@@ -91,3 +91,48 @@ func TestWriteGoogleSlidesPreservesTableCells(t *testing.T) {
 	}
 	t.Fatal("slide XML not found")
 }
+
+func TestWriteGoogleSlidesBulletIndent(t *testing.T) {
+	d := &ir.Deck{Slides: []*ir.Slide{{Shapes: []ir.Shape{
+		ir.Text{
+			Frame:    ir.Frame{X: 80, Y: 180, W: 600, H: 200},
+			DefSize:  13.2,
+			DefColor: "5F6368",
+			DefFont:  "Roboto",
+			Paras: []ir.Para{
+				{Bullet: "disc", Level: 0, Runs: []ir.Run{{Text: "top level"}}},
+				{Bullet: "disc", Level: 1, Runs: []ir.Run{{Text: "nested"}}},
+			},
+		},
+	}}}}
+	var out bytes.Buffer
+	if err := WriteGoogleSlidesTo(&out, d); err != nil {
+		t.Fatal(err)
+	}
+	zr, err := zip.NewReader(bytes.NewReader(out.Bytes()), int64(out.Len()))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, f := range zr.File {
+		if f.Name != "ppt/slides/slide1.xml" {
+			continue
+		}
+		rc, err := f.Open()
+		if err != nil {
+			t.Fatal(err)
+		}
+		b, err := io.ReadAll(rc)
+		rc.Close()
+		if err != nil {
+			t.Fatal(err)
+		}
+		xml := string(b)
+		for level, want := range []string{`marL="137160" indent="-137160"`, `marL="274320" indent="-137160"`} {
+			if !strings.Contains(xml, want) {
+				t.Errorf("WriteGoogleSlidesTo() slide1.xml (level %d) = %s, want substring %q", level, xml, want)
+			}
+		}
+		return
+	}
+	t.Fatal("slide XML not found")
+}

@@ -158,13 +158,17 @@ func runAttrs(r ir.Run) (italic, underline, strike string) {
 	return
 }
 
+// bulletIndentEMU matches the 18px CSS list indent at 7620 EMU per grid px
+// on PPTX (~24 grid px on the 10in Slides import canvas).
+const bulletIndentEMU = 137160
+
 // bulletXML renders the pPr attribute prefix and child elements that turn
 // a paragraph into a list item at the given nesting level.
 func bulletXML(p ir.Para) (attrs, children string) {
 	if p.Bullet == "" {
 		return "", ""
 	}
-	attrs = fmt.Sprintf(` marL="%d" indent="-342900"`, 342900*(p.Level+1))
+	attrs = fmt.Sprintf(` marL="%d" indent="-%d"`, bulletIndentEMU*(p.Level+1), bulletIndentEMU)
 	switch p.Bullet {
 	case "number":
 		children = `<a:buFont typeface="Arial"/><a:buAutoNum type="arabicPeriod"/>`

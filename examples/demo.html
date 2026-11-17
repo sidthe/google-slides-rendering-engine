@@ -16,12 +16,12 @@
                font-size: 90px; color: var(--ink); }
   .bar { position: absolute; border-radius: 6px; }
   .bar-label { position: absolute; width: 120px; text-align: center;
-               font-size: 17px; font-weight: 700; color: var(--ink); }
+               font-size: 19px; font-weight: 700; color: var(--ink); }
   .cat-label { position: absolute; width: 160px; text-align: center;
-               font-size: 17px; color: var(--ink-2); }
-  .tick { position: absolute; width: 46px; text-align: right;
-          font-size: 16px; color: var(--ink-3); }
-  .legend { position: absolute; font-size: 17px; color: var(--ink-2); }
+               font-size: 19px; color: var(--ink-2); }
+  .tick { position: absolute; width: 65px; text-align: right;
+          font-size: 18px; color: var(--ink-3); }
+  .legend { position: absolute; font-size: 19px; color: var(--ink-2); }
   .legend i { display: inline-block; width: 12px; height: 12px;
               border-radius: 3px; margin: 0 6px 0 24px; }
   .legend i:first-child { margin-left: 0; }
@@ -43,15 +43,15 @@
   <div class="kicker">components</div>
   <div class="title">Stat tiles and a shape-drawn bar chart</div>
 
-  <div class="tile" style="left:80px; top:180px; width:340px; height:150px; background:var(--green-tint);">
+  <div class="tile" style="left:80px; top:180px; width:400px; height:164px; background:var(--green-tint);">
     <div class="n" style="color:var(--green-dark);">98.6%</div>
     <div class="label">of shapes rendered natively (editable in Slides and PowerPoint)</div>
   </div>
-  <div class="tile" style="left:440px; top:180px; width:340px; height:150px; background:var(--blue-tint);">
+  <div class="tile" style="left:500px; top:180px; width:400px; height:164px; background:var(--blue-tint);">
     <div class="n" style="color:var(--blue-dark);">0</div>
     <div class="label">screenshots — every element stays a real shape or text box</div>
   </div>
-  <div class="tile" style="left:800px; top:180px; width:340px; height:150px; background:var(--yellow-tint);">
+  <div class="tile" style="left:920px; top:180px; width:400px; height:164px; background:var(--yellow-tint);">
     <div class="n" style="color:var(--yellow-dark); font-size:50px;">1600x900</div>
     <div class="label">slide canvas: position elements like CSS pixels</div>
   </div>
@@ -61,11 +61,11 @@
   </div>
 
   <!-- chart plot area: x 130..1430, baseline y=750, 100ms = 300px -->
-  <div class="tick" style="left:120px; top:741px;">0ms</div>
+  <div class="tick" style="left:100px; top:739px;">0ms</div>
   <div class="hairline" style="left:175px; top:750px; width:1255px;"></div>
-  <div class="tick" style="left:120px; top:591px;">50ms</div>
+  <div class="tick" style="left:100px; top:589px;">50ms</div>
   <div class="hairline" style="left:175px; top:600px; width:1255px;"></div>
-  <div class="tick" style="left:120px; top:441px;">100ms</div>
+  <div class="tick" style="left:100px; top:439px;">100ms</div>
   <div class="hairline" style="left:175px; top:450px; width:1255px;"></div>
 
   <!-- v1: p50 42, p90 80 -->
@@ -93,7 +93,7 @@
   <div class="bar-label" style="left:1213px; top:643px;">27</div>
   <div class="cat-label" style="left:1167px; top:762px;">v4</div>
 
-  <div class="legend" style="left:1200px; top:410px;"><i style="background:var(--blue);"></i>p50<i style="background:var(--yellow);"></i>p90</div>
+  <div class="legend" style="left:1180px; top:410px;"><i style="background:var(--blue);"></i>p50<i style="background:var(--yellow);"></i>p90</div>
 
   <div class="foot"><span>deck-engine example</span><span>2</span></div>
 </section>
@@ -103,8 +103,8 @@
   <div class="kicker">components</div>
   <div class="title">Tables and code blocks</div>
 
-  <table style="left:80px; top:180px; width:1160px;">
-    <tr><th style="width:300px;">Component</th><th style="width:560px;">What it draws</th><th style="width:300px;">Becomes</th></tr>
+  <table style="left:80px; top:180px; width:1240px;">
+    <tr><th style="width:320px;">Component</th><th style="width:600px;">What it draws</th><th style="width:320px;">Becomes</th></tr>
     <tr><td>div with background</td><td>rounded rects, tiles, cards, pills</td><td>native shape</td></tr>
     <tr><td>text</td><td>rich text with per-span <b>bold</b>, color, <i>italics</i></td><td>native text box</td></tr>
     <tr><td>table</td><td>grids with per-cell fills</td><td>native table</td></tr>
